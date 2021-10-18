@@ -3,10 +3,11 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 
 root = Tk()
-image = ImageTk.PhotoImage(file = './U.S.A Images/USAElevationMap.jpg')
-label = Label(image = image)
-label.pack()
-root.resizable(True, True)
+USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
+USAMap = Label(image = USAMapImage)
+
+USAMap.pack()
+root.geometry("1114x642")
 root.title("Flight Tracking")
 root.mainloop()
 
