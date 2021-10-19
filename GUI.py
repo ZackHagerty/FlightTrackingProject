@@ -10,20 +10,41 @@ class GUI():
     #USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
     #AirplaneIconImage = ImageTk.PhotoImage(file = './icons/airplane-icon-2.png')
 
+
+    #Sets up the frame and background canvas
     frame = Frame(root)
     frame.pack()
     canvas = Canvas(frame, bg = "black", width=1114, height=642)
     canvas.pack()
     
-    background = PhotoImage(file = './U.S.A Images/Untitled.png')
-    canvas.create_image(557,(321),image=background)
-    plane = PhotoImage(file = './icons/airplane-icon-2.png')
-    canvas.create_image(30,30,image=plane)
+    #background image of US
+    USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
+    canvas.create_image(557,(321),image=USAMapImage1)
+
+    #test image of plane
+    plane2 = Image.open('./icons/airplane-icon-2-19.png')
+    plane2Rot = plane2.rotate(45,Image.BICUBIC)
+    plane2done = ImageTk.PhotoImage(plane2Rot)
+
+    # cant rotate this
+    # plane = PhotoImage(file = './icons/airplane-icon-2-19.png')
+    
+    canvas.create_image(30,30,image=plane2done)
+
+    def makePlane(canvas,plane,x,y,heading):
+        plane1 = plane.rotate(heading)
+        plane1done = ImageTk.PhotoImage(plane1)
+        canvas.create_image(x,y,image=plane1done)
+
+    
+    makePlane(canvas,plane2, 100, 321, 45)
+
+
+    for i in range(6):
+        makePlane(canvas,plane2, 50*i, 50*i, 139)
 
     #USAMap = Label(image = USAMapImage)
     #AirplaneIcon = Label(image = AirplaneIconImage)
-
-
     #FlightData = FlightData()
     #USAMap.pack()
     #root.geometry("1114x642")
@@ -32,9 +53,6 @@ class GUI():
 
     root.mainloop()
 
-    
-    # Matthew Writes a Method
-    # Given N and W, will give you X and Y pixels for the GUI
 
 
 

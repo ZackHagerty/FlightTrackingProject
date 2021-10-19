@@ -37,9 +37,11 @@ class FlightData():
 
         flight_df.to_csv('icons.csv')
 
+    #translate lat long to x, y
     def coordinateTranslate(N, W):
         
         # Based on photo from Zack:
+        # max width 1114, max height 642
         x = (130-65)/1114 * (W + 130)
         y = -(642/30) * (N - 50)
 
