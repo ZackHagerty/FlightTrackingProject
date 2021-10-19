@@ -7,13 +7,29 @@ from FlightDataImport import FlightData
 class GUI():
 
     root = Tk()
-    USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
-    USAMap = Label(image = USAMapImage)
+    #USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
+    #AirplaneIconImage = ImageTk.PhotoImage(file = './icons/airplane-icon-2.png')
 
-    FlightData = FlightData()
-    USAMap.pack()
-    root.geometry("1114x642")
-    root.title("Flight Tracking")
+    frame = Frame(root)
+    frame.pack()
+    canvas = Canvas(frame, bg = "black", width=1114, height=642)
+    canvas.pack()
+    
+    background = PhotoImage(file = './U.S.A Images/Untitled.png')
+    canvas.create_image(557,(321),image=background)
+    plane = PhotoImage(file = './icons/airplane-icon-2.png')
+    canvas.create_image(30,30,image=plane)
+
+    #USAMap = Label(image = USAMapImage)
+    #AirplaneIcon = Label(image = AirplaneIconImage)
+
+
+    #FlightData = FlightData()
+    #USAMap.pack()
+    #root.geometry("1114x642")
+    #root.title("Flight Tracking")
+    #AirplaneIcon.place(x=100,y=100)
+
     root.mainloop()
 
     
@@ -21,13 +37,7 @@ class GUI():
     # Given N and W, will give you X and Y pixels for the GUI
 
 
-    def coordinateTranslate(N, W):
-        
-        # Based on photo from Zack:
-        x = (130-65)/1114 * (W + 130)
-        y = -(642/30) * (N - 50)
 
-        return x,y
 
 if __name__ == "__main__":
     

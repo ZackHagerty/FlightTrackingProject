@@ -1,6 +1,6 @@
-#from tkinter import *
-#from tkinter import ttk
-#from PIL import ImageTk, Image
+from tkinter import *
+from tkinter import ttk
+from PIL import ImageTk, Image
 from os import sep
 import pandas as pd
 import requests
@@ -11,8 +11,15 @@ class FlightData():
 
     def __init__(self):
         # Latitude and Longitude trimming from OpenSky, to be changed later
-        longmin, latmin = -130.974, 20.038
-        longmax, latmax = -65.748, 50.214
+        USlongmin, USlatmin = -130.974, 20.038 #Lat and Long for all US "bottom left"
+        USlongmax, USlatmax = -65.748, 50.214  # "top right"
+
+        FLlongmin, FLlatmin = -87.928, 24.228337
+        FLlongmax, FLlatmax = -79.80946, 31.125
+
+
+        longmin, latmin = FLlongmin, FLlatmin
+        longmax, latmax = FLlongmax, FLlatmax
         self.flightDataPull(latmin, longmin, longmax, latmax)
 
     def flightDataPull(self, latmin, longmin, longmax, latmax):
@@ -29,3 +36,11 @@ class FlightData():
 
 
         flight_df.to_csv('icons.csv')
+
+    def coordinateTranslate(N, W):
+        
+        # Based on photo from Zack:
+        x = (130-65)/1114 * (W + 130)
+        y = -(642/30) * (N - 50)
+
+        return x,y
