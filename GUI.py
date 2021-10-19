@@ -7,6 +7,8 @@ from FlightDataImport import FlightData
 class GUI():
 
     root = Tk()
+    
+    #old image files or something
     #USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
     #AirplaneIconImage = ImageTk.PhotoImage(file = './icons/airplane-icon-2.png')
 
@@ -22,31 +24,41 @@ class GUI():
     canvas.create_image(557,(321),image=USAMapImage1)
 
     #test image of plane
-    plane2 = Image.open('./icons/airplane-icon-2-19.png')
-    plane2Rot = plane2.rotate(45,Image.BICUBIC)
-    plane2done = ImageTk.PhotoImage(plane2Rot)
+    plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
+    plane2Rot = plane2.rotate(45,Image.BICUBIC) # rotate 45deg, retain quality
+    plane2done = ImageTk.PhotoImage(plane2Rot) # make it a photoimage (transparent bg)
 
     # cant rotate this
     # plane = PhotoImage(file = './icons/airplane-icon-2-19.png')
     
     
-
+    #possibility for making a plane and having it rotate
+    # problem: it only makes 1 plane. Any time we place it, it moves and doesn't make a new one
     def makePlane(canvas,plane,x,y,heading):
         plane1 = plane.rotate(heading)
         plane1done = ImageTk.PhotoImage(plane1)
         canvas.create_image(30,30,image=plane1done)
 
-    
+    # see how this should make 2 new planes, but it does not
     makePlane(canvas,plane2, 100, 321, 45)
+    makePlane(canvas,plane2, 600, 321, 135)
 
 
+    #see how this only makes 1 plane, the one that should be plane 6
     for i in range(6):
-        print("Ran {0} times".format(i))
+        print("Ran {0} times".format(i)) #iterator
         #makePlane(canvas,plane2, 50*i, 50*i, 139)
-        plane1 = plane2.rotate(33*i)
-        plane1done = ImageTk.PhotoImage(plane1)
-        canvas.create_image(30*i,30*i,image=plane1done)
+        
+        #these three lines is a duplicate of the makePlane method
+        plane3 = plane2.rotate(33*i)
+        plane3done = ImageTk.PhotoImage(plane3)
+        canvas.create_image(30*i,30*i,image=plane3done)
 
+
+
+    # I don't think any of this is useful anymore since we are using
+    # canvases and photoimages.
+    # ------------------------------------
     #USAMap = Label(image = USAMapImage)
     #AirplaneIcon = Label(image = AirplaneIconImage)
     #FlightData = FlightData()
