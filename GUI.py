@@ -29,19 +29,23 @@ class GUI():
     # cant rotate this
     # plane = PhotoImage(file = './icons/airplane-icon-2-19.png')
     
-    canvas.create_image(30,30,image=plane2done)
+    
 
     def makePlane(canvas,plane,x,y,heading):
         plane1 = plane.rotate(heading)
         plane1done = ImageTk.PhotoImage(plane1)
-        canvas.create_image(x,y,image=plane1done)
+        canvas.create_image(30,30,image=plane1done)
 
     
     makePlane(canvas,plane2, 100, 321, 45)
 
 
     for i in range(6):
-        makePlane(canvas,plane2, 50*i, 50*i, 139)
+        print("Ran {0} times".format(i))
+        #makePlane(canvas,plane2, 50*i, 50*i, 139)
+        plane1 = plane2.rotate(33*i)
+        plane1done = ImageTk.PhotoImage(plane1)
+        canvas.create_image(30*i,30*i,image=plane1done)
 
     #USAMap = Label(image = USAMapImage)
     #AirplaneIcon = Label(image = AirplaneIconImage)
