@@ -37,12 +37,12 @@ class GUI():
     def makePlane(canvas,plane,x,y,heading):
         plane1 = plane.rotate(heading)
         plane1done = ImageTk.PhotoImage(plane1)
-        canvas.create_image(30,30,image=plane1done)
+        canvas.create_image(x,y,image=plane1done)
 
     # see how this should make 2 new planes, but it does not
-    makePlane(canvas,plane2, 100, 321, 45)
-    makePlane(canvas,plane2, 600, 321, 135)
-
+    # I commented this out since, as far as I could tell, it didn't do anything -D
+    #makePlane(canvas,plane2, 100, 321, 45)
+    #makePlane(canvas,plane2, 300, 321, 135)
 
     #see how this only makes 1 plane, the one that should be plane 6
     for i in range(6):
@@ -53,6 +53,11 @@ class GUI():
         plane3 = plane2.rotate(33*i)
         plane3done = ImageTk.PhotoImage(plane3)
         canvas.create_image(30*i,30*i,image=plane3done)
+
+    #This currently is causing everything to fail, I'm working on it -D
+    for i in range(len(FlightData.flight_Long_Array)):
+        coord_X, coord_Y = FlightData.coordinateTranslate(FlightData.flight_Lat_Array,FlightData.flight_Long_Array)
+        makePlane(canvas,plane2,coord_X,coord_Y,FlightData.flight_True_Array)
 
 
 
@@ -75,6 +80,7 @@ class GUI():
 
 if __name__ == "__main__":
     
+
     Main = GUI()
 
 

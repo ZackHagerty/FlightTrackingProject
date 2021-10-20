@@ -37,6 +37,18 @@ class FlightData():
 
         flight_df.to_csv('icons.csv')
 
+        flight_df_Long = flight_df.loc[:,'long']
+        flight_Long_Array = flight_df_Long.values
+
+        flight_df_Lat = flight_df.loc[:,'lat']
+        flight_Lat_Array = flight_df_Lat.values
+
+        flight_df_True = flight_df.loc[:,'true_track']
+        flight_True_Array = flight_df_True.values
+
+        return flight_Long_Array, flight_Lat_Array, flight_True_Array
+
+
     #translate lat long to x, y
     def coordinateTranslate(N, W):
         
@@ -46,3 +58,4 @@ class FlightData():
         y = -(642/30) * (N - 50)
 
         return x,y
+    
