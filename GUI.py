@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
+import pandas as pd
 
 from FlightDataImport import FlightData
 
@@ -34,33 +35,42 @@ class GUI():
     
     #possibility for making a plane and having it rotate
     # problem: it only makes 1 plane. Any time we place it, it moves and doesn't make a new one
-    def makePlane(canvas,plane,x,y,heading):
-        plane1 = plane.rotate(heading)
-        plane1done = ImageTk.PhotoImage(plane1)
-        canvas.create_image(x,y,image=plane1done)
+    #def makePlane(canvas,plane,x,y,heading):
+        #plane1 = plane.rotate(heading)
+        #plane1done = ImageTk.PhotoImage(plane1)
+        #canvas.create_image(x,y,image=plane1done)
 
     # see how this should make 2 new planes, but it does not
-    # I commented this out since, as far as I could tell, it didn't do anything -D
+    # I commented this out since, as far as I could tell, it didn't do anything on the GUI, we can probably remove -D
     #makePlane(canvas,plane2, 100, 321, 45)
     #makePlane(canvas,plane2, 300, 321, 135)
 
     img_ref = []
+    plane_ref = []
     #see how this only makes 1 plane, the one that should be plane 6
-    for i in range(6):
-        print("Ran {0} times".format(i)) #iterator
+    #for i in range(6):
+        #print("Ran {0} times".format(i)) #iterator
         #makePlane(canvas,plane2, 50*i, 50*i, 139)
         
         #these three lines is a duplicate of the makePlane method
-        plane3 = plane2.rotate(33*i)
+        #plane3 = plane2.rotate(33*i, Image.BICUBIC)
+        #plane3done = ImageTk.PhotoImage(plane3)
+        #canvas.create_image(30*i,30*i,image=plane3done)
+        #img_ref.append(plane3done)
+    
+    datafile = pd.read_csv('icons.csv')
+
+    true_Array = datafile['true_track'].tolist()
+    long_Array = datafile['long'].tolist()
+    lat_Array = datafile['lat'].tolist()
+    x_Array, y_Array = FlightData.coordinateTranslate(lat_Array,long_Array)
+    print(long_Array)
+
+    for i in range(len(x_Array)):
+        plane3 = plane2.rotate(true_Array[i], Image.BICUBIC)
         plane3done = ImageTk.PhotoImage(plane3)
-        canvas.create_image(30*i,30*i,image=plane3done)
-        img_ref.append(plane3done)
-
-    #This currently is causing everything to fail, I'm working on it -D
-    #for i in range(len(FlightData.flight_Long_Array)):
-        #coord_X, coord_Y = FlightData.coordinateTranslate(FlightData.flight_Lat_Array,FlightData.flight_Long_Array)
-        #makePlane(canvas,plane2,coord_X,coord_Y,FlightData.flight_True_Array)
-
+        canvas.create_image(x_Array[i], y_Array[i], image=plane3done)
+        plane_ref.append(plane3done)
 
     # I don't think any of this is useful anymore since we are using
     # canvases and photoimages.

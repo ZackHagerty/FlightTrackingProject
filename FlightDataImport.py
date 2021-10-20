@@ -37,25 +37,26 @@ class FlightData():
 
         flight_df.to_csv('icons.csv')
 
-        flight_df_Long = flight_df.loc[:,'long']
-        flight_Long_Array = flight_df_Long.values
+        #flight_df_Long = flight_df.loc[:,'long']
+        #flight_Long_ArrayValue = flight_df_Long.values
 
-        flight_df_Lat = flight_df.loc[:,'lat']
-        flight_Lat_Array = flight_df_Lat.values
+        #flight_df_Lat = flight_df.loc[:,'lat']
+        #flight_Lat_ArrayValue = flight_df_Lat.values
 
-        flight_df_True = flight_df.loc[:,'true_track']
-        flight_True_Array = flight_df_True.values
-
-        return flight_Long_Array, flight_Lat_Array, flight_True_Array
-
+        #flight_df_True = flight_df.loc[:,'true_track']
+        #flight_True_ArrayValue = flight_df_True.values
 
     #translate lat long to x, y
     def coordinateTranslate(N, W):
-        
-        # Based on photo from Zack:
-        # max width 1114, max height 642
-        x = (130-65)/1114 * (W + 130)
-        y = -(642/30) * (N - 50)
+        x=[]
+        y=[]
+        for i in range(len(N)):
+            # Based on photo from Zack:
+            # max width 1114, max height 642
+            x_add = (1114/(130-65)) * (W[i] + 130)
+            y_add = -(642/30) * (N[i] - 50)
+            x.append(x_add)
+            y.append(y_add)
 
         return x,y
     
