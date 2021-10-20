@@ -65,7 +65,7 @@ class GUI():
     long_Array = datafile['long'].tolist()
     lat_Array = datafile['lat'].tolist()
     x_Array, y_Array = FlightData.coordinateTranslate(lat_Array,long_Array)
-    print(long_Array)
+    #print(long_Array)
 
     for i in range(len(x_Array)):
         plane3 = plane2.rotate(true_Array[i], Image.BICUBIC)
