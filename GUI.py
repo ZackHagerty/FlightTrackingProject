@@ -44,6 +44,7 @@ class GUI():
     #makePlane(canvas,plane2, 100, 321, 45)
     #makePlane(canvas,plane2, 300, 321, 135)
 
+    img_ref = []
     #see how this only makes 1 plane, the one that should be plane 6
     for i in range(6):
         print("Ran {0} times".format(i)) #iterator
@@ -53,12 +54,12 @@ class GUI():
         plane3 = plane2.rotate(33*i)
         plane3done = ImageTk.PhotoImage(plane3)
         canvas.create_image(30*i,30*i,image=plane3done)
+        img_ref.append(plane3done)
 
     #This currently is causing everything to fail, I'm working on it -D
-    for i in range(len(FlightData.flight_Long_Array)):
-        coord_X, coord_Y = FlightData.coordinateTranslate(FlightData.flight_Lat_Array,FlightData.flight_Long_Array)
-        makePlane(canvas,plane2,coord_X,coord_Y,FlightData.flight_True_Array)
-
+    #for i in range(len(FlightData.flight_Long_Array)):
+        #coord_X, coord_Y = FlightData.coordinateTranslate(FlightData.flight_Lat_Array,FlightData.flight_Long_Array)
+        #makePlane(canvas,plane2,coord_X,coord_Y,FlightData.flight_True_Array)
 
 
     # I don't think any of this is useful anymore since we are using
