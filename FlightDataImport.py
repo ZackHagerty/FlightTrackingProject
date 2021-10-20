@@ -18,8 +18,8 @@ class FlightData():
         FLlongmax, FLlatmax = -79.80946, 31.125
 
 
-        longmin, latmin = FLlongmin, FLlatmin
-        longmax, latmax = FLlongmax, FLlatmax
+        longmin, latmin = USlongmin, USlatmin
+        longmax, latmax = USlongmax, USlatmax
         self.flightDataPull(latmin, longmin, longmax, latmax)
 
     def flightDataPull(self, latmin, longmin, longmax, latmax):

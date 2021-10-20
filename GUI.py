@@ -28,6 +28,7 @@ class GUI():
     plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
     plane2Rot = plane2.rotate(45,Image.BICUBIC) # rotate 45deg, retain quality
     plane2done = ImageTk.PhotoImage(plane2Rot) # make it a photoimage (transparent bg)
+    
 
     # cant rotate this
     # plane = PhotoImage(file = './icons/airplane-icon-2-19.png')
