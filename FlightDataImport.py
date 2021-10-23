@@ -34,8 +34,9 @@ class FlightData():
         flight_df=pd.DataFrame(OpenSky_data['states'],columns=columns)
         flight_df=flight_df.fillna('No Data')
 
+        flight_df = flight_df.to_numpy()
 
-        flight_df.to_csv('icons.csv')
+        #flight_df.to_csv('icons.csv')
 
         #flight_df_Long = flight_df.loc[:,'long']
         #flight_Long_ArrayValue = flight_df_Long.values
