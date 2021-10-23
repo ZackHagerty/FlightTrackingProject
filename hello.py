@@ -3,6 +3,7 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 from os import sep
 import pandas as pd
+import numpy as np
 import requests
 import json
 import csv
@@ -24,7 +25,7 @@ OpenSky_data = requests.get(OpenSky_datapull).json()
 
 try:
     columns = ['icao24','callsign','origin_country','time_position','last_contact','long','lat','baro_altitude','on_ground (T/F)','velocity','true_track','vertical_rate','sensors',
-    'geo_altitude','squawk','spi','position_source','test']
+    'geo_altitude','squawk','spi','position_source','unknown']
     flight_df=pd.DataFrame(OpenSky_data['states'],columns=columns)
     flight_df=flight_df.fillna('No Data')
 except ValueError:
@@ -42,5 +43,6 @@ except ValueError:
 
 
 flight_df.to_csv('test.csv')
-flight_array = flight_df.to_numpy
+flight_arrayFull = flight_df.to_numpy()
+flight_array = np.delete(flight_arrayFull, obj=0, axis=0)
 print(flight_array)

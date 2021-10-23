@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
 import pandas as pd
+import numpy as np
 
 from FlightDataImport import FlightData
 
@@ -59,11 +60,19 @@ class GUI():
         #canvas.create_image(30*i,30*i,image=plane3done)
         #img_ref.append(plane3done)
     
-    datafile = pd.read_csv('icons.csv')
+    flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
-    true_Array = datafile['true_track'].tolist()
-    long_Array = datafile['long'].tolist()
-    lat_Array = datafile['lat'].tolist()
+    #true_Array = datafile['true_track'].tolist()
+    #long_Array = datafile['long'].tolist()
+    #lat_Array = datafile['lat'].tolist()
+    true_ArrayFull = flight_chart_array[:,10]
+    long_ArrayFull = flight_chart_array[:,5]
+    lat_ArrayFull = flight_chart_array[:,6]
+
+    true_Array = np.delete(true_ArrayFull, 0, 0)
+    long_Array = np.delete(long_ArrayFull, 0, 0)
+    lat_Array = np.delete(lat_ArrayFull, 0, 0)
+
     x_Array, y_Array = FlightData.coordinateTranslate(lat_Array,long_Array)
     #print(long_Array)
 
