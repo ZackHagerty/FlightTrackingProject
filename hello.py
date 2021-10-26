@@ -7,6 +7,7 @@ import numpy as np
 import requests
 import json
 import csv
+from FlightDataImport import FlightData
 # prints the words 'hello world'
 print("Hello World")
 USlongmin, USlatmin = -130.974, 20.038 #Lat and Long for all US "bottom left"
@@ -43,6 +44,50 @@ except ValueError:
 
 
 flight_df.to_csv('test.csv')
-#flight_arrayFull = flight_df.to_numpy()
+flight_arrayFull = flight_df.to_numpy()
 #flight_array = np.delete(flight_arrayFull, obj=0, axis=0)
-#print(flight_array)
+#print(flight_arrayFull[:,1])
+
+for i in range(len(flight_arrayFull)):
+    
+    if flight_arrayFull[i,1].startswith('AAL'):
+        print('AAL')
+
+    if flight_arrayFull[i,1].startswith('AAY'):
+        print('1')
+
+    if flight_arrayFull[i,1].startswith('ACA'):
+        print('2')
+
+    if flight_arrayFull[i,1].startswith('AFR'):
+        print('3')
+
+    if flight_arrayFull[i,1].startswith('AMX'):
+        print('4')
+
+    if flight_arrayFull[i,1].startswith('ASA'):
+        print('5')
+
+    if flight_arrayFull[i,1].startswith('DAL'):
+        print('6')
+
+    if flight_arrayFull[i,1].startswith('FFT'):
+        print('7')
+
+    if flight_arrayFull[i,1].startswith('JBU'):
+        print('8')
+
+    if flight_arrayFull[i,1].startswith('NKS'):
+        print('9')
+
+    if flight_arrayFull[i,1].startswith('SWA'):
+        print('10')
+
+    if flight_arrayFull[i,1].startswith('UAL'):
+        print('11')
+
+    if flight_arrayFull[i,1].startswith('UPS'):
+        print('12')
+
+    if flight_arrayFull[i,1].startswith('FDX'):
+        print('13')
