@@ -43,6 +43,6 @@ except ValueError:
 
 
 flight_df.to_csv('test.csv')
-flight_arrayFull = flight_df.to_numpy()
-flight_array = np.delete(flight_arrayFull, obj=0, axis=0)
-print(flight_array)
+#flight_arrayFull = flight_df.to_numpy()
+#flight_array = np.delete(flight_arrayFull, obj=0, axis=0)
+#print(flight_array)
