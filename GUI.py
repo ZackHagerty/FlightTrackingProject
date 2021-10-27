@@ -60,7 +60,8 @@ class GUI():
         #canvas.create_image(30*i,30*i,image=plane3done)
         #img_ref.append(plane3done)
     
-    flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
+                                                # (latmin, longmin, longmax, latmax)
+    flight_chart_array = FlightData.flightDataPull(24,-87,-79,31)
 
     #true_Array = datafile['true_track'].tolist()
     #long_Array = datafile['long'].tolist()
