@@ -48,10 +48,61 @@ flight_arrayFull = flight_df.to_numpy()
 #flight_array = np.delete(flight_arrayFull, obj=0, axis=0)
 #print(flight_arrayFull[:,1])
 
+AAL_Arraylong = []
+AAL_Arraylat = []
+AAL_Arraytrue = []
+
+AAY_Arraylong = []
+AAY_Arraylat = []
+AAY_Arraytrue = []
+
+ACA_Arraylong = []
+ACA_Arraylat = []
+ACA_Arraytrue = []
+
+AFR_Arraylong = []
+AFR_Arraylat = []
+AFR_Arraytrue = []
+
+AMX_Arraylong = []
+AMX_Arraylat = []
+AMX_Arraytrue = []
+
+ASA_Arraylong = []
+ASA_Arraylat = []
+ASA_Arraytrue = []
+
+DAL_Arraylong = []
+DAL_Arraylat = []
+DAL_Arraytrue = []
+
+FFT_Arraylong = []
+FFT_Arraylat = []
+FFT_Arraytrue = []
+
+JBU_Arraylong = []
+JBU_Arraylat = []
+JBU_Arraytrue = []
+
+NKS_Arraylong = []
+NKS_Arraylat = []
+NKS_Arraytrue = []
+
+SWA_Arraylong = []
+SWA_Arraylat = []
+SWA_Arraytrue = []
+
+UAL_Arraylong = []
+UAL_Arraylat = []
+UAL_Arraytrue = []
+
+
 for i in range(len(flight_arrayFull)):
     
     if flight_arrayFull[i,1].startswith('AAL'):
-        print('AAL')
+        AAL_Arraylong.append(flight_arrayFull[i,5])
+        AAL_Arraylat.append(flight_arrayFull[i,6])
+        AAL_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('AAY'):
         print('1')
@@ -85,9 +136,4 @@ for i in range(len(flight_arrayFull)):
 
     if flight_arrayFull[i,1].startswith('UAL'):
         print('11')
-
-    if flight_arrayFull[i,1].startswith('UPS'):
-        print('12')
-
-    if flight_arrayFull[i,1].startswith('FDX'):
-        print('13')
+print(AAL_Arraytrue)
