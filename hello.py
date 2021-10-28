@@ -105,35 +105,58 @@ for i in range(len(flight_arrayFull)):
         AAL_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('AAY'):
-        print('1')
+        AAY_Arraylong.append(flight_arrayFull[i,5])
+        AAY_Arraylat.append(flight_arrayFull[i,6])
+        AAY_Arraytrue.append(flight_arrayFull[i,10])
+
 
     if flight_arrayFull[i,1].startswith('ACA'):
-        print('2')
+        ACA_Arraylong.append(flight_arrayFull[i,5])
+        ACA_Arraylat.append(flight_arrayFull[i,6])
+        ACA_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('AFR'):
-        print('3')
+        AFR_Arraylong.append(flight_arrayFull[i,5])
+        AFR_Arraylat.append(flight_arrayFull[i,6])
+        AFR_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('AMX'):
-        print('4')
+        AMX_Arraylong.append(flight_arrayFull[i,5])
+        AMX_Arraylat.append(flight_arrayFull[i,6])
+        AMX_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('ASA'):
-        print('5')
+        ASA_Arraylong.append(flight_arrayFull[i,5])
+        ASA_Arraylat.append(flight_arrayFull[i,6])
+        ASA_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('DAL'):
-        print('6')
+        DAL_Arraylong.append(flight_arrayFull[i,5])
+        DAL_Arraylat.append(flight_arrayFull[i,6])
+        DAL_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('FFT'):
-        print('7')
+        FFT_Arraylong.append(flight_arrayFull[i,5])
+        FFT_Arraylat.append(flight_arrayFull[i,6])
+        FFT_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('JBU'):
-        print('8')
+        JBU_Arraylong.append(flight_arrayFull[i,5])
+        JBU_Arraylat.append(flight_arrayFull[i,6])
+        JBU_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('NKS'):
-        print('9')
+        NKS_Arraylong.append(flight_arrayFull[i,5])
+        NKS_Arraylat.append(flight_arrayFull[i,6])
+        NKS_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('SWA'):
-        print('10')
+        SWA_Arraylong.append(flight_arrayFull[i,5])
+        SWA_Arraylat.append(flight_arrayFull[i,6])
+        SWA_Arraytrue.append(flight_arrayFull[i,10])
 
     if flight_arrayFull[i,1].startswith('UAL'):
-        print('11')
-print(AAL_Arraytrue)
+        UAL_Arraylong.append(flight_arrayFull[i,5])
+        UAL_Arraylat.append(flight_arrayFull[i,6])
+        UAL_Arraytrue.append(flight_arrayFull[i,10])
+print(FFT_Arraytrue)
