@@ -30,53 +30,29 @@ class GUI():
     
     flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
-    AAL_Arraylong = []
-    AAL_Arraylat = []
-    AAL_Arraytrue = []
+    AAL_Arraylong = [], AAL_Arraylat = [], AAL_Arraytrue = []
 
-    AAY_Arraylong = []
-    AAY_Arraylat = []
-    AAY_Arraytrue = []
+    AAY_Arraylong = [], AAY_Arraylat = [], AAY_Arraytrue = []
 
-    ACA_Arraylong = []
-    ACA_Arraylat = []
-    ACA_Arraytrue = []
+    ACA_Arraylong = [], ACA_Arraylat = [], ACA_Arraytrue = []
 
-    AFR_Arraylong = []
-    AFR_Arraylat = []
-    AFR_Arraytrue = []
+    AFR_Arraylong = [], AFR_Arraylat = [], AFR_Arraytrue = []
 
-    AMX_Arraylong = []
-    AMX_Arraylat = []
-    AMX_Arraytrue = []
+    AMX_Arraylong = [], AMX_Arraylat = [], AMX_Arraytrue = []
 
-    ASA_Arraylong = []
-    ASA_Arraylat = []
-    ASA_Arraytrue = []
+    ASA_Arraylong = [], ASA_Arraylat = [], ASA_Arraytrue = []
 
-    DAL_Arraylong = []
-    DAL_Arraylat = []
-    DAL_Arraytrue = []
+    DAL_Arraylong = [], DAL_Arraylat = [], DAL_Arraytrue = []
 
-    FFT_Arraylong = []
-    FFT_Arraylat = []
-    FFT_Arraytrue = []
+    FFT_Arraylong = [], FFT_Arraylat = [], FFT_Arraytrue = []
 
-    JBU_Arraylong = []
-    JBU_Arraylat = []
-    JBU_Arraytrue = []
+    JBU_Arraylong = [], JBU_Arraylat = [], JBU_Arraytrue = []
 
-    NKS_Arraylong = []
-    NKS_Arraylat = []
-    NKS_Arraytrue = []
+    NKS_Arraylong = [], NKS_Arraylat = [], NKS_Arraytrue = []
 
-    SWA_Arraylong = []
-    SWA_Arraylat = []
-    SWA_Arraytrue = []
+    SWA_Arraylong = [], SWA_Arraylat = [], SWA_Arraytrue = []
 
-    UAL_Arraylong = []
-    UAL_Arraylat = []
-    UAL_Arraytrue = []
+    UAL_Arraylong = [], UAL_Arraylat = [], UAL_Arraytrue = []
 
 
     for i in range(len(flight_chart_array)):
