@@ -19,8 +19,6 @@ class GUI():
     #background image of US
     USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
     canvas.create_image(557,(321),image=USAMapImage1)
-    ZBW = PhotoImage(file = './icons/ZBW.png')
-    canvas.create_image(970,185,image=ZBW)
 
     #test image of plane
     plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
@@ -157,6 +155,8 @@ class GUI():
     UAL_X_Array, UAL_Y_Array = FlightData.coordinateTranslate(UAL_Arraylat,UAL_Arraylong)
     #print(long_Array)
 
+    #------------------------------------------EDIT COLORS HERE--------CHANGE VARIABLE NAMES TOO-----------------------
+    # each for loop is its own for loop
     for i in range(len(AAL_X_Array)):
         plane3 = plane2.rotate(AAL_Arraytrue[i], Image.BICUBIC)
         plane3done = ImageTk.PhotoImage(plane3)
