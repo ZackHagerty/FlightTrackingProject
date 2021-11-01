@@ -30,6 +30,7 @@ class GUI():
     
     flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
+<<<<<<< Updated upstream
     AAL_Arraylong = []
     AAL_Arraylat = []
     AAL_Arraytrue = []
@@ -49,6 +50,99 @@ class GUI():
     AMX_Arraylong = []
     AMX_Arraylat = []
     AMX_Arraytrue = []
+=======
+
+        
+    def createPlanes(self):
+
+        AAL_X_Array, AAL_Y_Array = FlightData.coordinateTranslate(self.AAL_Arraylat,self.AAL_Arraylong)
+        AAY_X_Array, AAY_Y_Array = FlightData.coordinateTranslate(self.AAY_Arraylat,self.AAY_Arraylong)
+        ACA_X_Array, ACA_Y_Array = FlightData.coordinateTranslate(self.ACA_Arraylat,self.ACA_Arraylong)
+        AFR_X_Array, AFR_Y_Array = FlightData.coordinateTranslate(self.AFR_Arraylat,self.AFR_Arraylong)
+        AMX_X_Array, AMX_Y_Array = FlightData.coordinateTranslate(self.AMX_Arraylat,self.AMX_Arraylong)
+        ASA_X_Array, ASA_Y_Array = FlightData.coordinateTranslate(self.ASA_Arraylat,self.ASA_Arraylong)
+        DAL_X_Array, DAL_Y_Array = FlightData.coordinateTranslate(self.DAL_Arraylat,self.DAL_Arraylong)
+        FFT_X_Array, FFT_Y_Array = FlightData.coordinateTranslate(self.FFT_Arraylat,self.FFT_Arraylong)
+        JBU_X_Array, JBU_Y_Array = FlightData.coordinateTranslate(self.JBU_Arraylat,self.JBU_Arraylong)
+        NKS_X_Array, NKS_Y_Array = FlightData.coordinateTranslate(self.NKS_Arraylat,self.NKS_Arraylong)
+        SWA_X_Array, SWA_Y_Array = FlightData.coordinateTranslate(self.SWA_Arraylat,self.SWA_Arraylong)
+        UAL_X_Array, UAL_Y_Array = FlightData.coordinateTranslate(self.UAL_Arraylat,self.UAL_Arraylong)
+        #print(long_Array)
+
+        for i in range(len(AAL_X_Array)):
+            plane3 = self.plane2.rotate(self.AAL_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(AAL_X_Array[i], AAL_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(AAY_X_Array)):
+            plane3 = self.plane2.rotate(self.AAY_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(AAY_X_Array[i], AAY_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(ACA_X_Array)):
+            plane3 = self.plane2.rotate(self.ACA_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(ACA_X_Array[i], ACA_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(AFR_X_Array)):
+            plane3 = self.plane2.rotate(self.AFR_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(AFR_X_Array[i], AFR_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(AMX_X_Array)):
+            plane3 = self.plane2.rotate(self.AMX_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(AMX_X_Array[i], AMX_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(ASA_X_Array)):
+            plane3 = self.plane2.rotate(self.ASA_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(ASA_X_Array[i], ASA_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(DAL_X_Array)):
+            plane3 = self.plane2.rotate(self.DAL_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(DAL_X_Array[i], DAL_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(FFT_X_Array)):
+            plane3 = self.plane2.rotate(self.FFT_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(FFT_X_Array[i], FFT_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(JBU_X_Array)):
+            plane3 = self.plane2.rotate(self.JBU_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(JBU_X_Array[i], JBU_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(NKS_X_Array)):
+            plane3 = self.plane2.rotate(self.NKS_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(NKS_X_Array[i], NKS_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(SWA_X_Array)):
+            plane3 = self.plane2.rotate(self.SWA_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(SWA_X_Array[i], SWA_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        for i in range(len(UAL_X_Array)):
+            plane3 = self.plane2.rotate(self.UAL_Arraytrue[i], Image.BICUBIC)
+            plane3done = ImageTk.PhotoImage(plane3)
+            self.canvas.create_image(UAL_X_Array[i], UAL_Y_Array[i], image=plane3done)
+            self.plane_ref.append(plane3done)
+
+        self.root.mainloop()
+>>>>>>> Stashed changes
 
     ASA_Arraylong = []
     ASA_Arraylat = []
