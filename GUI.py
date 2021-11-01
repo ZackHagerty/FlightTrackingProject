@@ -19,6 +19,8 @@ class GUI():
     #background image of US
     USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
     canvas.create_image(557,(321),image=USAMapImage1)
+    ZBW = PhotoImage(file = './icons/ZBW.png')
+    canvas.create_image(970,185,image=ZBW)
 
     #test image of plane
     plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
