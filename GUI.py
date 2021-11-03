@@ -15,17 +15,23 @@ class GUI():
         frame.pack()
         self.canvas = Canvas(frame, bg = "black", width=1114, height=642)
         self.canvas.pack()
+
+        self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
+        self.canvas.create_image(557,(321), image=self.USAMapImage1)
+       
+        #test image of plane
+        self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
+
         self.initializingArrays()
+
+        
+        self.root.mainloop()
 
         
     #Sets up the frame and background self.canvas
     def initializingArrays(self):
         #background image of US
-        USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
-        self.canvas.create_image(557,(321), image=USAMapImage1)
-       
-        #test image of plane
-        self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
+        
         plane2Rot = self.plane2.rotate(45,Image.BICUBIC) # rotate 45deg, retain quality
         plane2done = ImageTk.PhotoImage(plane2Rot) # make it a photoimage (transparent bg)
 
@@ -237,7 +243,6 @@ class GUI():
             self.canvas.create_image(UAL_X_Array[i], UAL_Y_Array[i], image=plane3done)
             self.plane_ref.append(plane3done)
 
-        self.root.mainloop()
 
 
         
@@ -245,3 +250,4 @@ if __name__ == "__main__":
     
 
     Main = GUI()
+
