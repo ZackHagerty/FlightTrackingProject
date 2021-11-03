@@ -9,11 +9,6 @@ from FlightDataImport import FlightData
 class GUI():
 
     root = Tk()
-    
-    #old image files or something
-    #USAMapImage = ImageTk.PhotoImage(file = './U.S.A Images/Untitled.png')
-    #AirplaneIconImage = ImageTk.PhotoImage(file = './icons/airplane-icon-2.png')
-
 
     #Sets up the frame and background canvas
     frame = Frame(root)
@@ -29,142 +24,6 @@ class GUI():
     plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
     plane2Rot = plane2.rotate(45,Image.BICUBIC) # rotate 45deg, retain quality
     plane2done = ImageTk.PhotoImage(plane2Rot) # make it a photoimage (transparent bg)
-    
-
-    # cant rotate this
-    # plane = PhotoImage(file = './icons/airplane-icon-2-19.png')
-    
-    
-    #possibility for making a plane and having it rotate
-    # problem: it only makes 1 plane. Any time we place it, it moves and doesn't make a new one
-    #def makePlane(canvas,plane,x,y,heading):
-        #plane1 = plane.rotate(heading)
-        #plane1done = ImageTk.PhotoImage(plane1)
-        #canvas.create_image(x,y,image=plane1done)
-
-    # see how this should make 2 new planes, but it does not
-    # I commented this out since, as far as I could tell, it didn't do anything on the GUI, we can probably remove -D
-    #makePlane(canvas,plane2, 100, 321, 45)
-    #makePlane(canvas,plane2, 300, 321, 135)
-
-    # COLORFUL PLANES!! =D
-    plane_burgundy = Image.open('./Airline-colors-19px/bergundy-19.png')
-    plane_cyan = Image.open('./Airline-colors-19px/cyan-19.png')
-    plane_dark_blue = Image.open('./Airline-colors-19px/dark-blue-19.png')
-    plane_dark_green = Image.open('./Airline-colors-19px/dark-green-19.png')
-    plane_darker_blue = Image.open('./Airline-colors-19px/darker-blue-19.png')
-    plane_gold = Image.open('./Airline-colors-19px/gold-19.png')
-    plane_green = Image.open('./Airline-colors-19px/green-19.png')
-    plane_light_blue = Image.open('./Airline-colors-19px/light-blue-19.png')
-    plane_light_gray = Image.open('./Airline-colors-19px/light-gray-19.png')
-    plane_orange = Image.open('./Airline-colors-19px/orange-19.png')
-    plane_red = Image.open('./Airline-colors-19px/red-19.png')
-    plane_sky_blue = Image.open('./Airline-colors-19px/sky-blue-19.png')
-    plane_violet = Image.open('./Airline-colors-19px/violet-19.png')
-    plane_yellow = Image.open('./Airline-colors-19px/yellow-19.png')
-
-    # =======================   ATC Zones   ===============================
-    #ZBW
-    atc_zbw = Image.open('./atc_zones/sized_ATC/ZBW-170.png')
-    atc_BW = ImageTk.PhotoImage(atc_zbw)
-    canvas.create_image(995, 151, image=atc_BW)
-
-    #ZNY
-    atc_zny = Image.open('./atc_zones/sized_ATC/zny-84.png')
-    atc_NY = ImageTk.PhotoImage(atc_zny)
-    canvas.create_image(929, 207, image=atc_NY)
-
-    #ZOB
-    atc_zob = Image.open('./atc_zones/sized_ATC/zob-154.png')
-    atc_OB = ImageTk.PhotoImage(atc_zob)
-    canvas.create_image(845, 193, image=atc_OB)
-
-    #ZDC
-    atc_zdc = Image.open('./atc_zones/sized_ATC/zdc-148.png')
-    atc_DC = ImageTk.PhotoImage(atc_zdc)
-    canvas.create_image(915, 309, image=atc_DC)
-
-    #ZID
-    atc_zid = Image.open('./atc_zones/sized_ATC/zid-137.png')
-    atc_ID = ImageTk.PhotoImage(atc_zid)
-    canvas.create_image(780, 260, image=atc_ID)
-
-    #ZTL
-    atc_ztl = Image.open('./atc_zones/sized_ATC/ztl-150.png')
-    atc_TL = ImageTk.PhotoImage(atc_ztl)
-    canvas.create_image(786, 355, image=atc_TL)
-
-    #ZJX
-    atc_zjx = Image.open('./atc_zones/sized_ATC/zjx-203.png')
-    atc_JX = ImageTk.PhotoImage(atc_zjx)
-    canvas.create_image(817, 425, image=atc_JX)
-
-    #ZMA
-    atc_zma = Image.open('./atc_zones/sized_ATC/zma-165.png')
-    atc_MA = ImageTk.PhotoImage(atc_zma)
-    canvas.create_image(834, 520, image=atc_MA)
-
-    #ZHU
-    atc_zhu = Image.open('./atc_zones/sized_ATC/zhu-289.png')
-    atc_HU = ImageTk.PhotoImage(atc_zhu)
-    canvas.create_image(610, 497, image=atc_HU)
-
-    #ZME
-    atc_zme = Image.open('./atc_zones/sized_ATC/zme-183.png')
-    atc_ME = ImageTk.PhotoImage(atc_zme)
-    canvas.create_image(674, 348, image=atc_ME)
-
-    #ZKC
-    atc_zkc = Image.open('./atc_zones/sized_ATC/zkc-253.png')
-    atc_KC = ImageTk.PhotoImage(atc_zkc)
-    canvas.create_image(591, 270, image=atc_KC)
-
-    #ZAU
-    atc_zau = Image.open('./atc_zones/sized_ATC/zau-156.png')
-    atc_AU = ImageTk.PhotoImage(atc_zau)
-    canvas.create_image(698, 180, image=atc_AU)
-
-    #ZMP
-    atc_zmp = Image.open('./atc_zones/sized_ATC/zmp-363.png')
-    atc_MP = ImageTk.PhotoImage(atc_zmp)
-    canvas.create_image(637, 135, image=atc_MP)
-
-    #ZFW
-    atc_zfw = Image.open('./atc_zones/sized_ATC/zfw-215.png')
-    atc_FW = ImageTk.PhotoImage(atc_zfw)
-    canvas.create_image(549, 375, image=atc_FW)
-    
-    #ZAB
-    atc_zab = Image.open('./atc_zones/sized_ATC/zab-245.png')
-    atc_AB = ImageTk.PhotoImage(atc_zab)
-    canvas.create_image(391, 379, image=atc_AB)
-
-    #ZDV
-    atc_zdv = Image.open('./atc_zones/sized_ATC/zdv-230.png')
-    atc_DV = ImageTk.PhotoImage(atc_zdv)
-    canvas.create_image(421, 218, image=atc_DV)
-
-    #ZLC
-    atc_zlc = Image.open('./atc_zones/sized_ATC/zlc-283.png')
-    atc_LC = ImageTk.PhotoImage(atc_zlc)
-    canvas.create_image(317, 157, image=atc_LC)
-
-    #ZLA
-    atc_zla = Image.open('./atc_zones/sized_ATC/zla-204.png')
-    atc_LA = ImageTk.PhotoImage(atc_zla)
-    canvas.create_image(214, 355, image=atc_LA)
-
-    #ZOA
-    atc_zoa = Image.open('./atc_zones/sized_ATC/zoa-172.png')
-    atc_OA = ImageTk.PhotoImage(atc_zoa)
-    canvas.create_image(136, 276, image=atc_OA)
-
-    #ZSE
-    atc_zse = Image.open('./atc_zones/sized_ATC/zse-230.png')
-    atc_SE = ImageTk.PhotoImage(atc_zse)
-    canvas.create_image(146, 126, image=atc_SE)
-
-    # =====================   END ATC Zones   ===============================
 
     # COLORFUL PLANES!! =D
     plane_burgundy = Image.open('./Airline-colors-19px/bergundy-19.png')
@@ -287,24 +146,7 @@ class GUI():
 
     img_ref = []
     plane_ref = []
-    #see how this only makes 1 plane, the one that should be plane 6
-    #for i in range(6):
-        #print("Ran {0} times".format(i)) #iterator
-        #makePlane(canvas,plane2, 50*i, 50*i, 139)
-        
-        #these three lines is a duplicate of the makePlane method
-        #plane3 = plane2.rotate(33*i, Image.BICUBIC)
-        #plane3done = ImageTk.PhotoImage(plane3)
-        #canvas.create_image(30*i,30*i,image=plane3done)
-        #img_ref.append(plane3done)
     
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                                # (latmin, longmin, longmax, latmax)
-    flight_chart_array = FlightData.flightDataPull(24,-80,-79,30)
-=======
-=======
->>>>>>> Stashed changes
     # Read the flight data
     flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
@@ -312,134 +154,51 @@ class GUI():
     AAL_Arraylong = []
     AAL_Arraylat = []
     AAL_Arraytrue = []
->>>>>>> Stashed changes
 
-    #true_Array = datafile['true_track'].tolist()
-    #long_Array = datafile['long'].tolist()
-    #lat_Array = datafile['lat'].tolist()
-    true_ArrayFull = flight_chart_array[:,10]
-    long_ArrayFull = flight_chart_array[:,5]
-    lat_ArrayFull = flight_chart_array[:,6]
+    AAY_Arraylong = []
+    AAY_Arraylat = []
+    AAY_Arraytrue = []
 
-    true_Array = np.delete(true_ArrayFull, 0, 0)
-    long_Array = np.delete(long_ArrayFull, 0, 0)
-    lat_Array = np.delete(lat_ArrayFull, 0, 0)
+    ACA_Arraylong = []
+    ACA_Arraylat = []
+    ACA_Arraytrue = []
 
-    x_Array, y_Array = FlightData.coordinateTranslate(lat_Array,long_Array)
-    #print(long_Array)
+    AFR_Arraylong = []
+    AFR_Arraylat = []
+    AFR_Arraytrue = []
 
-    for i in range(len(x_Array)):
-        plane3 = plane2.rotate(true_Array[i], Image.BICUBIC)
-        plane3done = ImageTk.PhotoImage(plane3)
-        canvas.create_image(x_Array[i], y_Array[i], image=plane3done)
-        plane_ref.append(plane3done)
+    AMX_Arraylong = []
+    AMX_Arraylat = []
+    AMX_Arraytrue = []
 
-    # I don't think any of this is useful anymore since we are using
-    # canvases and photoimages.
-    # ------------------------------------
-    #USAMap = Label(image = USAMapImage)
-    #AirplaneIcon = Label(image = AirplaneIconImage)
-    #FlightData = FlightData()
-    #USAMap.pack()
-    #root.geometry("1114x642")
-    #root.title("Flight Tracking")
-    #AirplaneIcon.place(x=100,y=100)
+    ASA_Arraylong = []
+    ASA_Arraylat = []
+    ASA_Arraytrue = []
 
+    DAL_Arraylong = []
+    DAL_Arraylat = []
+    DAL_Arraytrue = []
 
+    FFT_Arraylong = []
+    FFT_Arraylat = []
+    FFT_Arraytrue = []
 
-    # black only atc zones
-    albuquerqueATC = Image.open('./atc_zones/albuquerque_zone_black.png')
-    albuquerqueATCMap = ImageTk.PhotoImage(albuquerqueATC)
-    canvas.create_image(150,100,image=albuquerqueATCMap)
+    JBU_Arraylong = []
+    JBU_Arraylat = []
+    JBU_Arraytrue = []
 
-    atlantaATC = Image.open('./atc_zones/atlanta_zone_black.png')
-    atlantaATCMap = ImageTk.PhotoImage(atlantaATC)
-    canvas.create_image(150,100, image = atlantaATCMap)
-    
-    bostonATC = Image.open('./atc_zones/boston_zone_black.png')
-    bostonATCMap = ImageTk.PhotoImage(bostonATC)
-    canvas.create_image(150,100, image = bostonATCMap)
-    
-    chicagoATC = Image.open('./atc_zones/chicago_zone_black.png')
-    chicagoATCMap = ImageTk.PhotoImage(chicagoATC)
-    canvas.create_image(150,100, image = chicagoATCMap)
-    
-    clevelandATC = Image.open('./atc_zones/cleveland_zone_black.png')
-    clevelandATCMap = ImageTk.PhotoImage(clevelandATC)
-    canvas.create_image(150,100, image = clevelandATCMap)
-    
-    denverATC = Image.open('./atc_zones/denver_zone_black.png')
-    denverATCMap = ImageTk.PhotoImage(denverATC)
-    canvas.create_image(150,100, image = denverATCMap)
-    
-    ft_worthATC = Image.open('./atc_zones/ft_worth_zone_black.png')
-    ft_worthATCMap = ImageTk.PhotoImage(ft_worthATC)
-    canvas.create_image(150,100, image = ft_worthATCMap)
-    
-    houstonATC = Image.open('./atc_zones/houston_zone_black.png')
-    houstonATCMap = ImageTk.PhotoImage(houstonATC)
-    canvas.create_image(150,100, image = houstonATCMap)
-    
-    indianapolisATC = Image.open('./atc_zones/indianapolis_zone_black.png')
-    indianapolisATCMap = ImageTk.PhotoImage(indianapolisATC)
-    canvas.create_image(150,100, image = indianapolisATCMap)
-    
-    jacksonvilleATC = Image.open('./atc_zones/jacksonville_zone_black.png')
-    jacksonvilleATCMap = ImageTk.PhotoImage(jacksonvilleATC)
-    canvas.create_image(150,100, image = jacksonvilleATCMap)
-    
-    kansas_cityATC = Image.open('./atc_zones/kansas_city_zone_black.png')
-    kansas_cityATCMap = ImageTk.PhotoImage(kansas_cityATC)
-    canvas.create_image(150,100, image = kansas_cityATCMap)
-    
-    los_angelesATC = Image.open('./atc_zones/los_angeles_zone_black.png')
-    los_angelesATCMap = ImageTk.PhotoImage(los_angelesATC)
-    canvas.create_image(150,100, image = los_angelesATCMap)
+    NKS_Arraylong = []
+    NKS_Arraylat = []
+    NKS_Arraytrue = []
 
-    memphisATC = Image.open('./atc_zones/memphis_zone_black.png')
-    memphisATCMap = ImageTk.PhotoImage(memphisATC)
-    canvas.create_image(150,100, image = memphisATCMap)
+    SWA_Arraylong = []
+    SWA_Arraylat = []
+    SWA_Arraytrue = []
 
-    miamiATC = Image.open('./atc_zones/miami_zone_black.png')
-    miamiATCMap = ImageTk.PhotoImage(miamiATC)
-    canvas.create_image(840,500, image = miamiATCMap)
+    UAL_Arraylong = []
+    UAL_Arraylat = []
+    UAL_Arraytrue = []
 
-<<<<<<< Updated upstream
-    minnealpolisATC = Image.open('./atc_zones/minnealpolis_zone_black.png')
-    minnealpolisATCMap = ImageTk.PhotoImage(minnealpolisATC)
-    canvas.create_image(150,100, image = minnealpolisATCMap)
-
-    new_yorkATC = Image.open('./atc_zones/new_york_zone_black.png')
-    new_yorkATCMap = ImageTk.PhotoImage(new_yorkATC)
-    canvas.create_image(150,100, image = new_yorkATCMap)
-
-    oaklandATC = Image.open('./atc_zones/oakland_zone_black.png')
-    oaklandATCMap = ImageTk.PhotoImage(oaklandATC)
-    canvas.create_image(150,100, image = oaklandATCMap)
-
-    salt_lakeATC = Image.open('./atc_zones/salt_lake_zone_black.png')
-    salt_lakeATCMap = ImageTk.PhotoImage(salt_lakeATC)
-    canvas.create_image(150,100, image = salt_lakeATCMap)
-
-    seattleATC = Image.open('./atc_zones/seattle_zone_black.png')
-    seattleATCMap = ImageTk.PhotoImage(seattleATC)
-    canvas.create_image(150,100, image = seattleATCMap)
-
-    washingtonATC = Image.open('./atc_zones/washington_zone_black.png')
-    washingtonATCMap = ImageTk.PhotoImage(washingtonATC)
-    canvas.create_image(150,100, image = washingtonATCMap)
-    
-
-    # put in all of the black ones in their correct places
-
-
-
-
-<<<<<<< Updated upstream
-
-=======
-=======
->>>>>>> Stashed changes
     #Sort by company code, add it to each array
     for i in range(len(flight_chart_array)):
         
@@ -605,17 +364,10 @@ class GUI():
         plane3done = ImageTk.PhotoImage(plane3)
         canvas.create_image(UAL_X_Array[i], UAL_Y_Array[i], image=plane3done)
         plane_ref.append(plane3done)
->>>>>>> Stashed changes
 
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     # this gotta be the last line or it all doesn't work
     root.mainloop()
-
-    
 
 
 
@@ -623,10 +375,3 @@ if __name__ == "__main__":
     
 
     Main = GUI()
-
-
-
-
-
-
-
