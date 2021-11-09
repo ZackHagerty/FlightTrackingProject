@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 from PIL import ImageTk, Image
 import pandas as pd
@@ -20,11 +21,62 @@ class GUI():
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
-        
+        self.menusSetup()
+
         self.settingUpPlanes()
         self.arrayStuff()
         self.plotPlanes()
 
+
+    def menusSetup(self):
+        # def menuClick(self, menuRectangle, optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour, optionButtonFive):
+        #     self.itemconfigure(menuRectangle, state = 'hidden')  
+        #     self.itemconfigure(optionButtonOne, state = 'hidden')  
+        #     self.itemconfigure(optionButtonTwo, state = 'hidden') 
+        #     self.itemconfigure(optionButtonThree, state = 'hidden') 
+        #     self.itemconfigure(optionButtonFour, state = 'hidden')
+        #     self.itemconfigure(optionButtonFive, state = 'hidden')
+
+        # optionButtonOne = tkinter.Button(command = menuClick())
+        # optionButtonTwo = tkinter.Button(command = menuClick())
+        # optionButtonThree = tkinter.Button(command = menuClick())
+        # optionButtonFour = tkinter.Button(command = menuClick())
+        # optionButtonFive = tkinter.Button(command = menuClick())
+        # optionButtonOne.place(x = 100, y = 100)
+        # optionButtonTwo.place(x = 100, y = 100)
+        # optionButtonThree.place(x = 100, y = 100)
+        # optionButtonFour.place(x = 100, y = 100)
+        # optionButtonFive.place(x = 100, y = 100)
+        # optionButtonOne.pack()
+        # optionButtonTwo.pack()
+        # optionButtonThree.pack()
+        # optionButtonFour.pack()
+        # optionButtonFive.pack()
+            
+        # #User option Button
+        # def optionsMenu(self, menuRectangle, optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour, optionButtonFive):
+        #    self.itemconfigure(menuRectangle, state = 'normal')
+        #    self.itemconfigure(optionButtonOne, state = 'normal') 
+        #    self.itemconfigure(optionButtonTwo, state = 'normal') 
+        #    self.itemconfigure(optionButtonThree, state = 'normal') 
+        #    self.itemconfigure(optionButtonFour, state = 'normal')
+        #    self.itemconfigure(optionButtonFive, state = 'normal')   
+        
+        # optionButtonOne = tkinter.Button(command = menuClick())
+        # optionButtonTwo = tkinter.Button(command = menuClick())
+        # optionButtonThree = tkinter.Button(command = menuClick())
+        # optionButtonFour = tkinter.Button(command = menuClick())
+        # optionButtonFive = tkinter.Button(command = menuClick())
+
+        self.gearImage = PhotoImage(file = './icons/gear_icon.png')
+        gearButton = tk.Button(self.root, image = self.gearImage, width = 40, height = 40, bg = '#aadaff', bd = 0, command = self.menuShow())
+        gearButton.place(x = 2, y = 600)
+
+        self.helpImage = PhotoImage(file = './icons/question_pic.png')
+        helpButton = tk.Button(self.root, image = self.helpImage, width = 40, height = 40, bg = '#aadaff', bd = 0)
+        helpButton.place(x = 42, y = 600)
+    def menuShow(self):
+        menuRectangle = self.canvas.create_rectangle(100,100,500,500, fill = 'gray')
     def settingUpPlanes(self):
         #test image of plane
         self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
