@@ -13,9 +13,9 @@ class GUI():
         self.root = Tk()
 
         #Sets up the frame and background self.canvas
-        frame = Frame(self.root)
-        frame.pack()
-        self.canvas = Canvas(frame, bg = "black", width=1114, height=642)
+        self.frame = Frame(self.root)
+        self.frame.pack()
+        self.canvas = Canvas(self.frame, bg = "black", width=1114, height=642)
         self.canvas.pack()
         
         #background image of US
@@ -27,8 +27,23 @@ class GUI():
         self.arrayStuff()
         self.plotPlanes()
 
-
     def menusSetup(self):
+        #creating a menu bar
+        menubar=Menu(self.root)
+
+        #Airline Dropdown Menu
+        airlineMenu=Menu(menubar, tearoff=0)
+        airlineMenu.add_command(label="Something", command = lambda : print("Something command from airline menu"))
+        menubar.add_cascade(label="Airline",menu=airlineMenu)
+
+
+        #ATC Zone Dropdown Menu
+        atcZoneMenu=Menu(menubar, tearoff=0)
+        atcZoneMenu.add_command(label="Something", command = lambda : print("Something command from atcZone menu"))
+        menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
+
+
+        self.root.config(menu=menubar)
         # def menuClick(self, menuRectangle, optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour, optionButtonFive):
         #     self.itemconfigure(menuRectangle, state = 'hidden')  
         #     self.itemconfigure(optionButtonOne, state = 'hidden')  
@@ -68,15 +83,15 @@ class GUI():
         # optionButtonFour = tkinter.Button(command = menuClick())
         # optionButtonFive = tkinter.Button(command = menuClick())
 
-        self.gearImage = PhotoImage(file = './icons/gear_icon.png')
-        gearButton = tk.Button(self.root, image = self.gearImage, width = 40, height = 40, bg = '#aadaff', bd = 0, command = self.menuShow())
-        gearButton.place(x = 2, y = 600)
+        # self.gearImage = PhotoImage(file = './icons/gear_icon.png')
+        # gearButton = tk.Button(self.root, image = self.gearImage, width = 40, height = 40, bg = '#aadaff', bd = 0, command = self.menuShow())
+        # gearButton.place(x = 2, y = 600)
 
-        self.helpImage = PhotoImage(file = './icons/question_pic.png')
-        helpButton = tk.Button(self.root, image = self.helpImage, width = 40, height = 40, bg = '#aadaff', bd = 0)
-        helpButton.place(x = 42, y = 600)
-    def menuShow(self):
-        menuRectangle = self.canvas.create_rectangle(100,100,500,500, fill = 'gray')
+        # self.helpImage = PhotoImage(file = './icons/question_pic.png')
+        # helpButton = tk.Button(self.root, image = self.helpImage, width = 40, height = 40, bg = '#aadaff', bd = 0)
+        # helpButton.place(x = 42, y = 600)
+    # def menuShow(self):
+    #     menuRectangle = self.canvas.create_rectangle(100,100,500,500, fill = 'gray')
     def settingUpPlanes(self):
         #test image of plane
         self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
