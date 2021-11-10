@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 from PIL import ImageTk, Image
 import pandas as pd
@@ -19,12 +20,60 @@ class GUI():
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
-        
+        self.menusSetup(root)
 
         self.settingUpPlanes()
         self.arrayStuff(root)
         
 
+    def menusSetup(self, root):
+        #creating a menu bar
+        menubar=Menu(root)
+
+        #Airline Dropdown Menu
+        airlineMenu=Menu(menubar, tearoff=0)
+        airlineMenu.add_checkbutton(label="American Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Allegiant Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Air Canada", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Air France", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="AeroMexico", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Alaska Air", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Delta Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Frontier Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Jet Blue Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Spirit Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="South West Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="United Airlines", command = lambda : print("Something command from airline menu"))
+        menubar.add_cascade(label="Airline",menu=airlineMenu)
+
+
+        #ATC Zone Dropdown Menu
+        atcZoneMenu=Menu(menubar, tearoff=0)
+        atcZoneMenu.add_checkbutton(label="ZBW", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZNY", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZOB", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZDC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZID", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZTL", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZJX", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZMA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZHU", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZME", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZKC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZAU", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZMP", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZFW", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZAB", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZDV", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZLC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZLA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZOA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZSE", command = lambda : print("Something command from atcZone menu"))
+        menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
+
+
+        root.config(menu=menubar)
+        
     def settingUpPlanes(self):
         #test image of plane
         self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
