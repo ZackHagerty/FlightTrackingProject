@@ -8,22 +8,22 @@ from FlightDataImport import FlightData
 
 class GUI():
 
-    def __init__(self):
-        self.root = Tk()
-
+    def __init__(self, root):
         #Sets up the frame and background self.canvas
-        frame = Frame(self.root)
+        frame = Frame(root)
         frame.pack()
         self.canvas = Canvas(frame, bg = "black", width=1114, height=642)
         self.canvas.pack()
+        
         
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
         
+
         self.settingUpPlanes()
-        self.arrayStuff()
-        self.plotPlanes()
+        self.arrayStuff(root)
+        
 
     def settingUpPlanes(self):
         #test image of plane
@@ -150,9 +150,8 @@ class GUI():
 
     # =====================   END ATC Zones   ===============================
 
-    def arrayStuff(self):
-
-        img_ref = []
+    def arrayStuff(self, root):
+        print("I hate this")
         self.plane_ref = []
         
         # Read the flight data
@@ -269,6 +268,7 @@ class GUI():
                 self.UAL_Arraylong.append(flight_chart_array[i,5])
                 self.UAL_Arraylat.append(flight_chart_array[i,6])
                 self.UAL_Arraytrue.append(flight_chart_array[i,10])
+        
 
         # Translate lat/long to x/y for the GUI
         self.AAL_X_Array, self.AAL_Y_Array = FlightData.coordinateTranslate(self.AAL_Arraylat,self.AAL_Arraylong)
@@ -285,102 +285,107 @@ class GUI():
         self.UAL_X_Array, self.UAL_Y_Array = FlightData.coordinateTranslate(self.UAL_Arraylat,self.UAL_Arraylong)
         #print(long_Array)
 
+        self.plotPlanes(root)
+
     # =====================   PLANE PLACEMENT   ===============================    
     
     # place each plane in x,y and with rotation with each color per airline
     
-    def plotPlanes(self):
+    def plotPlanes(self, root):
         # American
+        self.canvas.delete("plane")
         for i in range(len(self.AAL_X_Array)):
-            plane3 = self.plane_sky_blue.rotate(self.AAL_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_sky_blue.rotate(-self.AAL_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Allegiant
         for i in range(len(self.AAY_X_Array)):
-            plane3 = self.plane_orange.rotate(self.AAY_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Air Canada
         for i in range(len(self.ACA_X_Array)):
-            plane3 = self.plane_red.rotate(self.ACA_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_red.rotate(-self.ACA_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Air France
         for i in range(len(self.AFR_X_Array)):
-            plane3 = self.plane_light_blue.rotate(self.AFR_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_light_blue.rotate(-self.AFR_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.AFR_X_Array[i], self.AFR_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.AFR_X_Array[i], self.AFR_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # AeroMexico
         for i in range(len(self.AMX_X_Array)):
-            plane3 = self.plane_green.rotate(self.AMX_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_green.rotate(-self.AMX_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.AMX_X_Array[i], self.AMX_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.AMX_X_Array[i], self.AMX_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Air Alaska
         for i in range(len(self.ASA_X_Array)):
-            plane3 = self.plane_light_gray.rotate(self.ASA_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_light_gray.rotate(-self.ASA_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.ASA_X_Array[i], self.ASA_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.ASA_X_Array[i], self.ASA_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Delta
         for i in range(len(self.DAL_X_Array)):
-            plane3 = self.plane_burgundy.rotate(self.DAL_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_burgundy.rotate(-self.DAL_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.DAL_X_Array[i], self.DAL_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.DAL_X_Array[i], self.DAL_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Frontier
         for i in range(len(self.FFT_X_Array)):
-            plane3 = self.plane_dark_green.rotate(self.FFT_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_dark_green.rotate(-self.FFT_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.FFT_X_Array[i], self.FFT_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.FFT_X_Array[i], self.FFT_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Jetblue
         for i in range(len(self.JBU_X_Array)):
-            plane3 = self.plane_cyan.rotate(self.JBU_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_cyan.rotate(-self.JBU_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.JBU_X_Array[i], self.JBU_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.JBU_X_Array[i], self.JBU_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Spirit
         for i in range(len(self.NKS_X_Array)):
-            plane3 = self.plane_yellow.rotate(self.NKS_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_yellow.rotate(-self.NKS_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.NKS_X_Array[i], self.NKS_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.NKS_X_Array[i], self.NKS_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # Southwest
         for i in range(len(self.SWA_X_Array)):
-            plane3 = self.plane_darker_blue.rotate(self.SWA_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_darker_blue.rotate(-self.SWA_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.SWA_X_Array[i], self.SWA_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.SWA_X_Array[i], self.SWA_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
         # United
         for i in range(len(self.UAL_X_Array)):
-            plane3 = self.plane_gold.rotate(self.UAL_Arraytrue[i], Image.BICUBIC)
+            plane3 = self.plane_gold.rotate(-self.UAL_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
-            self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done)
+            self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('plane'))
             self.plane_ref.append(plane3done)
 
 
         # this gotta be the last line or it all doesn't work
-        self.root.mainloop()
+        root.after(25000, self.arrayStuff, root)
+        
 
 
 
 if __name__ == "__main__":
     
-
-    Main = GUI()
+    root = Tk()
+    Main = GUI(root)
+    root.mainloop()
