@@ -24,7 +24,9 @@ class FlightData():
 
     def flightDataPull(latmin, longmin, longmax, latmax):
         #Pull Request from browser search of opensky using lat and long data
-        OpenSky_datapull = 'https://opensky-network.org/api/states/all?lamin=' + str(latmin) + '&lomin=' + str(longmin) + '&lamax=' + str(latmax) + '&lomax=' + str(longmax)
+        user_name = 'zack.hagerty'
+        password = 'SE300'
+        OpenSky_datapull = 'https://'+user_name+':'+password+'@opensky-network.org/api/states/all?lamin=' + str(latmin) + '&lomin=' + str(longmin) + '&lamax=' + str(latmax) + '&lomax=' + str(longmax)
         OpenSky_data = requests.get(OpenSky_datapull).json()
 
 
