@@ -33,65 +33,47 @@ class GUI():
 
         #Airline Dropdown Menu
         airlineMenu=Menu(menubar, tearoff=0)
-        airlineMenu.add_command(label="Something", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="American Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Allegiant Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Air Canada", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Air France", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="AeroMexico", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Alaska Air", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Delta Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Frontier Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Jet Blue Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Spirit Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="South West Airlines", command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="United Airlines", command = lambda : print("Something command from airline menu"))
         menubar.add_cascade(label="Airline",menu=airlineMenu)
 
 
         #ATC Zone Dropdown Menu
         atcZoneMenu=Menu(menubar, tearoff=0)
-        atcZoneMenu.add_command(label="Something", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZBW", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZNY", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZOB", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZDC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZID", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZTL", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZJX", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZMA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZHU", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZME", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZKC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZAU", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZMP", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZFW", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZAB", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZDV", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZLC", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZLA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZOA", command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZSE", command = lambda : print("Something command from atcZone menu"))
         menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
 
 
         self.root.config(menu=menubar)
-        # def menuClick(self, menuRectangle, optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour, optionButtonFive):
-        #     self.itemconfigure(menuRectangle, state = 'hidden')  
-        #     self.itemconfigure(optionButtonOne, state = 'hidden')  
-        #     self.itemconfigure(optionButtonTwo, state = 'hidden') 
-        #     self.itemconfigure(optionButtonThree, state = 'hidden') 
-        #     self.itemconfigure(optionButtonFour, state = 'hidden')
-        #     self.itemconfigure(optionButtonFive, state = 'hidden')
-
-        # optionButtonOne = tkinter.Button(command = menuClick())
-        # optionButtonTwo = tkinter.Button(command = menuClick())
-        # optionButtonThree = tkinter.Button(command = menuClick())
-        # optionButtonFour = tkinter.Button(command = menuClick())
-        # optionButtonFive = tkinter.Button(command = menuClick())
-        # optionButtonOne.place(x = 100, y = 100)
-        # optionButtonTwo.place(x = 100, y = 100)
-        # optionButtonThree.place(x = 100, y = 100)
-        # optionButtonFour.place(x = 100, y = 100)
-        # optionButtonFive.place(x = 100, y = 100)
-        # optionButtonOne.pack()
-        # optionButtonTwo.pack()
-        # optionButtonThree.pack()
-        # optionButtonFour.pack()
-        # optionButtonFive.pack()
-            
-        # #User option Button
-        # def optionsMenu(self, menuRectangle, optionButtonOne, optionButtonTwo, optionButtonThree, optionButtonFour, optionButtonFive):
-        #    self.itemconfigure(menuRectangle, state = 'normal')
-        #    self.itemconfigure(optionButtonOne, state = 'normal') 
-        #    self.itemconfigure(optionButtonTwo, state = 'normal') 
-        #    self.itemconfigure(optionButtonThree, state = 'normal') 
-        #    self.itemconfigure(optionButtonFour, state = 'normal')
-        #    self.itemconfigure(optionButtonFive, state = 'normal')   
-        
-        # optionButtonOne = tkinter.Button(command = menuClick())
-        # optionButtonTwo = tkinter.Button(command = menuClick())
-        # optionButtonThree = tkinter.Button(command = menuClick())
-        # optionButtonFour = tkinter.Button(command = menuClick())
-        # optionButtonFive = tkinter.Button(command = menuClick())
-
-        # self.gearImage = PhotoImage(file = './icons/gear_icon.png')
-        # gearButton = tk.Button(self.root, image = self.gearImage, width = 40, height = 40, bg = '#aadaff', bd = 0, command = self.menuShow())
-        # gearButton.place(x = 2, y = 600)
-
-        # self.helpImage = PhotoImage(file = './icons/question_pic.png')
-        # helpButton = tk.Button(self.root, image = self.helpImage, width = 40, height = 40, bg = '#aadaff', bd = 0)
-        # helpButton.place(x = 42, y = 600)
-    # def menuShow(self):
-    #     menuRectangle = self.canvas.create_rectangle(100,100,500,500, fill = 'gray')
     def settingUpPlanes(self):
         #test image of plane
         self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
