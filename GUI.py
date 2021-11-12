@@ -13,13 +13,13 @@ class GUI():
         #Sets up the frame and background self.canvas
         frame = Frame(root)
         frame.pack()
-        self.canvas = Canvas(frame, bg = "black", width=1114, height=642)
+        self.canvas = Canvas(frame, bg = "black", width=1671, height=963)
         self.canvas.pack()
         
         
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
-        self.canvas.create_image(557,(321),image=self.USAMapImage1)
+        self.canvas.create_image(836,(482),image=self.USAMapImage1)
         self.menusSetup(root)
 
         self.settingUpPlanes()
@@ -428,7 +428,7 @@ class GUI():
 
 
         # this gotta be the last line or it all doesn't work
-        root.after(25000, self.arrayStuff, root)
+        root.after(20000, self.arrayStuff, root)
         
 
 
