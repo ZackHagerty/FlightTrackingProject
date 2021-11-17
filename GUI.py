@@ -27,8 +27,8 @@ class GUI():
 
         self.menusSetup(root)
 
-
         self.settingUpPlanes()
+        
         self.arrayStuff(root)
         
 
@@ -59,7 +59,7 @@ class GUI():
         self.UALCheckVar = IntVar()
 
         airlineMenu=Menu(menubar, tearoff=0)
-        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hideAAL())
+        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda: self.hideAAL())
         airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : print("Something command from airline menu"))
         airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : print("Something command from airline menu"))
         airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : print("Something command from airline menu"))
@@ -121,6 +121,7 @@ class GUI():
 
 
         root.config(menu=menubar)
+        
 
         
     def my_command(self):
@@ -133,11 +134,11 @@ class GUI():
 
     def hideAAL(self):
         if self.AALCheckVar.get() == 1:
-            self.canvas.itemconfigure(self.canvas.find_withtag('AALplane'), state = NORMAL)
+            self.canvas.itemconfigure('AALplane', state = 'normal')
             print("Kill me now")
         else:
             print(self.AALCheckVar.get())
-            self.canvas.itemconfigure(self.canvas.find_withtag('AALplane'), state = DISABLED)
+            self.canvas.itemconfigure('AALplane', state = 'hidden')
 
 
 
