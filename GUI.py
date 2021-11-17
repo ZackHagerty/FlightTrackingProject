@@ -46,31 +46,31 @@ class GUI():
 
         #Airline Dropdown Menu
         self.AALCheckVar = IntVar(value=1)
-        self.AAYCheckVar = IntVar()
-        self.ACACheckVar = IntVar()
-        self.AFRCheckVar = IntVar()
-        self.AMXCheckVar = IntVar()
-        self.ASACheckVar = IntVar()
+        self.AAYCheckVar = IntVar(value=1)
+        self.ACACheckVar = IntVar(value=1)
+        self.AFRCheckVar = IntVar(value=1)
+        self.AMXCheckVar = IntVar(value=1)
+        self.ASACheckVar = IntVar(value=1)
         self.DALCheckVar = IntVar(value=1)
-        self.FFTCheckVar = IntVar()
-        self.JBUCheckVar = IntVar()
-        self.NKSCheckVar = IntVar()
-        self.SWACheckVar = IntVar()
-        self.UALCheckVar = IntVar()
+        self.FFTCheckVar = IntVar(value=1)
+        self.JBUCheckVar = IntVar(value=1)
+        self.NKSCheckVar = IntVar(value=1)
+        self.SWACheckVar = IntVar(value=1)
+        self.UALCheckVar = IntVar(value=1)
 
         airlineMenu=Menu(menubar, tearoff=0)
         airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hideAAL())
-        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : print("Something command from airline menu"))
-        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : print("Something command from airline menu"))
+        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : self.hideAAY())
+        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : self.hideACA())
+        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : self.hideAFR())
+        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : self.hideAMX())
+        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : self.hideASA())
+        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : self.hideDAL())
+        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : self.hideFFT())
+        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : self.hideJBU())
+        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : self.hideNKS())
+        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : self.hideSWA())
+        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : self.hideUAL())
         menubar.add_cascade(label="Airline",menu=airlineMenu)
 
 
@@ -133,11 +133,107 @@ class GUI():
 
     def hideAAL(self):
         if self.AALCheckVar.get() == 1:
-            self.canvas.itemconfigure(self.canvas.find_withtag('AALplane'), state = NORMAL)
+            self.canvas.itemconfigure('AALplane', state = 'normal')
             print("Kill me now")
         else:
             print(self.AALCheckVar.get())
-            self.canvas.itemconfigure(self.canvas.find_withtag('AALplane'), state = DISABLED)
+            self.canvas.itemconfigure('AALplane', state = 'hidden')
+
+    def hideAAY(self):
+        if self.AAYCheckVar.get() == 1:
+            self.canvas.itemconfigure('AAYplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.AAYCheckVar.get())
+            self.canvas.itemconfigure('AAYplane', state = 'hidden')
+
+    def hideACA(self):
+        if self.ACACheckVar.get() == 1:
+            self.canvas.itemconfigure('ACAplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.ACACheckVar.get())
+            self.canvas.itemconfigure('ACAplane', state = 'hidden')
+
+    def hideAFR(self):
+        if self.AFRCheckVar.get() == 1:
+            self.canvas.itemconfigure('AFRplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.AFRCheckVar.get())
+            self.canvas.itemconfigure('AFRplane', state = 'hidden')
+
+    def hideAAL(self):
+        if self.AALCheckVar.get() == 1:
+            self.canvas.itemconfigure('AALplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.AALCheckVar.get())
+            self.canvas.itemconfigure('AALplane', state = 'hidden')
+
+    def hideAMX(self):
+        if self.AMXCheckVar.get() == 1:
+            self.canvas.itemconfigure('AMXplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.AMXCheckVar.get())
+            self.canvas.itemconfigure('AMXplane', state = 'hidden')
+
+    def hideASA(self):
+        if self.ASACheckVar.get() == 1:
+            self.canvas.itemconfigure('ASAplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.ASACheckVar.get())
+            self.canvas.itemconfigure('ASAplane', state = 'hidden')
+
+    def hideDAL(self):
+        if self.DALCheckVar.get() == 1:
+            self.canvas.itemconfigure('DALplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.DALCheckVar.get())
+            self.canvas.itemconfigure('DALplane', state = 'hidden')
+
+    def hideFFT(self):
+        if self.FFTCheckVar.get() == 1:
+            self.canvas.itemconfigure('FFTplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.FFTCheckVar.get())
+            self.canvas.itemconfigure('FFTplane', state = 'hidden')
+
+    def hideJBU(self):
+        if self.JBUCheckVar.get() == 1:
+            self.canvas.itemconfigure('JBUplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.JBUCheckVar.get())
+            self.canvas.itemconfigure('JBUplane', state = 'hidden')
+
+    def hideNKS(self):
+        if self.NKSCheckVar.get() == 1:
+            self.canvas.itemconfigure('NKSplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.NKSCheckVar.get())
+            self.canvas.itemconfigure('NKSplane', state = 'hidden')
+
+    def hideSWA(self):
+        if self.SWACheckVar.get() == 1:
+            self.canvas.itemconfigure('SWAplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.SWACheckVar.get())
+            self.canvas.itemconfigure('SWAplane', state = 'hidden')
+
+    def hideUAL(self):
+        if self.UALCheckVar.get() == 1:
+            self.canvas.itemconfigure('UALplane', state = 'normal')
+            print("Kill me now")
+        else:
+            print(self.UALCheckVar.get())
+            self.canvas.itemconfigure('UALplane', state = 'hidden')
 
 
 
@@ -436,6 +532,7 @@ class GUI():
         self.planeImages = {}
         self.planeImages["AAL"] = []
         for i in range(len(self.AAL_X_Array)):
+            
             plane3 = self.plane_sky_blue.rotate(-self.AAL_Arraytrue[i], Image.BICUBIC)
             plane3done = ImageTk.PhotoImage(plane3)
             AAL = self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done, tags =('AALplane'))
