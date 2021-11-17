@@ -75,48 +75,48 @@ class GUI():
 
 
         #ATC Zone Dropdown Menu
-        self.ZBWCheckVar = IntVar(value=1)
-        self.ZNYCheckVar = IntVar(value=1)
-        self.ZOBCheckVar = IntVar(value=1)
-        self.ZDCCheckVar = IntVar(value=1)
-        self.ZIDCheckVar = IntVar(value=1)
-        self.ZTLCheckVar = IntVar(value=1)
+        self.ZBWCheckVar = IntVar()
+        self.ZNYCheckVar = IntVar()
+        self.ZOBCheckVar = IntVar()
+        self.ZDCCheckVar = IntVar()
+        self.ZIDCheckVar = IntVar()
+        self.ZTLCheckVar = IntVar()
         self.ZJXCheckVar = IntVar(value=1)
-        self.ZMACheckVar = IntVar(value=1)
-        self.ZHUCheckVar = IntVar(value=1)
-        self.ZMECheckVar = IntVar(value=1)
-        self.ZKCCheckVar = IntVar(value=1)
-        self.ZAUCheckVar = IntVar(value=1)
-        self.ZMPCheckVar = IntVar(value=1)
-        self.ZFWCheckVar = IntVar(value=1)
-        self.ZABCheckVar = IntVar(value=1)
-        self.ZDVCheckVar = IntVar(value=1)
-        self.ZLCCheckVar = IntVar(value=1)
+        self.ZMACheckVar = IntVar()
+        self.ZHUCheckVar = IntVar()
+        self.ZMECheckVar = IntVar()
+        self.ZKCCheckVar = IntVar()
+        self.ZAUCheckVar = IntVar()
+        self.ZMPCheckVar = IntVar()
+        self.ZFWCheckVar = IntVar()
+        self.ZABCheckVar = IntVar()
+        self.ZDVCheckVar = IntVar()
+        self.ZLCCheckVar = IntVar()
         self.ZLACheckVar = IntVar(value=1)
-        self.ZOACheckVar = IntVar(value=1)
-        self.ZSECheckVar = IntVar(value=1)
+        self.ZOACheckVar = IntVar()
+        self.ZSECheckVar = IntVar()
 
         atcZoneMenu=Menu(menubar, tearoff=0)
-        atcZoneMenu.add_checkbutton(label="ZBW", variable= self.ZBWCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZNY", variable= self.ZNYCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZOB", variable= self.ZOBCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZDC", variable= self.ZDCCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZID", variable= self.ZIDCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZTL", variable= self.ZTLCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZJX", variable= self.ZJXCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZMA", variable= self.ZMACheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZHU", variable= self.ZHUCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZME", variable= self.ZMECheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZKC", variable= self.ZKCCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZAU", variable= self.ZAUCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZMP", variable= self.ZMPCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZFW", variable= self.ZFWCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZAB", variable= self.ZABCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZDV", variable= self.ZDVCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZLC", variable= self.ZLCCheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZLA", variable= self.ZLACheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZOA", variable= self.ZOACheckVar, command = lambda : print("Something command from atcZone menu"))
-        atcZoneMenu.add_checkbutton(label="ZSE", variable= self.ZSECheckVar, command = lambda : print("Something command from atcZone menu"))
+        atcZoneMenu.add_checkbutton(label="ZBW", variable= self.ZBWCheckVar, command = lambda : self.hideZBW())
+        atcZoneMenu.add_checkbutton(label="ZNY", variable= self.ZNYCheckVar, command = lambda : self.hideZNY())
+        atcZoneMenu.add_checkbutton(label="ZOB", variable= self.ZOBCheckVar, command = lambda : self.hideZOB())
+        atcZoneMenu.add_checkbutton(label="ZDC", variable= self.ZDCCheckVar, command = lambda : self.hideZDC())
+        atcZoneMenu.add_checkbutton(label="ZID", variable= self.ZIDCheckVar, command = lambda : self.hideZID())
+        atcZoneMenu.add_checkbutton(label="ZTL", variable= self.ZTLCheckVar, command = lambda : self.hideZTL())
+        atcZoneMenu.add_checkbutton(label="ZJX", variable= self.ZJXCheckVar, command = lambda : self.hideZJX())
+        atcZoneMenu.add_checkbutton(label="ZMA", variable= self.ZMACheckVar, command = lambda : self.hideZMA())
+        atcZoneMenu.add_checkbutton(label="ZHU", variable= self.ZHUCheckVar, command = lambda : self.hideZHU())
+        atcZoneMenu.add_checkbutton(label="ZME", variable= self.ZMECheckVar, command = lambda : self.hideZME())
+        atcZoneMenu.add_checkbutton(label="ZKC", variable= self.ZKCCheckVar, command = lambda : self.hideZKC())
+        atcZoneMenu.add_checkbutton(label="ZAU", variable= self.ZAUCheckVar, command = lambda : self.hideZAU())
+        atcZoneMenu.add_checkbutton(label="ZMP", variable= self.ZMPCheckVar, command = lambda : self.hideZMP())
+        atcZoneMenu.add_checkbutton(label="ZFW", variable= self.ZFWCheckVar, command = lambda : self.hideZFW())
+        atcZoneMenu.add_checkbutton(label="ZAB", variable= self.ZABCheckVar, command = lambda : self.hideZAB())
+        atcZoneMenu.add_checkbutton(label="ZDV", variable= self.ZDVCheckVar, command = lambda : self.hideZDV())
+        atcZoneMenu.add_checkbutton(label="ZLC", variable= self.ZLCCheckVar, command = lambda : self.hideZLC())
+        atcZoneMenu.add_checkbutton(label="ZLA", variable= self.ZLACheckVar, command = lambda : self.hideZLA())
+        atcZoneMenu.add_checkbutton(label="ZOA", variable= self.ZOACheckVar, command = lambda : self.hideZOA())
+        atcZoneMenu.add_checkbutton(label="ZSE", variable= self.ZSECheckVar, command = lambda : self.hideZSE())
         menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
 
 
@@ -235,6 +235,147 @@ class GUI():
             print(self.UALCheckVar.get())
             self.canvas.itemconfigure('UALplane', state = 'hidden')
 
+#-------------------ATC ZONE TOGGLE----------------------------
+    def hideZBW(self):
+        if self.ZBWCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZBW', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZBW', state = 'hidden')
+
+    def hideZNY(self):
+        if self.ZNYCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZNY', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZNY', state = 'hidden')
+
+    def hideZOB(self):
+        if self.ZOBCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZOB', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZOB', state = 'hidden')
+
+    def hideZDC(self):
+        if self.ZDCCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZDC', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZDC', state = 'hidden')
+
+    def hideZID(self):
+        if self.ZIDCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZID', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZID', state = 'hidden')
+
+    def hideZTL(self):
+        if self.ZTLCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZTL', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZTL', state = 'hidden')
+
+    def hideZJX(self):
+        if self.ZJXCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZJX', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZJX', state = 'hidden')
+
+    def hideZMA(self):
+        if self.ZMACheckVar.get() == 1:
+            self.canvas.itemconfigure('ZMA', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZMA', state = 'hidden')
+
+    def hideZHU(self):
+        if self.ZHUCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZHU', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZHU', state = 'hidden')
+
+    def hideZME(self):
+        if self.ZMECheckVar.get() == 1:
+            self.canvas.itemconfigure('ZME', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZME', state = 'hidden')
+
+    def hideZKC(self):
+        if self.ZKCCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZKC', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZKC', state = 'hidden')
+
+    def hideZAU(self):
+        if self.ZAUCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZAU', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZAU', state = 'hidden')
+
+    def hideZMP(self):
+        if self.ZMPCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZMP', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZMP', state = 'hidden')
+
+    def hideZFW(self):
+        if self.ZFWCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZFW', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZFW', state = 'hidden')
+
+    def hideZAB(self):
+        if self.ZABCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZAB', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZAB', state = 'hidden')
+
+    def hideZDV(self):
+        if self.ZDVCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZDV', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZDV', state = 'hidden')
+
+    def hideZLC(self):
+        if self.ZLCCheckVar.get() == 1:
+            self.canvas.itemconfigure('ZLC', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZLC', state = 'hidden')
+
+    def hideZLA(self):
+        if self.ZLACheckVar.get() == 1:
+            self.canvas.itemconfigure('ZLA', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZLA', state = 'hidden')
+
+    def hideZOA(self):
+        if self.ZOACheckVar.get() == 1:
+            self.canvas.itemconfigure('ZOA', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZOA', state = 'hidden')
+
+    def hideZSE(self):
+        if self.ZSECheckVar.get() == 1:
+            self.canvas.itemconfigure('ZSE', state = 'normal')
+            print("Kill me now")
+        else:
+            self.canvas.itemconfigure('ZSE', state = 'hidden')
+
 
 
     def settingUpPlanes(self):
@@ -262,102 +403,162 @@ class GUI():
         #ZBW
         atc_zbw = Image.open('./atc_zones/sized_ATC/ZBW-170.png')
         self.atc_BW = ImageTk.PhotoImage(atc_zbw)
-        self.canvas.create_image(995, 151, image=self.atc_BW, tags = 'zbw')
+        self.canvas.create_image(995, 151, image=self.atc_BW, tags = 'ZBW')
+
+        if self.ZBWCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZBW', state = 'hidden')
 
         #ZNY
         atc_zny = Image.open('./atc_zones/sized_ATC/zny-84.png')
         self.atc_NY = ImageTk.PhotoImage(atc_zny)
-        self.canvas.create_image(929, 207, image=self.atc_NY, tags = 'zny')
+        self.canvas.create_image(929, 207, image=self.atc_NY, tags = 'ZNY')
+
+        if self.ZNYCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZNY', state = 'hidden')
 
         #ZOB
         atc_zob = Image.open('./atc_zones/sized_ATC/zob-154.png')
         self.atc_OB = ImageTk.PhotoImage(atc_zob)
-        self.canvas.create_image(845, 193, image=self.atc_OB, tags = 'zob')
+        self.canvas.create_image(845, 193, image=self.atc_OB, tags = 'ZOB')
+
+        if self.ZOBCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZOB', state = 'hidden')
 
         #ZDC
         atc_zdc = Image.open('./atc_zones/sized_ATC/zdc-148.png')
         self.atc_DC = ImageTk.PhotoImage(atc_zdc)
-        self.canvas.create_image(915, 309, image=self.atc_DC, tags = 'zdc')
+        self.canvas.create_image(915, 309, image=self.atc_DC, tags = 'ZDC')
+
+        if self.ZDCCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZDC', state = 'hidden')
 
         #ZID
         atc_zid = Image.open('./atc_zones/sized_ATC/zid-137.png')
         self.atc_ID = ImageTk.PhotoImage(atc_zid)
-        self.canvas.create_image(780, 260, image=self.atc_ID, tags = 'zid')
+        self.canvas.create_image(780, 260, image=self.atc_ID, tags = 'ZID')
+
+        if self.ZIDCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZID', state = 'hidden')
 
         #ZTL
         atc_ztl = Image.open('./atc_zones/sized_ATC/ztl-150.png')
         self.atc_TL = ImageTk.PhotoImage(atc_ztl)
-        self.canvas.create_image(786, 355, image=self.atc_TL, tags = 'ztl')
+        self.canvas.create_image(786, 355, image=self.atc_TL, tags = 'ZTL')
+
+        if self.ZTLCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZTL', state = 'hidden')
 
         #ZJX
         atc_zjx = Image.open('./atc_zones/sized_ATC/zjx-203.png')
         self.atc_JX = ImageTk.PhotoImage(atc_zjx)
-        self.canvas.create_image(817, 425, image=self.atc_JX, tags = 'zjx')
+        self.canvas.create_image(817, 425, image=self.atc_JX, tags = 'ZJX')
+
+        if self.ZJXCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZJX', state = 'hidden')
 
         #ZMA
         atc_zma = Image.open('./atc_zones/sized_ATC/zma-165.png')
         self.atc_MA = ImageTk.PhotoImage(atc_zma)
-        self.canvas.create_image(834, 520, image=self.atc_MA, tags = 'zma')
+        self.canvas.create_image(834, 520, image=self.atc_MA, tags = 'ZMA')
+
+        if self.ZMACheckVar.get() == 0:
+            self.canvas.itemconfigure('ZMA', state = 'hidden')
 
         #ZHU
         atc_zhu = Image.open('./atc_zones/sized_ATC/zhu-289.png')
         self.atc_HU = ImageTk.PhotoImage(atc_zhu)
-        self.canvas.create_image(610, 497, image=self.atc_HU, tags = 'zhu')
+        self.canvas.create_image(610, 497, image=self.atc_HU, tags = 'ZHU')
+
+        if self.ZHUCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZHU', state = 'hidden')
 
         #ZME
         atc_zme = Image.open('./atc_zones/sized_ATC/zme-183.png')
         self.atc_ME = ImageTk.PhotoImage(atc_zme)
-        self.canvas.create_image(674, 348, image=self.atc_ME, tags = 'zme')
+        self.canvas.create_image(674, 348, image=self.atc_ME, tags = 'ZME')
+
+        if self.ZMECheckVar.get() == 0:
+            self.canvas.itemconfigure('ZME', state = 'hidden')
 
         #ZKC
         atc_zkc = Image.open('./atc_zones/sized_ATC/zkc-253.png')
         self.atc_KC = ImageTk.PhotoImage(atc_zkc)
-        self.canvas.create_image(591, 270, image=self.atc_KC, tags = 'zkc')
+        self.canvas.create_image(591, 270, image=self.atc_KC, tags = 'ZKC')
+
+        if self.ZKCCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZKC', state = 'hidden')
 
         #ZAU
         atc_zau = Image.open('./atc_zones/sized_ATC/zau-156.png')
         self.atc_AU = ImageTk.PhotoImage(atc_zau)
-        self.canvas.create_image(698, 180, image=self.atc_AU, tags = 'zau')
+        self.canvas.create_image(698, 180, image=self.atc_AU, tags = 'ZAU')
+
+        if self.ZAUCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZAU', state = 'hidden')
 
         #ZMP
         atc_zmp = Image.open('./atc_zones/sized_ATC/zmp-363.png')
         self.atc_MP = ImageTk.PhotoImage(atc_zmp)
-        self.canvas.create_image(637, 135, image=self.atc_MP, tags = 'zmp')
+        self.canvas.create_image(637, 135, image=self.atc_MP, tags = 'ZMP')
+
+        if self.ZMPCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZMP', state = 'hidden')
 
         #ZFW
         atc_zfw = Image.open('./atc_zones/sized_ATC/zfw-215.png')
         self.atc_FW = ImageTk.PhotoImage(atc_zfw)
-        self.canvas.create_image(549, 375, image=self.atc_FW, tags = 'zfw')
+        self.canvas.create_image(549, 375, image=self.atc_FW, tags = 'ZFW')
+
+        if self.ZFWCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZFW', state = 'hidden')
         
         #ZAB
         atc_zab = Image.open('./atc_zones/sized_ATC/zab-245.png')
         self.atc_AB = ImageTk.PhotoImage(atc_zab)
-        self.canvas.create_image(391, 379, image=self.atc_AB, tags = 'zab')
+        self.canvas.create_image(391, 379, image=self.atc_AB, tags = 'ZAB')
+
+        if self.ZABCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZAB', state = 'hidden')
 
         #ZDV
         atc_zdv = Image.open('./atc_zones/sized_ATC/zdv-230.png')
         self.atc_DV = ImageTk.PhotoImage(atc_zdv)
-        self.canvas.create_image(421, 218, image=self.atc_DV, tags = 'zdv')
+        self.canvas.create_image(421, 218, image=self.atc_DV, tags = 'ZDV')
+
+        if self.ZDVCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZDV', state = 'hidden')
 
         #ZLC
         atc_zlc = Image.open('./atc_zones/sized_ATC/zlc-283.png')
         self.atc_LC = ImageTk.PhotoImage(atc_zlc)
-        self.canvas.create_image(317, 157, image=self.atc_LC, tags = 'zlc')
+        self.canvas.create_image(317, 157, image=self.atc_LC, tags = 'ZLC')
+
+        if self.ZLCCheckVar.get() == 0:
+            self.canvas.itemconfigure('ZLC', state = 'hidden')
 
         #ZLA
         atc_zla = Image.open('./atc_zones/sized_ATC/zla-204.png')
         self.atc_LA = ImageTk.PhotoImage(atc_zla)
-        self.canvas.create_image(214, 355, image=self.atc_LA, tags = 'zla')
+        self.canvas.create_image(214, 355, image=self.atc_LA, tags = 'ZLA')
+
+        if self.ZLACheckVar.get() == 0:
+            self.canvas.itemconfigure('ZLA', state = 'hidden')
 
         #ZOA
         atc_zoa = Image.open('./atc_zones/sized_ATC/zoa-172.png')
         self.atc_OA = ImageTk.PhotoImage(atc_zoa)
-        self.canvas.create_image(136, 276, image=self.atc_OA, tags = 'zoa')
+        self.canvas.create_image(136, 276, image=self.atc_OA, tags = 'ZOA')
+
+        if self.ZOACheckVar.get() == 0:
+            self.canvas.itemconfigure('ZOA', state = 'hidden')
 
         #ZSE
         atc_zse = Image.open('./atc_zones/sized_ATC/zse-230.png')
         self.atc_SE = ImageTk.PhotoImage(atc_zse)
-        self.canvas.create_image(146, 126, image=self.atc_SE, tags = 'zse')
+        self.canvas.create_image(146, 126, image=self.atc_SE, tags = 'ZSE')
+
+        if self.ZSECheckVar.get() == 0:
+            self.canvas.itemconfigure('ZSE', state = 'hidden')
 
     # =====================   END ATC Zones   ===============================
 
