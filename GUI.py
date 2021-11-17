@@ -27,8 +27,8 @@ class GUI():
 
         self.menusSetup(root)
 
-
         self.settingUpPlanes()
+        
         self.arrayStuff(root)
         
 
@@ -121,6 +121,7 @@ class GUI():
 
 
         root.config(menu=menubar)
+        
 
         
     def my_command(self):
