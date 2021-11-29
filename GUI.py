@@ -25,25 +25,15 @@ class GUI():
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
 
+        self.blankArray()
+
         self.menusSetup(root)
 
         self.settingUpPlanes()
         
         self.arrayStuff(root)
-        
 
-    def menusSetup(self, root):
-        #creating a menu bar
-
-        clippy = Image.open('./icons/Clippy.png')
-        clippyText = Image.open('./icons/Speech.png')
-        self.clipper = ImageTk.PhotoImage(clippy)
-        self.Speech = ImageTk.PhotoImage(clippyText)
-        butt = Button(root, image=self.clipper, bg = '#aadaff', activebackground= '#aadaff', command= self.my_command, borderwidth= 0)
-        butt.place(x = 1010, y = 525)
-        
-        menubar=Menu(root)
-
+    def blankArray(self):
         #Airline Dropdown Menu
         self.AALCheckVar = IntVar(value=1)
         self.AAYCheckVar = IntVar(value=1)
@@ -57,22 +47,6 @@ class GUI():
         self.NKSCheckVar = IntVar(value=1)
         self.SWACheckVar = IntVar(value=1)
         self.UALCheckVar = IntVar(value=1)
-
-        airlineMenu=Menu(menubar, tearoff=0)
-        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hideAAL())
-        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : self.hideAAY())
-        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : self.hideACA())
-        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : self.hideAFR())
-        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : self.hideAMX())
-        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : self.hideASA())
-        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : self.hideDAL())
-        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : self.hideFFT())
-        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : self.hideJBU())
-        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : self.hideNKS())
-        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : self.hideSWA())
-        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : self.hideUAL())
-        menubar.add_cascade(label="Airline",menu=airlineMenu)
-
 
         #ATC Zone Dropdown Menu
         self.ZBWCheckVar = IntVar()
@@ -94,7 +68,35 @@ class GUI():
         self.ZLCCheckVar = IntVar()
         self.ZLACheckVar = IntVar(value=1)
         self.ZOACheckVar = IntVar()
-        self.ZSECheckVar = IntVar()
+        self.ZSECheckVar = IntVar()    
+
+    def menusSetup(self, root):
+        #creating a menu bar
+
+        clippy = Image.open('./icons/Clippy.png')
+        clippyText = Image.open('./icons/Speech.png')
+        self.clipper = ImageTk.PhotoImage(clippy)
+        self.Speech = ImageTk.PhotoImage(clippyText)
+        butt = Button(root, image=self.clipper, bg = '#aadaff', activebackground= '#aadaff', command= self.my_command, borderwidth= 0)
+        butt.place(x = 1010, y = 525)
+        
+        menubar=Menu(root)
+
+        airlineMenu=Menu(menubar, tearoff=0)
+        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hideAAL())
+        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : self.hideAAY())
+        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : self.hideACA())
+        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : self.hideAFR())
+        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : self.hideAMX())
+        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : self.hideASA())
+        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : self.hideDAL())
+        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : self.hideFFT())
+        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : self.hideJBU())
+        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : self.hideNKS())
+        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : self.hideSWA())
+        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : self.hideUAL())
+        menubar.add_cascade(label="Airline",menu=airlineMenu)
+
 
         atcZoneMenu=Menu(menubar, tearoff=0)
         atcZoneMenu.add_checkbutton(label="ZBW", variable= self.ZBWCheckVar, command = lambda : self.hideZBW())
@@ -735,106 +737,204 @@ class GUI():
         self.planeImages["AAL"] = []
         for i in range(len(self.AAL_X_Array)):
             
-            plane3 = self.plane_sky_blue.rotate(-self.AAL_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            AAL = self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done, tags =('AALplane'))
-            ToolTip.CreateToolTip(self.canvas, AAL , text = 'AAL, ' + self.AAL_callSign[i])
-            self.plane_ref.append(plane3done)
+            if self.AALCheckVar.get() == 1:
+                plane3 = self.plane_sky_blue.rotate(-self.AAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AAL = self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done, tags =('AALplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, AAL , text = 'AAL, ' + self.AAL_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_sky_blue.rotate(-self.AAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AAL = self.canvas.create_image(self.AAL_X_Array[i], self.AAL_Y_Array[i], image=plane3done, tags =('AALplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, AAL , text = 'AAL, ' + self.AAL_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Allegiant
         for i in range(len(self.AAY_X_Array)):
-            if self.AALCheckVar.get() == 1:
+            if self.AAYCheckVar.get() == 1:
                 plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
                 plane3done = ImageTk.PhotoImage(plane3)
-                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane'), state = 'normal')
+                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane', 'plane'), state = 'normal')
                 ToolTip.CreateToolTip(self.canvas, AAY, text = 'AAY, ' + self.AAY_callSign[i])
                 self.plane_ref.append(plane3done)
             else:
                 plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
                 plane3done = ImageTk.PhotoImage(plane3)
-                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane'), state = 'hidden')
+                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane', 'plane'), state = 'hidden')
                 ToolTip.CreateToolTip(self.canvas, AAY, text = 'AAY, ' + self.AAY_callSign[i])
                 self.plane_ref.append(plane3done)
 
         # Air Canada
         for i in range(len(self.ACA_X_Array)):
-            plane3 = self.plane_red.rotate(-self.ACA_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            ACA = self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('ACAplane'))
-            ToolTip.CreateToolTip(self.canvas, ACA, text = 'ACA, ' + self.ACA_callSign[i])
-            self.plane_ref.append(plane3done)
+            
+            if self.ACACheckVar.get() == 1:
+                plane3 = self.plane_red.rotate(-self.ACA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                ACA = self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('ACAplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, ACA, text = 'ACA, ' + self.ACA_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_red.rotate(-self.ACA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                ACA = self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('ACAplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, ACA, text = 'ACA, ' + self.ACA_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Air France
         for i in range(len(self.AFR_X_Array)):
-            plane3 = self.plane_light_blue.rotate(-self.AFR_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            AFR = self.canvas.create_image(self.AFR_X_Array[i], self.AFR_Y_Array[i], image=plane3done, tags =('AFRplane'))
-            ToolTip.CreateToolTip(self.canvas, AFR, text = 'AFR, ' + self.AFR_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.AFRCheckVar.get() == 1:
+                plane3 = self.plane_light_blue.rotate(-self.AFR_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AFR = self.canvas.create_image(self.AFR_X_Array[i], self.AFR_Y_Array[i], image=plane3done, tags =('AFRplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, AFR, text = 'AFR, ' + self.AFR_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_light_blue.rotate(-self.AFR_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AFR = self.canvas.create_image(self.AFR_X_Array[i], self.AFR_Y_Array[i], image=plane3done, tags =('AFRplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, AFR, text = 'AFR, ' + self.AFR_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # AeroMexico
         for i in range(len(self.AMX_X_Array)):
-            plane3 = self.plane_green.rotate(-self.AMX_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            AMX = self.canvas.create_image(self.AMX_X_Array[i], self.AMX_Y_Array[i], image=plane3done, tags =('AMXplane'))
-            ToolTip.CreateToolTip(self.canvas, AMX, text = 'AMX, ' + self.AMX_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.AMXCheckVar.get() == 1:
+                plane3 = self.plane_green.rotate(-self.AMX_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AMX = self.canvas.create_image(self.AMX_X_Array[i], self.AMX_Y_Array[i], image=plane3done, tags =('AMXplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, AMX, text = 'AMX, ' + self.AMX_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_green.rotate(-self.AMX_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AMX = self.canvas.create_image(self.AMX_X_Array[i], self.AMX_Y_Array[i], image=plane3done, tags =('AMXplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, AMX, text = 'AMX, ' + self.AMX_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Air Alaska
         for i in range(len(self.ASA_X_Array)):
-            plane3 = self.plane_light_gray.rotate(-self.ASA_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            ASA = self.canvas.create_image(self.ASA_X_Array[i], self.ASA_Y_Array[i], image=plane3done, tags =('ASAplane'))
-            ToolTip.CreateToolTip(self.canvas, ASA, text = 'ASA, ' + self.ASA_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.ASACheckVar.get() == 1:
+                plane3 = self.plane_light_gray.rotate(-self.ASA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                ASA = self.canvas.create_image(self.ASA_X_Array[i], self.ASA_Y_Array[i], image=plane3done, tags =('ASAplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, ASA, text = 'ASA, ' + self.ASA_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_light_gray.rotate(-self.ASA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                ASA = self.canvas.create_image(self.ASA_X_Array[i], self.ASA_Y_Array[i], image=plane3done, tags =('ASAplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, ASA, text = 'ASA, ' + self.ASA_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Delta
         for i in range(len(self.DAL_X_Array)):
-            plane3 = self.plane_burgundy.rotate(-self.DAL_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            DAL = self.canvas.create_image(self.DAL_X_Array[i], self.DAL_Y_Array[i], image=plane3done, tags =('DALplane'))
-            ToolTip.CreateToolTip(self.canvas, DAL, text = 'DAL, ' + self.DAL_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.DALCheckVar.get() == 1:
+                plane3 = self.plane_burgundy.rotate(-self.DAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                DAL = self.canvas.create_image(self.DAL_X_Array[i], self.DAL_Y_Array[i], image=plane3done, tags =('DALplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, DAL, text = 'DAL, ' + self.DAL_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_burgundy.rotate(-self.DAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                DAL = self.canvas.create_image(self.DAL_X_Array[i], self.DAL_Y_Array[i], image=plane3done, tags =('DALplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, DAL, text = 'DAL, ' + self.DAL_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Frontier
         for i in range(len(self.FFT_X_Array)):
-            plane3 = self.plane_dark_green.rotate(-self.FFT_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            FFT = self.canvas.create_image(self.FFT_X_Array[i], self.FFT_Y_Array[i], image=plane3done, tags =('FFTplane'))
-            ToolTip.CreateToolTip(self.canvas, FFT, text = 'FFT, ' + self.FFT_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.FFTCheckVar.get() == 1:
+                plane3 = self.plane_dark_green.rotate(-self.FFT_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                FFT = self.canvas.create_image(self.FFT_X_Array[i], self.FFT_Y_Array[i], image=plane3done, tags =('FFTplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, FFT, text = 'FFT, ' + self.FFT_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_dark_green.rotate(-self.FFT_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                FFT = self.canvas.create_image(self.FFT_X_Array[i], self.FFT_Y_Array[i], image=plane3done, tags =('FFTplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, FFT, text = 'FFT, ' + self.FFT_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Jetblue
         for i in range(len(self.JBU_X_Array)):
-            plane3 = self.plane_cyan.rotate(-self.JBU_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            JBU = self.canvas.create_image(self.JBU_X_Array[i], self.JBU_Y_Array[i], image=plane3done, tags =('JBUplane'))
-            ToolTip.CreateToolTip(self.canvas, JBU, text = 'JBU, ' + self.JBU_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.JBUCheckVar.get() == 1:
+                plane3 = self.plane_cyan.rotate(-self.JBU_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                JBU = self.canvas.create_image(self.JBU_X_Array[i], self.JBU_Y_Array[i], image=plane3done, tags =('JBUplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, JBU, text = 'JBU, ' + self.JBU_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_cyan.rotate(-self.JBU_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                JBU = self.canvas.create_image(self.JBU_X_Array[i], self.JBU_Y_Array[i], image=plane3done, tags =('JBUplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, JBU, text = 'JBU, ' + self.JBU_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Spirit
         for i in range(len(self.NKS_X_Array)):
-            plane3 = self.plane_yellow.rotate(-self.NKS_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            NKS = self.canvas.create_image(self.NKS_X_Array[i], self.NKS_Y_Array[i], image=plane3done, tags =('NKSplane'))
-            ToolTip.CreateToolTip(self.canvas, NKS, text = 'NKS, ' + self.NKS_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.NKSCheckVar.get() == 1:
+                plane3 = self.plane_yellow.rotate(-self.NKS_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                NKS = self.canvas.create_image(self.NKS_X_Array[i], self.NKS_Y_Array[i], image=plane3done, tags =('NKSplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, NKS, text = 'NKS, ' + self.NKS_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_yellow.rotate(-self.NKS_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                NKS = self.canvas.create_image(self.NKS_X_Array[i], self.NKS_Y_Array[i], image=plane3done, tags =('NKSplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, NKS, text = 'NKS, ' + self.NKS_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Southwest
         for i in range(len(self.SWA_X_Array)):
-            plane3 = self.plane_darker_blue.rotate(-self.SWA_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            SWA = self.canvas.create_image(self.SWA_X_Array[i], self.SWA_Y_Array[i], image=plane3done, tags =('SWAplane'))
-            ToolTip.CreateToolTip(self.canvas, SWA, text = 'SWA, ' + self.SWA_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.SWACheckVar.get() == 1:
+                plane3 = self.plane_darker_blue.rotate(-self.SWA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                SWA = self.canvas.create_image(self.SWA_X_Array[i], self.SWA_Y_Array[i], image=plane3done, tags =('SWAplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, SWA, text = 'SWA, ' + self.SWA_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_darker_blue.rotate(-self.SWA_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                SWA = self.canvas.create_image(self.SWA_X_Array[i], self.SWA_Y_Array[i], image=plane3done, tags =('SWAplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, SWA, text = 'SWA, ' + self.SWA_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # United
         for i in range(len(self.UAL_X_Array)):
-            plane3 = self.plane_gold.rotate(-self.UAL_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            UAL = self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('UALplane'))
-            ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
-            self.plane_ref.append(plane3done)
+
+            if self.UALCheckVar.get() == 1:
+                plane3 = self.plane_gold.rotate(-self.UAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                UAL = self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('UALplane', 'plane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
+                self.plane_ref.append(plane3done)
+
+            else:
+                plane3 = self.plane_gold.rotate(-self.UAL_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                UAL = self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('UALplane', 'plane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
+                self.plane_ref.append(plane3done)
 
 
         # this gotta be the last line or it all doesn't work
