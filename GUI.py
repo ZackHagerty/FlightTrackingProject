@@ -743,11 +743,18 @@ class GUI():
 
         # Allegiant
         for i in range(len(self.AAY_X_Array)):
-            plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
-            plane3done = ImageTk.PhotoImage(plane3)
-            AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane'))
-            ToolTip.CreateToolTip(self.canvas, AAY, text = 'AAY, ' + self.AAY_callSign[i])
-            self.plane_ref.append(plane3done)
+            if self.AALCheckVar.get() == 1:
+                plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane'), state = 'normal')
+                ToolTip.CreateToolTip(self.canvas, AAY, text = 'AAY, ' + self.AAY_callSign[i])
+                self.plane_ref.append(plane3done)
+            else:
+                plane3 = self.plane_orange.rotate(-self.AAY_Arraytrue[i], Image.BICUBIC)
+                plane3done = ImageTk.PhotoImage(plane3)
+                AAY = self.canvas.create_image(self.AAY_X_Array[i], self.AAY_Y_Array[i], image=plane3done, tags =('AAYplane'), state = 'hidden')
+                ToolTip.CreateToolTip(self.canvas, AAY, text = 'AAY, ' + self.AAY_callSign[i])
+                self.plane_ref.append(plane3done)
 
         # Air Canada
         for i in range(len(self.ACA_X_Array)):
