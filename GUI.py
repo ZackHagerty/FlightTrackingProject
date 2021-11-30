@@ -1,3 +1,4 @@
+import random
 from tkinter import *
 import tkinter as tk
 from tkinter.constants import DISABLED,NORMAL
@@ -563,12 +564,21 @@ class GUI():
         if self.ZSECheckVar.get() == 0:
             self.canvas.itemconfigure('ZSE', state = 'hidden')
 
+        duck = Image.open('./icons/duck.png')
+        self.duck = ImageTk.PhotoImage(duck)
+        
+
+        
+
     # =====================   END ATC Zones   ===============================
 
     def arrayStuff(self, root):
         print("I hate this")
         self.plane_ref = []
-        
+
+        self.duckProbability = random.randint(0, 20)
+        print(self.duckProbability)
+
         # Read the flight data
         flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
@@ -735,6 +745,10 @@ class GUI():
         self.canvas.delete("plane")
         self.planeImages = {}
         self.planeImages["AAL"] = []
+
+        if(self.duckProbability == 3):
+            self.canvas.create_image(50, 500, image = self.duck, tags = ('plane'))
+
         for i in range(len(self.AAL_X_Array)):
             
             if self.AALCheckVar.get() == 1:
