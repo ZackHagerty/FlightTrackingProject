@@ -577,7 +577,6 @@ class GUI():
         self.plane_ref = []
 
         self.duckProbability = random.randint(0, 20)
-        print(self.duckProbability)
 
         # Read the flight data
         flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
