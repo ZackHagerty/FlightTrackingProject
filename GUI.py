@@ -793,7 +793,7 @@ class GUI():
             else:
                 plane3 = self.plane_red.rotate(-self.ACA_Arraytrue[i], Image.BICUBIC)
                 plane3done = ImageTk.PhotoImage(plane3)
-                ACA = self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('ACAplane', 'plane'), state = 'normal')
+                ACA = self.canvas.create_image(self.ACA_X_Array[i], self.ACA_Y_Array[i], image=plane3done, tags =('ACAplane', 'plane'), state = 'hidden')
                 ToolTip.CreateToolTip(self.canvas, ACA, text = 'ACA, ' + self.ACA_callSign[i])
                 self.plane_ref.append(plane3done)
 
