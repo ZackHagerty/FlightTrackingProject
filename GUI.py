@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter.constants import DISABLED,NORMAL
 from tkinter import ttk
+from tkinter import ALL, EventType
 from PIL import ImageTk, Image
 import pandas as pd
 import numpy as np
@@ -25,7 +26,7 @@ class GUI():
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
-
+        root.config(cursor = "heart")
         self.blankArray()
 
         self.menusSetup(root)
@@ -122,10 +123,7 @@ class GUI():
         atcZoneMenu.add_checkbutton(label="ZSE", variable= self.ZSECheckVar, command = lambda : self.hideZSE())
         menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
 
-
         root.config(menu=menubar)
-        
-
         
     def my_command(self):
         if(self.on == False):
@@ -973,10 +971,10 @@ class ToolTip(object):
         self.tipwindow = tw = Toplevel(self.canvas)
         tw.wm_overrideredirect(1)
         tw.wm_geometry("+%d+%d" % (x, y))
-        label = Label(tw, text=self.text, justify=LEFT,
+        self.label = Label(tw, text=self.text, justify=LEFT,
                       background="#ffffe0", relief=SOLID, borderwidth=1,
                       font=("tahoma", "8", "normal"))
-        label.pack(ipadx=1)
+        self.label.pack(ipadx=1)
 
     def hidetip(self):
         tw = self.tipwindow
