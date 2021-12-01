@@ -404,6 +404,9 @@ class GUI():
 
         # =======================   ATC Zones   ===============================
         #ZBW
+        nop_zbw = Image.open('./atc_zones/no-cropped-planes/zbw-cropped.png')
+        self.nop_bw = ImageTk.PhotoImage(nop_zbw)
+        self.canvas.create_image( 995, 151, image=self.nop_bw)
         atc_zbw = Image.open('./atc_zones/sized_ATC/ZBW-170.png')
         self.atc_BW = ImageTk.PhotoImage(atc_zbw)
         self.canvas.create_image(995, 151, image=self.atc_BW, tags = 'ZBW')
@@ -412,6 +415,9 @@ class GUI():
             self.canvas.itemconfigure('ZBW', state = 'hidden')
 
         #ZNY
+        nop_zny = Image.open('./atc_zones/no-cropped-planes/zny-cropped.png')
+        self.nop_ny = ImageTk.PhotoImage(nop_zny)
+        self.canvas.create_image( 929, 207, image=self.nop_ny)
         atc_zny = Image.open('./atc_zones/sized_ATC/zny-84.png')
         self.atc_NY = ImageTk.PhotoImage(atc_zny)
         self.canvas.create_image(929, 207, image=self.atc_NY, tags = 'ZNY')
@@ -420,6 +426,9 @@ class GUI():
             self.canvas.itemconfigure('ZNY', state = 'hidden')
 
         #ZOB
+        nop_zob = Image.open('./atc_zones/no-cropped-planes/zob-cropped.png')
+        self.nop_ob = ImageTk.PhotoImage(nop_zob)
+        self.canvas.create_image( 842, 193, image=self.nop_ob)
         atc_zob = Image.open('./atc_zones/sized_ATC/zob-154.png')
         self.atc_OB = ImageTk.PhotoImage(atc_zob)
         self.canvas.create_image(845, 193, image=self.atc_OB, tags = 'ZOB')
@@ -428,6 +437,9 @@ class GUI():
             self.canvas.itemconfigure('ZOB', state = 'hidden')
 
         #ZDC
+        nop_zdc = Image.open('./atc_zones/no-cropped-planes/zdc-cropped.png')
+        self.nop_dc = ImageTk.PhotoImage(nop_zdc)
+        self.canvas.create_image( 915, 311, image=self.nop_dc)
         atc_zdc = Image.open('./atc_zones/sized_ATC/zdc-148.png')
         self.atc_DC = ImageTk.PhotoImage(atc_zdc)
         self.canvas.create_image(915, 309, image=self.atc_DC, tags = 'ZDC')
@@ -436,6 +448,9 @@ class GUI():
             self.canvas.itemconfigure('ZDC', state = 'hidden')
 
         #ZID
+        nop_zid = Image.open('./atc_zones/no-cropped-planes/zid-cropped.png')
+        self.nop_id = ImageTk.PhotoImage(nop_zid)
+        self.canvas.create_image( 780, 260, image=self.nop_id)
         atc_zid = Image.open('./atc_zones/sized_ATC/zid-137.png')
         self.atc_ID = ImageTk.PhotoImage(atc_zid)
         self.canvas.create_image(780, 260, image=self.atc_ID, tags = 'ZID')
@@ -444,6 +459,9 @@ class GUI():
             self.canvas.itemconfigure('ZID', state = 'hidden')
 
         #ZTL
+        nop_ztl = Image.open('./atc_zones/no-cropped-planes/ztl-cropped.png')
+        self.nop_tl = ImageTk.PhotoImage(nop_ztl)
+        self.canvas.create_image( 786, 356, image=self.nop_tl)
         atc_ztl = Image.open('./atc_zones/sized_ATC/ztl-150.png')
         self.atc_TL = ImageTk.PhotoImage(atc_ztl)
         self.canvas.create_image(786, 355, image=self.atc_TL, tags = 'ZTL')
@@ -452,6 +470,9 @@ class GUI():
             self.canvas.itemconfigure('ZTL', state = 'hidden')
 
         #ZJX
+        nop_zjx = Image.open('./atc_zones/no-cropped-planes/zjx-cropped.png')
+        self.nop_jx = ImageTk.PhotoImage(nop_zjx)
+        self.canvas.create_image( 817, 425, image=self.nop_jx)
         atc_zjx = Image.open('./atc_zones/sized_ATC/zjx-203.png')
         self.atc_JX = ImageTk.PhotoImage(atc_zjx)
         self.canvas.create_image(817, 425, image=self.atc_JX, tags = 'ZJX')
@@ -460,6 +481,9 @@ class GUI():
             self.canvas.itemconfigure('ZJX', state = 'hidden')
 
         #ZMA
+        nop_zma = Image.open('./atc_zones/no-cropped-planes/zma-cropped.png')
+        self.nop_ma = ImageTk.PhotoImage(nop_zma)
+        self.canvas.create_image( 834, 520, image=self.nop_ma)
         atc_zma = Image.open('./atc_zones/sized_ATC/zma-165.png')
         self.atc_MA = ImageTk.PhotoImage(atc_zma)
         self.canvas.create_image(834, 520, image=self.atc_MA, tags = 'ZMA')
@@ -468,6 +492,9 @@ class GUI():
             self.canvas.itemconfigure('ZMA', state = 'hidden')
 
         #ZHU
+        nop_zhu = Image.open('./atc_zones/no-cropped-planes/zhu-cropped.png')
+        self.nop_hu = ImageTk.PhotoImage(nop_zhu)
+        self.canvas.create_image( 610, 497, image=self.nop_hu)
         atc_zhu = Image.open('./atc_zones/sized_ATC/zhu-289.png')
         self.atc_HU = ImageTk.PhotoImage(atc_zhu)
         self.canvas.create_image(610, 497, image=self.atc_HU, tags = 'ZHU')
@@ -476,6 +503,9 @@ class GUI():
             self.canvas.itemconfigure('ZHU', state = 'hidden')
 
         #ZME
+        nop_zme = Image.open('./atc_zones/no-cropped-planes/zme-cropped.png')
+        self.nop_me = ImageTk.PhotoImage(nop_zme)
+        self.canvas.create_image( 675, 347, image=self.nop_me)
         atc_zme = Image.open('./atc_zones/sized_ATC/zme-183.png')
         self.atc_ME = ImageTk.PhotoImage(atc_zme)
         self.canvas.create_image(674, 348, image=self.atc_ME, tags = 'ZME')
@@ -484,6 +514,9 @@ class GUI():
             self.canvas.itemconfigure('ZME', state = 'hidden')
 
         #ZKC
+        nop_zkc = Image.open('./atc_zones/no-cropped-planes/zkc-cropped.png')
+        self.nop_kc = ImageTk.PhotoImage(nop_zkc)
+        self.canvas.create_image( 591, 270, image=self.nop_kc)
         atc_zkc = Image.open('./atc_zones/sized_ATC/zkc-253.png')
         self.atc_KC = ImageTk.PhotoImage(atc_zkc)
         self.canvas.create_image(591, 270, image=self.atc_KC, tags = 'ZKC')
@@ -492,6 +525,9 @@ class GUI():
             self.canvas.itemconfigure('ZKC', state = 'hidden')
 
         #ZAU
+        nop_zau = Image.open('./atc_zones/no-cropped-planes/zau-cropped.png')
+        self.nop_au = ImageTk.PhotoImage(nop_zau)
+        self.canvas.create_image( 698, 180, image=self.nop_au)
         atc_zau = Image.open('./atc_zones/sized_ATC/zau-156.png')
         self.atc_AU = ImageTk.PhotoImage(atc_zau)
         self.canvas.create_image(698, 180, image=self.atc_AU, tags = 'ZAU')
@@ -500,6 +536,9 @@ class GUI():
             self.canvas.itemconfigure('ZAU', state = 'hidden')
 
         #ZMP
+        nop_zmp = Image.open('./atc_zones/no-cropped-planes/zmp-cropped.png')
+        self.nop_mp = ImageTk.PhotoImage(nop_zmp)
+        self.canvas.create_image( 637, 135, image=self.nop_mp)
         atc_zmp = Image.open('./atc_zones/sized_ATC/zmp-363.png')
         self.atc_MP = ImageTk.PhotoImage(atc_zmp)
         self.canvas.create_image(637, 135, image=self.atc_MP, tags = 'ZMP')
@@ -508,6 +547,9 @@ class GUI():
             self.canvas.itemconfigure('ZMP', state = 'hidden')
 
         #ZFW
+        nop_zfw = Image.open('./atc_zones/no-cropped-planes/zfw-cropped.png')
+        self.nop_fw = ImageTk.PhotoImage(nop_zfw)
+        self.canvas.create_image( 549, 375, image=self.nop_fw)
         atc_zfw = Image.open('./atc_zones/sized_ATC/zfw-215.png')
         self.atc_FW = ImageTk.PhotoImage(atc_zfw)
         self.canvas.create_image(549, 375, image=self.atc_FW, tags = 'ZFW')
@@ -516,6 +558,9 @@ class GUI():
             self.canvas.itemconfigure('ZFW', state = 'hidden')
         
         #ZAB
+        nop_zab = Image.open('./atc_zones/no-cropped-planes/zab-cropped.png')
+        self.nop_ab = ImageTk.PhotoImage(nop_zab)
+        self.canvas.create_image( 391, 379, image=self.nop_ab)
         atc_zab = Image.open('./atc_zones/sized_ATC/zab-245.png')
         self.atc_AB = ImageTk.PhotoImage(atc_zab)
         self.canvas.create_image(391, 379, image=self.atc_AB, tags = 'ZAB')
@@ -524,6 +569,9 @@ class GUI():
             self.canvas.itemconfigure('ZAB', state = 'hidden')
 
         #ZDV
+        nop_zdv = Image.open('./atc_zones/no-cropped-planes/zdv-cropped.png')
+        self.nop_dv = ImageTk.PhotoImage(nop_zdv)
+        self.canvas.create_image( 421 , 218, image=self.nop_dv)
         atc_zdv = Image.open('./atc_zones/sized_ATC/zdv-230.png')
         self.atc_DV = ImageTk.PhotoImage(atc_zdv)
         self.canvas.create_image(421, 218, image=self.atc_DV, tags = 'ZDV')
@@ -532,6 +580,9 @@ class GUI():
             self.canvas.itemconfigure('ZDV', state = 'hidden')
 
         #ZLC
+        nop_zlc = Image.open('./atc_zones/no-cropped-planes/zlc-cropped.png')
+        self.nop_lc = ImageTk.PhotoImage(nop_zlc)
+        self.canvas.create_image( 317, 157, image=self.nop_lc)
         atc_zlc = Image.open('./atc_zones/sized_ATC/zlc-283.png')
         self.atc_LC = ImageTk.PhotoImage(atc_zlc)
         self.canvas.create_image(317, 157, image=self.atc_LC, tags = 'ZLC')
@@ -540,6 +591,9 @@ class GUI():
             self.canvas.itemconfigure('ZLC', state = 'hidden')
 
         #ZLA
+        nop_zla = Image.open('./atc_zones/no-cropped-planes/zla-cropped.png')
+        self.nop_la = ImageTk.PhotoImage(nop_zla)
+        self.canvas.create_image(213 , 354, image=self.nop_la)
         atc_zla = Image.open('./atc_zones/sized_ATC/zla-204.png')
         self.atc_LA = ImageTk.PhotoImage(atc_zla)
         self.canvas.create_image(214, 355, image=self.atc_LA, tags = 'ZLA')
@@ -548,6 +602,9 @@ class GUI():
             self.canvas.itemconfigure('ZLA', state = 'hidden')
 
         #ZOA
+        nop_zoa = Image.open('./atc_zones/no-cropped-planes/zoa-cropped-68.png')
+        self.nop_OA = ImageTk.PhotoImage(nop_zoa)
+        self.canvas.create_image(136,276, image=self.nop_OA)
         atc_zoa = Image.open('./atc_zones/sized_ATC/zoa-172.png')
         self.atc_OA = ImageTk.PhotoImage(atc_zoa)
         self.canvas.create_image(136, 276, image=self.atc_OA, tags = 'ZOA')
@@ -556,9 +613,13 @@ class GUI():
             self.canvas.itemconfigure('ZOA', state = 'hidden')
 
         #ZSE
+        nop_zse = Image.open('./atc_zones/no-cropped-planes/zse-cropped-68.png')
+        self.nop_SE = ImageTk.PhotoImage(nop_zse)
+        self.canvas.create_image(146,126, image=self.nop_SE)
         atc_zse = Image.open('./atc_zones/sized_ATC/zse-230.png')
         self.atc_SE = ImageTk.PhotoImage(atc_zse)
         self.canvas.create_image(146, 126, image=self.atc_SE, tags = 'ZSE')
+        
 
         if self.ZSECheckVar.get() == 0:
             self.canvas.itemconfigure('ZSE', state = 'hidden')
