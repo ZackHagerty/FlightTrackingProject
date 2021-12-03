@@ -36,41 +36,43 @@ class GUI():
         self.arrayStuff(root)
 
     def blankArray(self):
+
+        val = 1
         #Airline Dropdown Menu
-        self.AALCheckVar = IntVar(value=1)
-        self.AAYCheckVar = IntVar(value=1)
-        self.ACACheckVar = IntVar(value=1)
-        self.AFRCheckVar = IntVar(value=1)
-        self.AMXCheckVar = IntVar(value=1)
-        self.ASACheckVar = IntVar(value=1)
-        self.DALCheckVar = IntVar(value=1)
-        self.FFTCheckVar = IntVar(value=1)
-        self.JBUCheckVar = IntVar(value=1)
-        self.NKSCheckVar = IntVar(value=1)
-        self.SWACheckVar = IntVar(value=1)
-        self.UALCheckVar = IntVar(value=1)
+        self.AALCheckVar = IntVar(value=val)
+        self.AAYCheckVar = IntVar(value=val)
+        self.ACACheckVar = IntVar(value=val)
+        self.AFRCheckVar = IntVar(value=val)
+        self.AMXCheckVar = IntVar(value=val)
+        self.ASACheckVar = IntVar(value=val)
+        self.DALCheckVar = IntVar(value=val)
+        self.FFTCheckVar = IntVar(value=val)
+        self.JBUCheckVar = IntVar(value=val)
+        self.NKSCheckVar = IntVar(value=val)
+        self.SWACheckVar = IntVar(value=val)
+        self.UALCheckVar = IntVar(value=val)
 
         #ATC Zone Dropdown Menu
-        self.ZBWCheckVar = IntVar(value=1)
-        self.ZNYCheckVar = IntVar(value=1)
-        self.ZOBCheckVar = IntVar(value=1)
-        self.ZDCCheckVar = IntVar(value=1)
-        self.ZIDCheckVar = IntVar(value=1)
-        self.ZTLCheckVar = IntVar(value=1)
-        self.ZJXCheckVar = IntVar(value=1)
-        self.ZMACheckVar = IntVar(value=1)
-        self.ZHUCheckVar = IntVar(value=1)
-        self.ZMECheckVar = IntVar(value=1)
-        self.ZKCCheckVar = IntVar(value=1)
-        self.ZAUCheckVar = IntVar(value=1)
-        self.ZMPCheckVar = IntVar(value=1)
-        self.ZFWCheckVar = IntVar(value=1)
-        self.ZABCheckVar = IntVar(value=1)
-        self.ZDVCheckVar = IntVar(value=1)
-        self.ZLCCheckVar = IntVar(value=1)
-        self.ZLACheckVar = IntVar(value=1)
-        self.ZOACheckVar = IntVar(value=1)
-        self.ZSECheckVar = IntVar(value=1)    
+        self.ZBWCheckVar = IntVar(value=val)
+        self.ZNYCheckVar = IntVar(value=val)
+        self.ZOBCheckVar = IntVar(value=val)
+        self.ZDCCheckVar = IntVar(value=val)
+        self.ZIDCheckVar = IntVar(value=val)
+        self.ZTLCheckVar = IntVar(value=val)
+        self.ZJXCheckVar = IntVar(value=val)
+        self.ZMACheckVar = IntVar(value=val)
+        self.ZHUCheckVar = IntVar(value=val)
+        self.ZMECheckVar = IntVar(value=val)
+        self.ZKCCheckVar = IntVar(value=val)
+        self.ZAUCheckVar = IntVar(value=val)
+        self.ZMPCheckVar = IntVar(value=val)
+        self.ZFWCheckVar = IntVar(value=val)
+        self.ZABCheckVar = IntVar(value=val)
+        self.ZDVCheckVar = IntVar(value=val)
+        self.ZLCCheckVar = IntVar(value=val)
+        self.ZLACheckVar = IntVar(value=val)
+        self.ZOACheckVar = IntVar(value=val)
+        self.ZSECheckVar = IntVar(value=val)    
 
     def menusSetup(self, root):
         #creating a menu bar
@@ -887,140 +889,143 @@ class GUI():
                 ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
                 self.plane_ref.append(plane3done)
 
-        nop_zbw = Image.open('./atc_zones/no-cropped-planes/zbw-cropped.png')
+                
+    # =====================   NO-PLANE PLACEMENT   =============================== 
+
+        nop_zbw = Image.open('./atc_zones/cropped/zbw-cropped.png')
         self.nop_bw = ImageTk.PhotoImage(nop_zbw)
         self.canvas.create_image( 995, 151, image=self.nop_bw, tags = ('mask_ZBW','plane'))
 
         if self.ZBWCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZBW', state = 'hidden')
 
-        nop_zny = Image.open('./atc_zones/no-cropped-planes/zny-cropped.png')
+        nop_zny = Image.open('./atc_zones/cropped/zny-cropped.png')
         self.nop_ny = ImageTk.PhotoImage(nop_zny)
         self.canvas.create_image( 929, 207, image=self.nop_ny, tags = ('mask_ZNY','plane'))
 
         if self.ZNYCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZNY', state = 'hidden')
 
-        nop_zob = Image.open('./atc_zones/no-cropped-planes/zob-cropped.png')
+        nop_zob = Image.open('./atc_zones/cropped/zob-cropped.png')
         self.nop_ob = ImageTk.PhotoImage(nop_zob)
-        self.canvas.create_image( 842, 193, image=self.nop_ob, tags = ('mask_ZOB','plane'))
+        self.canvas.create_image( 845, 193, image=self.nop_ob, tags = ('mask_ZOB','plane'))
         
         if self.ZOBCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZOB', state = 'hidden')
 
-        nop_zdc = Image.open('./atc_zones/no-cropped-planes/zdc-cropped.png')
+        nop_zdc = Image.open('./atc_zones/cropped/zdc-cropped.png')
         self.nop_dc = ImageTk.PhotoImage(nop_zdc)
-        self.canvas.create_image( 915, 311, image=self.nop_dc, tags = ('mask_ZDC', 'plane'))
+        self.canvas.create_image( 915, 309, image=self.nop_dc, tags = ('mask_ZDC', 'plane'))
         
         if self.ZDCCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZDC', state = 'hidden')
 
-        nop_zid = Image.open('./atc_zones/no-cropped-planes/zid-cropped.png')
+        nop_zid = Image.open('./atc_zones/cropped/zid-cropped.png')
         self.nop_id = ImageTk.PhotoImage(nop_zid)
         self.canvas.create_image( 780, 260, image=self.nop_id, tags = ('mask_ZID', 'plane'))
         
         if self.ZIDCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZID', state = 'hidden')
 
-        nop_ztl = Image.open('./atc_zones/no-cropped-planes/ztl-cropped.png')
+        nop_ztl = Image.open('./atc_zones/cropped/ztl-cropped.png')
         self.nop_tl = ImageTk.PhotoImage(nop_ztl)
-        self.canvas.create_image( 786, 356, image=self.nop_tl, tags = ('mask_ZTL', 'plane'))
+        self.canvas.create_image( 786, 355, image=self.nop_tl, tags = ('mask_ZTL', 'plane'))
 
         if self.ZTLCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZTL', state = 'hidden')
 
-        nop_zjx = Image.open('./atc_zones/no-cropped-planes/zjx-cropped.png')
+        nop_zjx = Image.open('./atc_zones/cropped/zjx-cropped.png')
         self.nop_jx = ImageTk.PhotoImage(nop_zjx)
         self.canvas.create_image( 817, 425, image=self.nop_jx, tags = ('mask_ZJX', 'plane'))
         
         if self.ZJXCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZJX', state = 'hidden')
 
-        nop_zma = Image.open('./atc_zones/no-cropped-planes/zma-cropped.png')
+        nop_zma = Image.open('./atc_zones/cropped/zma-cropped.png')
         self.nop_ma = ImageTk.PhotoImage(nop_zma)
         self.canvas.create_image( 834, 520, image=self.nop_ma, tags = ('mask_ZMA', 'plane'))
         
         if self.ZMACheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZMA', state = 'hidden')
 
-        nop_zhu = Image.open('./atc_zones/no-cropped-planes/zhu-cropped.png')
+        nop_zhu = Image.open('./atc_zones/cropped/zhu-cropped.png')
         self.nop_hu = ImageTk.PhotoImage(nop_zhu)
         self.canvas.create_image( 610, 497, image=self.nop_hu, tags = ('mask_ZHU', 'plane'))
         
         if self.ZHUCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZHU', state = 'hidden')
 
-        nop_zme = Image.open('./atc_zones/no-cropped-planes/zme-cropped.png')
+        nop_zme = Image.open('./atc_zones/cropped/zme-cropped.png')
         self.nop_me = ImageTk.PhotoImage(nop_zme)
-        self.canvas.create_image( 675, 347, image=self.nop_me, tags = ('mask_ZME', 'plane'))
+        self.canvas.create_image( 674, 348, image=self.nop_me, tags = ('mask_ZME', 'plane'))
         
         if self.ZMECheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZME', state = 'hidden')
 
-        nop_zkc = Image.open('./atc_zones/no-cropped-planes/zkc-cropped.png')
+        nop_zkc = Image.open('./atc_zones/cropped/zkc-cropped.png')
         self.nop_kc = ImageTk.PhotoImage(nop_zkc)
         self.canvas.create_image( 591, 270, image=self.nop_kc, tags = ('mask_ZKC', 'plane'))
         
         if self.ZKCCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZKC', state = 'hidden')
 
-        nop_zau = Image.open('./atc_zones/no-cropped-planes/zau-cropped.png')
+        nop_zau = Image.open('./atc_zones/cropped/zau-cropped.png')
         self.nop_au = ImageTk.PhotoImage(nop_zau)
         self.canvas.create_image( 698, 180, image=self.nop_au, tags = ('mask_ZAU', 'plane'))
 
         if self.ZAUCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZAU', state = 'hidden')
 
-        nop_zmp = Image.open('./atc_zones/no-cropped-planes/zmp-cropped.png')
+        nop_zmp = Image.open('./atc_zones/cropped/zmp-cropped.png')
         self.nop_mp = ImageTk.PhotoImage(nop_zmp)
         self.canvas.create_image( 637, 135, image=self.nop_mp, tags = ('mask_ZMP', 'plane'))
         
         if self.ZMPCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZMP', state = 'hidden')
 
-        nop_zfw = Image.open('./atc_zones/no-cropped-planes/zfw-cropped.png')
+        nop_zfw = Image.open('./atc_zones/cropped/zfw-cropped.png')
         self.nop_fw = ImageTk.PhotoImage(nop_zfw)
         self.canvas.create_image( 549, 375, image=self.nop_fw, tags = ('mask_ZFW', 'plane'))
 
         if self.ZFWCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZFW', state = 'hidden')
 
-        nop_zab = Image.open('./atc_zones/no-cropped-planes/zab-cropped.png')
+        nop_zab = Image.open('./atc_zones/cropped/zab-cropped.png')
         self.nop_ab = ImageTk.PhotoImage(nop_zab)
         self.canvas.create_image( 391, 379, image=self.nop_ab, tags = ('mask_ZAB', 'plane'))
         
         if self.ZABCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZAB', state = 'hidden')
 
-        nop_zdv = Image.open('./atc_zones/no-cropped-planes/zdv-cropped.png')
+        nop_zdv = Image.open('./atc_zones/cropped/zdv-cropped.png')
         self.nop_dv = ImageTk.PhotoImage(nop_zdv)
         self.canvas.create_image( 421 , 218, image=self.nop_dv, tags = ('mask_ZDV', 'plane'))
         
         if self.ZDVCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZDV', state = 'hidden')
 
-        nop_zlc = Image.open('./atc_zones/no-cropped-planes/zlc-cropped.png')
+        nop_zlc = Image.open('./atc_zones/cropped/zlc-cropped.png')
         self.nop_lc = ImageTk.PhotoImage(nop_zlc)
         self.canvas.create_image( 317, 157, image=self.nop_lc, tags = ('mask_ZLC', 'plane'))
         
         if self.ZLCCheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZLC', state = 'hidden')
 
-        nop_zla = Image.open('./atc_zones/no-cropped-planes/zla-cropped.png')
+        nop_zla = Image.open('./atc_zones/cropped/zla-cropped.png')
         self.nop_la = ImageTk.PhotoImage(nop_zla)
-        self.canvas.create_image(213 , 354, image=self.nop_la, tags = ('mask_ZLA', 'plane'))
+        self.canvas.create_image(214 , 355, image=self.nop_la, tags = ('mask_ZLA', 'plane'))
 
         if self.ZLACheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZLA', state = 'hidden')
 
-        nop_zoa = Image.open('./atc_zones/no-cropped-planes/zoa-cropped-68.png')
+        nop_zoa = Image.open('./atc_zones/cropped/zoa-cropped.png')
         self.nop_OA = ImageTk.PhotoImage(nop_zoa)
         self.canvas.create_image(136,276, image=self.nop_OA, tags = ('mask_ZOA', 'plane'))
         
         if self.ZOACheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZOA', state = 'hidden')
 
-        nop_zse = Image.open('./atc_zones/no-cropped-planes/zse-cropped-68.png')
+        nop_zse = Image.open('./atc_zones/cropped/zse-cropped.png')
         self.nop_SE = ImageTk.PhotoImage(nop_zse)
         self.canvas.create_image(146,126, image=self.nop_SE, tags = ('mask_ZSE', 'plane'))
         
