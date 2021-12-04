@@ -34,41 +34,43 @@ class GUI():
         self.arrayStuff(root)
 
     def blankArray(self):
+
+        val = 1
         #Airline Dropdown Menu
-        self.AALCheckVar = IntVar(value=1)
-        self.AAYCheckVar = IntVar(value=1)
-        self.ACACheckVar = IntVar(value=1)
-        self.AFRCheckVar = IntVar(value=1)
-        self.AMXCheckVar = IntVar(value=1)
-        self.ASACheckVar = IntVar(value=1)
-        self.DALCheckVar = IntVar(value=1)
-        self.FFTCheckVar = IntVar(value=1)
-        self.JBUCheckVar = IntVar(value=1)
-        self.NKSCheckVar = IntVar(value=1)
-        self.SWACheckVar = IntVar(value=1)
-        self.UALCheckVar = IntVar(value=1)
+        self.AALCheckVar = IntVar(value=val)
+        self.AAYCheckVar = IntVar(value=val)
+        self.ACACheckVar = IntVar(value=val)
+        self.AFRCheckVar = IntVar(value=val)
+        self.AMXCheckVar = IntVar(value=val)
+        self.ASACheckVar = IntVar(value=val)
+        self.DALCheckVar = IntVar(value=val)
+        self.FFTCheckVar = IntVar(value=val)
+        self.JBUCheckVar = IntVar(value=val)
+        self.NKSCheckVar = IntVar(value=val)
+        self.SWACheckVar = IntVar(value=val)
+        self.UALCheckVar = IntVar(value=val)
 
         #ATC Zone Dropdown Menu
-        self.ZBWCheckVar = IntVar()
-        self.ZNYCheckVar = IntVar()
-        self.ZOBCheckVar = IntVar()
-        self.ZDCCheckVar = IntVar()
-        self.ZIDCheckVar = IntVar()
-        self.ZTLCheckVar = IntVar()
-        self.ZJXCheckVar = IntVar(value=1)
-        self.ZMACheckVar = IntVar()
-        self.ZHUCheckVar = IntVar()
-        self.ZMECheckVar = IntVar()
-        self.ZKCCheckVar = IntVar()
-        self.ZAUCheckVar = IntVar()
-        self.ZMPCheckVar = IntVar()
-        self.ZFWCheckVar = IntVar()
-        self.ZABCheckVar = IntVar()
-        self.ZDVCheckVar = IntVar()
-        self.ZLCCheckVar = IntVar()
-        self.ZLACheckVar = IntVar(value=1)
-        self.ZOACheckVar = IntVar()
-        self.ZSECheckVar = IntVar()    
+        self.ZBWCheckVar = IntVar(value=val)
+        self.ZNYCheckVar = IntVar(value=val)
+        self.ZOBCheckVar = IntVar(value=val)
+        self.ZDCCheckVar = IntVar(value=val)
+        self.ZIDCheckVar = IntVar(value=val)
+        self.ZTLCheckVar = IntVar(value=val)
+        self.ZJXCheckVar = IntVar(value=val)
+        self.ZMACheckVar = IntVar(value=val)
+        self.ZHUCheckVar = IntVar(value=val)
+        self.ZMECheckVar = IntVar(value=val)
+        self.ZKCCheckVar = IntVar(value=val)
+        self.ZAUCheckVar = IntVar(value=val)
+        self.ZMPCheckVar = IntVar(value=val)
+        self.ZFWCheckVar = IntVar(value=val)
+        self.ZABCheckVar = IntVar(value=val)
+        self.ZDVCheckVar = IntVar(value=val)
+        self.ZLCCheckVar = IntVar(value=val)
+        self.ZLACheckVar = IntVar(value=val)
+        self.ZOACheckVar = IntVar(value=val)
+        self.ZSECheckVar = IntVar(value=val)    
 
     def menusSetup(self, root):
         #creating a menu bar
@@ -237,144 +239,144 @@ class GUI():
 
 #-------------------ATC ZONE TOGGLE----------------------------
     def hideZBW(self):
-        if self.ZBWCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZBW', state = 'normal')
+        if self.ZBWCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZBW', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZBW', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZBW', state = 'hidden')
 
     def hideZNY(self):
-        if self.ZNYCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZNY', state = 'normal')
+        if self.ZNYCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZNY', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZNY', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZNY', state = 'hidden')
 
     def hideZOB(self):
-        if self.ZOBCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZOB', state = 'normal')
+        if self.ZOBCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZOB', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZOB', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZOB', state = 'hidden')
 
     def hideZDC(self):
-        if self.ZDCCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZDC', state = 'normal')
+        if self.ZDCCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZDC', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZDC', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZDC', state = 'hidden')
 
     def hideZID(self):
-        if self.ZIDCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZID', state = 'normal')
+        if self.ZIDCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZID', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZID', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZID', state = 'hidden')
 
     def hideZTL(self):
-        if self.ZTLCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZTL', state = 'normal')
+        if self.ZTLCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZTL', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZTL', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZTL', state = 'hidden')
 
     def hideZJX(self):
-        if self.ZJXCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZJX', state = 'normal')
+        if self.ZJXCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZJX', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZJX', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZJX', state = 'hidden')
 
     def hideZMA(self):
-        if self.ZMACheckVar.get() == 1:
-            self.canvas.itemconfigure('ZMA', state = 'normal')
+        if self.ZMACheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZMA', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZMA', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZMA', state = 'hidden')
 
     def hideZHU(self):
-        if self.ZHUCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZHU', state = 'normal')
+        if self.ZHUCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZHU', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZHU', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZHU', state = 'hidden')
 
     def hideZME(self):
-        if self.ZMECheckVar.get() == 1:
-            self.canvas.itemconfigure('ZME', state = 'normal')
+        if self.ZMECheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZME', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZME', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZME', state = 'hidden')
 
     def hideZKC(self):
-        if self.ZKCCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZKC', state = 'normal')
+        if self.ZKCCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZKC', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZKC', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZKC', state = 'hidden')
 
     def hideZAU(self):
-        if self.ZAUCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZAU', state = 'normal')
+        if self.ZAUCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZAU', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZAU', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZAU', state = 'hidden')
 
     def hideZMP(self):
-        if self.ZMPCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZMP', state = 'normal')
+        if self.ZMPCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZMP', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZMP', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZMP', state = 'hidden')
 
     def hideZFW(self):
-        if self.ZFWCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZFW', state = 'normal')
+        if self.ZFWCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZFW', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZFW', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZFW', state = 'hidden')
 
     def hideZAB(self):
-        if self.ZABCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZAB', state = 'normal')
+        if self.ZABCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZAB', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZAB', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZAB', state = 'hidden')
 
     def hideZDV(self):
-        if self.ZDVCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZDV', state = 'normal')
+        if self.ZDVCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZDV', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZDV', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZDV', state = 'hidden')
 
     def hideZLC(self):
-        if self.ZLCCheckVar.get() == 1:
-            self.canvas.itemconfigure('ZLC', state = 'normal')
+        if self.ZLCCheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZLC', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZLC', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZLC', state = 'hidden')
 
     def hideZLA(self):
-        if self.ZLACheckVar.get() == 1:
-            self.canvas.itemconfigure('ZLA', state = 'normal')
+        if self.ZLACheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZLA', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZLA', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZLA', state = 'hidden')
 
     def hideZOA(self):
-        if self.ZOACheckVar.get() == 1:
-            self.canvas.itemconfigure('ZOA', state = 'normal')
+        if self.ZOACheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZOA', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZOA', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZOA', state = 'hidden')
 
     def hideZSE(self):
-        if self.ZSECheckVar.get() == 1:
-            self.canvas.itemconfigure('ZSE', state = 'normal')
+        if self.ZSECheckVar.get() == 0:
+            self.canvas.itemconfigure('mask_ZSE', state = 'normal')
             print("Kill me now")
         else:
-            self.canvas.itemconfigure('ZSE', state = 'hidden')
+            self.canvas.itemconfigure('mask_ZSE', state = 'hidden')
 
 
 
@@ -401,225 +403,104 @@ class GUI():
 
         # =======================   ATC Zones   ===============================
         #ZBW
-        nop_zbw = Image.open('./atc_zones/no-cropped-planes/zbw-cropped.png')
-        self.nop_bw = ImageTk.PhotoImage(nop_zbw)
-        self.canvas.create_image( 995, 151, image=self.nop_bw)
         atc_zbw = Image.open('./atc_zones/sized_ATC/ZBW-170.png')
         self.atc_BW = ImageTk.PhotoImage(atc_zbw)
         self.canvas.create_image(995, 151, image=self.atc_BW, tags = 'ZBW')
 
-        if self.ZBWCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZBW', state = 'hidden')
-
         #ZNY
-        nop_zny = Image.open('./atc_zones/no-cropped-planes/zny-cropped.png')
-        self.nop_ny = ImageTk.PhotoImage(nop_zny)
-        self.canvas.create_image( 929, 207, image=self.nop_ny)
         atc_zny = Image.open('./atc_zones/sized_ATC/zny-84.png')
         self.atc_NY = ImageTk.PhotoImage(atc_zny)
         self.canvas.create_image(929, 207, image=self.atc_NY, tags = 'ZNY')
 
-        if self.ZNYCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZNY', state = 'hidden')
-
         #ZOB
-        nop_zob = Image.open('./atc_zones/no-cropped-planes/zob-cropped.png')
-        self.nop_ob = ImageTk.PhotoImage(nop_zob)
-        self.canvas.create_image( 842, 193, image=self.nop_ob)
         atc_zob = Image.open('./atc_zones/sized_ATC/zob-154.png')
         self.atc_OB = ImageTk.PhotoImage(atc_zob)
         self.canvas.create_image(845, 193, image=self.atc_OB, tags = 'ZOB')
 
-        if self.ZOBCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZOB', state = 'hidden')
-
         #ZDC
-        nop_zdc = Image.open('./atc_zones/no-cropped-planes/zdc-cropped.png')
-        self.nop_dc = ImageTk.PhotoImage(nop_zdc)
-        self.canvas.create_image( 915, 311, image=self.nop_dc)
         atc_zdc = Image.open('./atc_zones/sized_ATC/zdc-148.png')
         self.atc_DC = ImageTk.PhotoImage(atc_zdc)
         self.canvas.create_image(915, 309, image=self.atc_DC, tags = 'ZDC')
 
-        if self.ZDCCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZDC', state = 'hidden')
-
         #ZID
-        nop_zid = Image.open('./atc_zones/no-cropped-planes/zid-cropped.png')
-        self.nop_id = ImageTk.PhotoImage(nop_zid)
-        self.canvas.create_image( 780, 260, image=self.nop_id)
         atc_zid = Image.open('./atc_zones/sized_ATC/zid-137.png')
         self.atc_ID = ImageTk.PhotoImage(atc_zid)
         self.canvas.create_image(780, 260, image=self.atc_ID, tags = 'ZID')
 
-        if self.ZIDCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZID', state = 'hidden')
-
         #ZTL
-        nop_ztl = Image.open('./atc_zones/no-cropped-planes/ztl-cropped.png')
-        self.nop_tl = ImageTk.PhotoImage(nop_ztl)
-        self.canvas.create_image( 786, 356, image=self.nop_tl)
         atc_ztl = Image.open('./atc_zones/sized_ATC/ztl-150.png')
         self.atc_TL = ImageTk.PhotoImage(atc_ztl)
         self.canvas.create_image(786, 355, image=self.atc_TL, tags = 'ZTL')
 
-        if self.ZTLCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZTL', state = 'hidden')
-
         #ZJX
-        nop_zjx = Image.open('./atc_zones/no-cropped-planes/zjx-cropped.png')
-        self.nop_jx = ImageTk.PhotoImage(nop_zjx)
-        self.canvas.create_image( 817, 425, image=self.nop_jx)
         atc_zjx = Image.open('./atc_zones/sized_ATC/zjx-203.png')
         self.atc_JX = ImageTk.PhotoImage(atc_zjx)
         self.canvas.create_image(817, 425, image=self.atc_JX, tags = 'ZJX')
 
-        if self.ZJXCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZJX', state = 'hidden')
-
         #ZMA
-        nop_zma = Image.open('./atc_zones/no-cropped-planes/zma-cropped.png')
-        self.nop_ma = ImageTk.PhotoImage(nop_zma)
-        self.canvas.create_image( 834, 520, image=self.nop_ma)
         atc_zma = Image.open('./atc_zones/sized_ATC/zma-165.png')
         self.atc_MA = ImageTk.PhotoImage(atc_zma)
         self.canvas.create_image(834, 520, image=self.atc_MA, tags = 'ZMA')
 
-        if self.ZMACheckVar.get() == 0:
-            self.canvas.itemconfigure('ZMA', state = 'hidden')
-
         #ZHU
-        nop_zhu = Image.open('./atc_zones/no-cropped-planes/zhu-cropped.png')
-        self.nop_hu = ImageTk.PhotoImage(nop_zhu)
-        self.canvas.create_image( 610, 497, image=self.nop_hu)
         atc_zhu = Image.open('./atc_zones/sized_ATC/zhu-289.png')
         self.atc_HU = ImageTk.PhotoImage(atc_zhu)
         self.canvas.create_image(610, 497, image=self.atc_HU, tags = 'ZHU')
 
-        if self.ZHUCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZHU', state = 'hidden')
-
         #ZME
-        nop_zme = Image.open('./atc_zones/no-cropped-planes/zme-cropped.png')
-        self.nop_me = ImageTk.PhotoImage(nop_zme)
-        self.canvas.create_image( 675, 347, image=self.nop_me)
         atc_zme = Image.open('./atc_zones/sized_ATC/zme-183.png')
         self.atc_ME = ImageTk.PhotoImage(atc_zme)
         self.canvas.create_image(674, 348, image=self.atc_ME, tags = 'ZME')
 
-        if self.ZMECheckVar.get() == 0:
-            self.canvas.itemconfigure('ZME', state = 'hidden')
-
         #ZKC
-        nop_zkc = Image.open('./atc_zones/no-cropped-planes/zkc-cropped.png')
-        self.nop_kc = ImageTk.PhotoImage(nop_zkc)
-        self.canvas.create_image( 591, 270, image=self.nop_kc)
         atc_zkc = Image.open('./atc_zones/sized_ATC/zkc-253.png')
         self.atc_KC = ImageTk.PhotoImage(atc_zkc)
         self.canvas.create_image(591, 270, image=self.atc_KC, tags = 'ZKC')
 
-        if self.ZKCCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZKC', state = 'hidden')
-
         #ZAU
-        nop_zau = Image.open('./atc_zones/no-cropped-planes/zau-cropped.png')
-        self.nop_au = ImageTk.PhotoImage(nop_zau)
-        self.canvas.create_image( 698, 180, image=self.nop_au)
         atc_zau = Image.open('./atc_zones/sized_ATC/zau-156.png')
         self.atc_AU = ImageTk.PhotoImage(atc_zau)
         self.canvas.create_image(698, 180, image=self.atc_AU, tags = 'ZAU')
 
-        if self.ZAUCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZAU', state = 'hidden')
-
         #ZMP
-        nop_zmp = Image.open('./atc_zones/no-cropped-planes/zmp-cropped.png')
-        self.nop_mp = ImageTk.PhotoImage(nop_zmp)
-        self.canvas.create_image( 637, 135, image=self.nop_mp)
         atc_zmp = Image.open('./atc_zones/sized_ATC/zmp-363.png')
         self.atc_MP = ImageTk.PhotoImage(atc_zmp)
         self.canvas.create_image(637, 135, image=self.atc_MP, tags = 'ZMP')
 
-        if self.ZMPCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZMP', state = 'hidden')
-
         #ZFW
-        nop_zfw = Image.open('./atc_zones/no-cropped-planes/zfw-cropped.png')
-        self.nop_fw = ImageTk.PhotoImage(nop_zfw)
-        self.canvas.create_image( 549, 375, image=self.nop_fw)
         atc_zfw = Image.open('./atc_zones/sized_ATC/zfw-215.png')
         self.atc_FW = ImageTk.PhotoImage(atc_zfw)
         self.canvas.create_image(549, 375, image=self.atc_FW, tags = 'ZFW')
-
-        if self.ZFWCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZFW', state = 'hidden')
         
         #ZAB
-        nop_zab = Image.open('./atc_zones/no-cropped-planes/zab-cropped.png')
-        self.nop_ab = ImageTk.PhotoImage(nop_zab)
-        self.canvas.create_image( 391, 379, image=self.nop_ab)
         atc_zab = Image.open('./atc_zones/sized_ATC/zab-245.png')
         self.atc_AB = ImageTk.PhotoImage(atc_zab)
         self.canvas.create_image(391, 379, image=self.atc_AB, tags = 'ZAB')
 
-        if self.ZABCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZAB', state = 'hidden')
-
         #ZDV
-        nop_zdv = Image.open('./atc_zones/no-cropped-planes/zdv-cropped.png')
-        self.nop_dv = ImageTk.PhotoImage(nop_zdv)
-        self.canvas.create_image( 421 , 218, image=self.nop_dv)
         atc_zdv = Image.open('./atc_zones/sized_ATC/zdv-230.png')
         self.atc_DV = ImageTk.PhotoImage(atc_zdv)
         self.canvas.create_image(421, 218, image=self.atc_DV, tags = 'ZDV')
 
-        if self.ZDVCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZDV', state = 'hidden')
-
         #ZLC
-        nop_zlc = Image.open('./atc_zones/no-cropped-planes/zlc-cropped.png')
-        self.nop_lc = ImageTk.PhotoImage(nop_zlc)
-        self.canvas.create_image( 317, 157, image=self.nop_lc)
         atc_zlc = Image.open('./atc_zones/sized_ATC/zlc-283.png')
         self.atc_LC = ImageTk.PhotoImage(atc_zlc)
         self.canvas.create_image(317, 157, image=self.atc_LC, tags = 'ZLC')
 
-        if self.ZLCCheckVar.get() == 0:
-            self.canvas.itemconfigure('ZLC', state = 'hidden')
-
         #ZLA
-        nop_zla = Image.open('./atc_zones/no-cropped-planes/zla-cropped.png')
-        self.nop_la = ImageTk.PhotoImage(nop_zla)
-        self.canvas.create_image(213 , 354, image=self.nop_la)
         atc_zla = Image.open('./atc_zones/sized_ATC/zla-204.png')
         self.atc_LA = ImageTk.PhotoImage(atc_zla)
         self.canvas.create_image(214, 355, image=self.atc_LA, tags = 'ZLA')
 
-        if self.ZLACheckVar.get() == 0:
-            self.canvas.itemconfigure('ZLA', state = 'hidden')
-
         #ZOA
-        nop_zoa = Image.open('./atc_zones/no-cropped-planes/zoa-cropped-68.png')
-        self.nop_OA = ImageTk.PhotoImage(nop_zoa)
-        self.canvas.create_image(136,276, image=self.nop_OA)
         atc_zoa = Image.open('./atc_zones/sized_ATC/zoa-172.png')
         self.atc_OA = ImageTk.PhotoImage(atc_zoa)
         self.canvas.create_image(136, 276, image=self.atc_OA, tags = 'ZOA')
 
-        if self.ZOACheckVar.get() == 0:
-            self.canvas.itemconfigure('ZOA', state = 'hidden')
-
         #ZSE
-        nop_zse = Image.open('./atc_zones/no-cropped-planes/zse-cropped-68.png')
-        self.nop_SE = ImageTk.PhotoImage(nop_zse)
-        self.canvas.create_image(146,126, image=self.nop_SE)
         atc_zse = Image.open('./atc_zones/sized_ATC/zse-230.png')
         self.atc_SE = ImageTk.PhotoImage(atc_zse)
         self.canvas.create_image(146, 126, image=self.atc_SE, tags = 'ZSE')
-        
-
-        if self.ZSECheckVar.get() == 0:
-            self.canvas.itemconfigure('ZSE', state = 'hidden')
 
         duck = Image.open('./icons/duck.png')
         self.duck = ImageTk.PhotoImage(duck)
@@ -1008,10 +889,212 @@ class GUI():
                 UAL = self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('UALplane', 'plane'), state = 'hidden')
                 ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
                 self.plane_ref.append(plane3done)
+                
+    # =====================   NO-PLANE PLACEMENT   =============================== 
+
+        nop_zbw = Image.open('./atc_zones/cropped/zbw-cropped.png')
+        self.nop_bw = ImageTk.PhotoImage(nop_zbw)
+        self.canvas.create_image( 995, 151, image=self.nop_bw, tags = ('mask_ZBW','plane'))
+        atc_zbw2 = Image.open('./atc_zones/sized_ATC/ZBW-170.png')
+        self.atc_BW2 = ImageTk.PhotoImage(atc_zbw2)
+        self.canvas.create_image(995, 151, image=self.atc_BW2, tags = ('mask_ZBW', 'plane'))
+
+        if self.ZBWCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZBW', state = 'hidden')
+
+        nop_zny = Image.open('./atc_zones/cropped/zny-cropped.png')
+        self.nop_ny = ImageTk.PhotoImage(nop_zny)
+        self.canvas.create_image( 929, 207, image=self.nop_ny, tags = ('mask_ZNY','plane'))
+        atc_zny2 = Image.open('./atc_zones/sized_ATC/zny-84.png')
+        self.atc_NY2 = ImageTk.PhotoImage(atc_zny2)
+        self.canvas.create_image(929, 207, image=self.atc_NY2, tags = ('mask_ZNY', 'plane'))
+
+        if self.ZNYCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZNY', state = 'hidden')
+
+        nop_zob = Image.open('./atc_zones/cropped/zob-cropped.png')
+        self.nop_ob = ImageTk.PhotoImage(nop_zob)
+        self.canvas.create_image( 845, 193, image=self.nop_ob, tags = ('mask_ZOB','plane'))
+        atc_zob2 = Image.open('./atc_zones/sized_ATC/zob-154.png')
+        self.atc_OB2 = ImageTk.PhotoImage(atc_zob2)
+        self.canvas.create_image(845, 193, image=self.atc_OB2, tags = ('mask_ZOB','plane'))
+        
+        if self.ZOBCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZOB', state = 'hidden')
+
+        nop_zdc = Image.open('./atc_zones/cropped/zdc-cropped.png')
+        self.nop_dc = ImageTk.PhotoImage(nop_zdc)
+        self.canvas.create_image( 915, 309, image=self.nop_dc, tags = ('mask_ZDC', 'plane'))
+        atc_zdc2 = Image.open('./atc_zones/sized_ATC/zdc-148.png')
+        self.atc_DC2 = ImageTk.PhotoImage(atc_zdc2)
+        self.canvas.create_image(915, 309, image=self.atc_DC2, tags = ('mask_ZDC','plane'))
+        
+        if self.ZDCCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZDC', state = 'hidden')
+
+        nop_zid = Image.open('./atc_zones/cropped/zid-cropped.png')
+        self.nop_id = ImageTk.PhotoImage(nop_zid)
+        self.canvas.create_image( 780, 260, image=self.nop_id, tags = ('mask_ZID', 'plane'))
+        atc_zid2 = Image.open('./atc_zones/sized_ATC/zid-137.png')
+        self.atc_ID2 = ImageTk.PhotoImage(atc_zid2)
+        self.canvas.create_image(780, 260, image=self.atc_ID2, tags = ('mask_ZID' ,'plane'))
+        
+        if self.ZIDCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZID', state = 'hidden')
+
+        nop_ztl = Image.open('./atc_zones/cropped/ztl-cropped.png')
+        self.nop_tl = ImageTk.PhotoImage(nop_ztl)
+        self.canvas.create_image( 786, 355, image=self.nop_tl, tags = ('mask_ZTL', 'plane'))
+        atc_ztl2 = Image.open('./atc_zones/sized_ATC/ztl-150.png')
+        self.atc_TL2 = ImageTk.PhotoImage(atc_ztl2)
+        self.canvas.create_image(786, 355, image=self.atc_TL2, tags = ('mask_ZTL','plane'))
+
+        if self.ZTLCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZTL', state = 'hidden')
+
+        nop_zjx = Image.open('./atc_zones/cropped/zjx-cropped.png')
+        self.nop_jx = ImageTk.PhotoImage(nop_zjx)
+        self.canvas.create_image( 817, 425, image=self.nop_jx, tags = ('mask_ZJX', 'plane'))
+        atc_zjx2 = Image.open('./atc_zones/sized_ATC/zjx-203.png')
+        self.atc_JX2 = ImageTk.PhotoImage(atc_zjx2)
+        self.canvas.create_image(817, 425, image=self.atc_JX2, tags = ('mask_ZJX', 'plane'))
+        
+        if self.ZJXCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZJX', state = 'hidden')
+
+        nop_zma = Image.open('./atc_zones/cropped/zma-cropped.png')
+        self.nop_ma = ImageTk.PhotoImage(nop_zma)
+        self.canvas.create_image( 834, 520, image=self.nop_ma, tags = ('mask_ZMA', 'plane'))
+        atc_zma2 = Image.open('./atc_zones/sized_ATC/zma-165.png')
+        self.atc_MA2 = ImageTk.PhotoImage(atc_zma2)
+        self.canvas.create_image(834, 520, image=self.atc_MA2, tags = ('mask_ZMA', 'plane'))
+        
+        if self.ZMACheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZMA', state = 'hidden')
+
+        nop_zhu = Image.open('./atc_zones/cropped/zhu-cropped.png')
+        self.nop_hu = ImageTk.PhotoImage(nop_zhu)
+        self.canvas.create_image( 610, 497, image=self.nop_hu, tags = ('mask_ZHU', 'plane'))
+        atc_zhu2 = Image.open('./atc_zones/sized_ATC/zhu-289.png')
+        self.atc_HU2 = ImageTk.PhotoImage(atc_zhu2)
+        self.canvas.create_image(610, 497, image=self.atc_HU2, tags = ('mask_ZHU', 'plane'))
+        
+        if self.ZHUCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZHU', state = 'hidden')
+
+        nop_zme = Image.open('./atc_zones/cropped/zme-cropped.png')
+        self.nop_me = ImageTk.PhotoImage(nop_zme)
+        self.canvas.create_image( 674, 348, image=self.nop_me, tags = ('mask_ZME', 'plane'))
+        atc_zme2 = Image.open('./atc_zones/sized_ATC/zme-183.png')
+        self.atc_ME2 = ImageTk.PhotoImage(atc_zme2)
+        self.canvas.create_image(674, 348, image=self.atc_ME2, tags = ('mask_ZME', 'plane'))
+        
+        if self.ZMECheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZME', state = 'hidden')
+
+        nop_zkc = Image.open('./atc_zones/cropped/zkc-cropped.png')
+        self.nop_kc = ImageTk.PhotoImage(nop_zkc)
+        self.canvas.create_image( 591, 270, image=self.nop_kc, tags = ('mask_ZKC', 'plane'))
+        atc_zkc2 = Image.open('./atc_zones/sized_ATC/zkc-253.png')
+        self.atc_KC2 = ImageTk.PhotoImage(atc_zkc2)
+        self.canvas.create_image(591, 270, image=self.atc_KC2, tags = ('mask_ZKC','plane'))
+        
+        if self.ZKCCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZKC', state = 'hidden')
+
+        nop_zau = Image.open('./atc_zones/cropped/zau-cropped.png')
+        self.nop_au = ImageTk.PhotoImage(nop_zau)
+        self.canvas.create_image( 698, 180, image=self.nop_au, tags = ('mask_ZAU', 'plane'))
+        atc_zau2 = Image.open('./atc_zones/sized_ATC/zau-156.png')
+        self.atc_AU2 = ImageTk.PhotoImage(atc_zau2)
+        self.canvas.create_image(698, 180, image=self.atc_AU2, tags = ('mask_ZAU', 'plane'))
+
+        if self.ZAUCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZAU', state = 'hidden')
+
+        nop_zmp = Image.open('./atc_zones/cropped/zmp-cropped.png')
+        self.nop_mp = ImageTk.PhotoImage(nop_zmp)
+        self.canvas.create_image( 637, 135, image=self.nop_mp, tags = ('mask_ZMP', 'plane'))
+        atc_zmp2 = Image.open('./atc_zones/sized_ATC/zmp-363.png')
+        self.atc_MP2 = ImageTk.PhotoImage(atc_zmp2)
+        self.canvas.create_image(637, 135, image=self.atc_MP2, tags = ('mask_ZMP', 'plane'))
+        
+        if self.ZMPCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZMP', state = 'hidden')
+
+        nop_zfw = Image.open('./atc_zones/cropped/zfw-cropped.png')
+        self.nop_fw = ImageTk.PhotoImage(nop_zfw)
+        self.canvas.create_image( 549, 375, image=self.nop_fw, tags = ('mask_ZFW', 'plane'))
+        atc_zfw2 = Image.open('./atc_zones/sized_ATC/zfw-215.png')
+        self.atc_FW2 = ImageTk.PhotoImage(atc_zfw2)
+        self.canvas.create_image(549, 375, image=self.atc_FW2, tags = ('mask_ZFW', 'plane'))
+
+        if self.ZFWCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZFW', state = 'hidden')
+
+        nop_zab = Image.open('./atc_zones/cropped/zab-cropped.png')
+        self.nop_ab = ImageTk.PhotoImage(nop_zab)
+        self.canvas.create_image( 391, 379, image=self.nop_ab, tags = ('mask_ZAB', 'plane'))
+        atc_zab2 = Image.open('./atc_zones/sized_ATC/zab-245.png')
+        self.atc_AB2 = ImageTk.PhotoImage(atc_zab2)
+        self.canvas.create_image(391, 379, image=self.atc_AB2, tags = ('mask_ZAB', 'plane'))
+        
+        if self.ZABCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZAB', state = 'hidden')
+
+        nop_zdv = Image.open('./atc_zones/cropped/zdv-cropped.png')
+        self.nop_dv = ImageTk.PhotoImage(nop_zdv)
+        self.canvas.create_image( 421 , 218, image=self.nop_dv, tags = ('mask_ZDV', 'plane'))
+        atc_zdv2 = Image.open('./atc_zones/sized_ATC/zdv-230.png')
+        self.atc_DV2 = ImageTk.PhotoImage(atc_zdv2)
+        self.canvas.create_image(421, 218, image=self.atc_DV2, tags = ('mask_ZDV', 'plane'))
+        
+        if self.ZDVCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZDV', state = 'hidden')
+
+        nop_zlc = Image.open('./atc_zones/cropped/zlc-cropped.png')
+        self.nop_lc = ImageTk.PhotoImage(nop_zlc)
+        self.canvas.create_image( 317, 157, image=self.nop_lc, tags = ('mask_ZLC', 'plane'))
+        atc_zlc2 = Image.open('./atc_zones/sized_ATC/zlc-283.png')
+        self.atc_LC2 = ImageTk.PhotoImage(atc_zlc2)
+        self.canvas.create_image(317, 157, image=self.atc_LC2, tags = ('mask_ZLC', 'plane'))
+        
+        if self.ZLCCheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZLC', state = 'hidden')
+
+        nop_zla = Image.open('./atc_zones/cropped/zla-cropped.png')
+        self.nop_la = ImageTk.PhotoImage(nop_zla)
+        self.canvas.create_image(214 , 355, image=self.nop_la, tags = ('mask_ZLA', 'plane'))
+        atc_zla2 = Image.open('./atc_zones/sized_ATC/zla-204.png')
+        self.atc_LA2 = ImageTk.PhotoImage(atc_zla2)
+        self.canvas.create_image(214, 355, image=self.atc_LA2, tags = ('mask_ZLA','plane'))
+
+        if self.ZLACheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZLA', state = 'hidden')
+
+        nop_zoa = Image.open('./atc_zones/cropped/zoa-cropped.png')
+        self.nop_OA = ImageTk.PhotoImage(nop_zoa)
+        self.canvas.create_image(136,276, image=self.nop_OA, tags = ('mask_ZOA', 'plane'))
+        atc_zoa2 = Image.open('./atc_zones/sized_ATC/zoa-172.png')
+        self.atc_OA2 = ImageTk.PhotoImage(atc_zoa2)
+        self.canvas.create_image(136, 276, image=self.atc_OA2, tags = ('mask_ZOA', 'plane'))
+        
+        if self.ZOACheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZOA', state = 'hidden')
+
+        nop_zse = Image.open('./atc_zones/cropped/zse-cropped.png')
+        self.nop_SE = ImageTk.PhotoImage(nop_zse)
+        self.canvas.create_image(146,126, image=self.nop_SE, tags = ('mask_ZSE', 'plane'))
+        atc_zse2 = Image.open('./atc_zones/sized_ATC/zse-230.png')
+        self.atc_SE2 = ImageTk.PhotoImage(atc_zse2)
+        self.canvas.create_image(146, 126, image=self.atc_SE2, tags = ('mask_ZSE', 'plane'))
+        
+        if self.ZSECheckVar.get() == 1:
+            self.canvas.itemconfigure('mask_ZSE', state = 'hidden')
 
         self.canvas.delete('window')
         self.smask = ImageTk.PhotoImage(self.Mask)
-        
+
         # this gotta be the last line or it all doesn't work
         root.after(19800, self.caller, root)
         root.after(20000, self.arrayStuff, root)
