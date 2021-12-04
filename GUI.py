@@ -2,11 +2,8 @@ import random
 from tkinter import *
 import tkinter as tk
 from tkinter.constants import DISABLED,NORMAL
-from tkinter import ttk
 from tkinter import ALL, EventType
 from PIL import ImageTk, Image
-import pandas as pd
-import numpy as np
 
 from FlightDataImport import FlightData
 
@@ -25,6 +22,7 @@ class GUI():
         
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
+        self.Mask = Image.open('./icons/MASK.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
         root.config(cursor = "heart")
         self.blankArray()
@@ -82,7 +80,7 @@ class GUI():
         self.clipper = ImageTk.PhotoImage(clippy)
         self.Speech = ImageTk.PhotoImage(clippyText)
         butt = Button(root, image=self.clipper, bg = '#aadaff', activebackground= '#aadaff', command= self.my_command, borderwidth= 0)
-        butt.place(x = 1010, y = 525)
+        butt.place(x = 1010, y = 533)
         
         menubar=Menu(root)
 
@@ -513,6 +511,9 @@ class GUI():
     # =====================   END ATC Zones   ===============================
 
     def arrayStuff(self, root):
+        smask = ImageTk.PhotoImage(self.Mask)
+        self.canvas.create_image(10,10, image = smask, tags =('window'))
+
         print("I hate this")
         self.plane_ref = []
 
@@ -888,7 +889,6 @@ class GUI():
                 UAL = self.canvas.create_image(self.UAL_X_Array[i], self.UAL_Y_Array[i], image=plane3done, tags =('UALplane', 'plane'), state = 'hidden')
                 ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
                 self.plane_ref.append(plane3done)
-
                 
     # =====================   NO-PLANE PLACEMENT   =============================== 
 
@@ -1092,9 +1092,15 @@ class GUI():
         if self.ZSECheckVar.get() == 1:
             self.canvas.itemconfigure('mask_ZSE', state = 'hidden')
 
+        self.canvas.delete('window')
+        self.smask = ImageTk.PhotoImage(self.Mask)
 
         # this gotta be the last line or it all doesn't work
+        root.after(19800, self.caller, root)
         root.after(20000, self.arrayStuff, root)
+        
+    def caller(self, root):
+        self.canvas.create_image(10,10, image = self.smask, tags =('window'))
         
 class ToolTip(object):
 
