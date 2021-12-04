@@ -18,7 +18,7 @@ class GUI():
         frame.pack()
         self.canvas = Canvas(frame, bg = "black", width=1114, height=642)
         self.canvas.pack()
-        
+        root.wm_title("Flight Tracking")
         
         #background image of US
         self.USAMapImage1 = PhotoImage(file = './U.S.A Images/Untitled.png')
