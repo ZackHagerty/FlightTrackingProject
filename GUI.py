@@ -523,66 +523,30 @@ class GUI():
         flight_chart_array = FlightData.flightDataPull(20.038,-130.974,-65.748,50.214)
 
         # These arrays are for placing the planes and their directions
-        self.AAL_callSign = []
-        self.AAL_Arraylong = []
-        self.AAL_Arraylat = []
-        self.AAL_Arraytrue = []
+        self.AAL_callSign, self.AAL_Arraylong, self.AAL_Arraylat, self.AAL_Arraytrue = [], [], [], []
 
-        self.AAY_callSign = []
-        self.AAY_Arraylong = []
-        self.AAY_Arraylat = []
-        self.AAY_Arraytrue = []
+        self.AAY_callSign, self.AAY_Arraylong, self.AAY_Arraylat, self.AAY_Arraytrue = [], [], [], []
+        
+        self.ACA_callSign, self.ACA_Arraylong, self.ACA_Arraylat, self.ACA_Arraytrue = [], [], [], []
 
-        self.ACA_callSign = []
-        self.ACA_Arraylong = []
-        self.ACA_Arraylat = []
-        self.ACA_Arraytrue = []
+        self.AFR_callSign, self.AFR_Arraylong, self.AFR_Arraylat, self.AFR_Arraytrue = [], [], [], []
 
-        self.AFR_callSign = []
-        self.AFR_Arraylong = []
-        self.AFR_Arraylat = []
-        self.AFR_Arraytrue = []
+        self.AMX_callSign, self.AMX_Arraylong, self.AMX_Arraylat, self.AMX_Arraytrue = [], [], [], []
 
-        self.AMX_callSign = []
-        self.AMX_Arraylong = []
-        self.AMX_Arraylat = []
-        self.AMX_Arraytrue = []
+        self.ASA_callSign, self.ASA_Arraylong, self.ASA_Arraylat, self.ASA_Arraytrue = [], [], [], []
 
-        self.ASA_callSign = []
-        self.ASA_Arraylong = []
-        self.ASA_Arraylat = []
-        self.ASA_Arraytrue = []
+        self.DAL_callSign, self.DAL_Arraylong, self.DAL_Arraylat, self.DAL_Arraytrue = [], [], [], []
 
-        self.DAL_callSign = []
-        self.DAL_Arraylong = []
-        self.DAL_Arraylat = []
-        self.DAL_Arraytrue = []
+        self.FFT_callSign, self.FFT_Arraylong, self.FFT_Arraylat, self.FFT_Arraytrue = [], [], [], []
 
-        self.FFT_callSign = []
-        self.FFT_Arraylong = []
-        self.FFT_Arraylat = []
-        self.FFT_Arraytrue = []
+        self.JBU_callSign, self.JBU_Arraylong, self.JBU_Arraylat, self.JBU_Arraytrue = [], [], [], []
 
-        self.JBU_callSign = []
-        self.JBU_Arraylong = []
-        self.JBU_Arraylat = []
-        self.JBU_Arraytrue = []
+        self.NKS_callSign, self.NKS_Arraylong, self.NKS_Arraylat, self.NKS_Arraytrue = [], [], [], []
 
-        self.NKS_callSign = []
-        self.NKS_Arraylong = []
-        self.NKS_Arraylat = []
-        self.NKS_Arraytrue = []
-
-        self.SWA_callSign = []
-        self.SWA_Arraylong = []
-        self.SWA_Arraylat = []
-        self.SWA_Arraytrue = []
-
-        self.UAL_callSign = []
-        self.UAL_Arraylong = []
-        self.UAL_Arraylat = []
-        self.UAL_Arraytrue = []
-
+        self.SWA_callSign, self.SWA_Arraylong, self.SWA_Arraylat, self.SWA_Arraytrue = [], [], [], []
+        
+        self.UAL_callSign, self.UAL_Arraylong, self.UAL_Arraylat, self.UAL_Arraytrue = [], [], [], []
+        
         #Sort by company code, add it to each array
         for i in range(len(flight_chart_array)):
             
