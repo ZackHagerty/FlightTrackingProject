@@ -1,3 +1,10 @@
+"""
+GUI.py created by Zack Hagerty, Devon Casey, 
+
+
+
+"""
+
 import random
 from tkinter import *
 import tkinter as tk
@@ -7,9 +14,20 @@ from PIL import ImageTk, Image
 
 from FlightDataImport import FlightData
 
-
+"""
+GUI Class. This class facilitates all operations,
+including plane location updating/plotting, data pull
+calls.
+"""
 class GUI():
 
+    """
+    GUI class's initialization method. Serves to set
+    up the GUI upon call.
+
+    Arguments: 
+    root - the Tkinter instance.
+    """
     def __init__(self, root):
         self.on = False
         #Sets up the frame and background self.canvas
@@ -25,7 +43,7 @@ class GUI():
         self.Mask = Image.open('./icons/MASK.png')
         self.canvas.create_image(557,(321),image=self.USAMapImage1)
         root.config(cursor = "heart")
-        self.blankArray()
+        self.menuVariables()
 
         self.menusSetup(root)
 
@@ -33,7 +51,11 @@ class GUI():
         
         self.arrayStuff(root)
 
-    def blankArray(self):
+    """
+    Creates the variables to be used in the menu
+    that filters the companies and ATC Zones    
+    """
+    def menuVariables(self):
 
         val = 1
         #Airline Dropdown Menu
@@ -72,6 +94,14 @@ class GUI():
         self.ZOACheckVar = IntVar(value=0)
         self.ZSECheckVar = IntVar(value=0)    
 
+    """
+    This method will facilitate the operation
+    of the menu at the top of the GUI, 
+    allowing user to filter ATC zones and
+    companies
+    Arguments:
+    -root
+    """
     def menusSetup(self, root):
         #creating a menu bar
 
@@ -85,46 +115,49 @@ class GUI():
         menubar=Menu(root)
 
         airlineMenu=Menu(menubar, tearoff=0)
-        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hideAAL())
-        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : self.hideAAY())
-        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : self.hideACA())
-        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : self.hideAFR())
-        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : self.hideAMX())
-        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : self.hideASA())
-        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : self.hideDAL())
-        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : self.hideFFT())
-        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : self.hideJBU())
-        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : self.hideNKS())
-        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : self.hideSWA())
-        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : self.hideUAL())
+        airlineMenu.add_checkbutton(label="American Airlines", variable= self.AALCheckVar, command = lambda : self.hidePlane('AALplane', self.AALCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Allegiant Airlines", variable = self.AAYCheckVar, command = lambda : self.hidePlane('AAYplane', self.AAYCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Air Canada", variable = self.ACACheckVar, command = lambda : self.hidePlane('ACAplane', self.ACACheckVar.get()))
+        airlineMenu.add_checkbutton(label="Air France", variable = self.AFRCheckVar, command = lambda : self.hidePlane('AFRplane', self.AFRCheckVar.get()))
+        airlineMenu.add_checkbutton(label="AeroMexico", variable = self.AMXCheckVar, command = lambda : self.hidePlane('AMXplane', self.AMXCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Alaska Air", variable = self.ASACheckVar, command = lambda : self.hidePlane('ASAplane', self.ASACheckVar.get()))
+        airlineMenu.add_checkbutton(label="Delta Airlines", variable= self.DALCheckVar, command = lambda : self.hidePlane('DALplane', self.DALCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Frontier Airlines", variable = self.FFTCheckVar, command = lambda : self.hidePlane('FFTplane', self.FFTCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Jet Blue Airlines", variable = self.JBUCheckVar, command = lambda : self.hidePlane('JBUplane', self.JBUCheckVar.get()))
+        airlineMenu.add_checkbutton(label="Spirit Airlines", variable = self.NKSCheckVar, command = lambda : self.hidePlane('NKSplane', self.NKSCheckVar.get()))
+        airlineMenu.add_checkbutton(label="South West Airlines", variable = self.SWACheckVar, command = lambda : self.hidePlane('SWAplane', self.SWACheckVar.get()))
+        airlineMenu.add_checkbutton(label="United Airlines", variable = self.UALCheckVar, command = lambda : self.hidePlane('UALplane', self.UALCheckVar.get()))
         menubar.add_cascade(label="Airline",menu=airlineMenu)
 
 
         atcZoneMenu=Menu(menubar, tearoff=0)
-        atcZoneMenu.add_checkbutton(label="ZBW", variable= self.ZBWCheckVar, command = lambda : self.hideZBW())
-        atcZoneMenu.add_checkbutton(label="ZNY", variable= self.ZNYCheckVar, command = lambda : self.hideZNY())
-        atcZoneMenu.add_checkbutton(label="ZOB", variable= self.ZOBCheckVar, command = lambda : self.hideZOB())
-        atcZoneMenu.add_checkbutton(label="ZDC", variable= self.ZDCCheckVar, command = lambda : self.hideZDC())
-        atcZoneMenu.add_checkbutton(label="ZID", variable= self.ZIDCheckVar, command = lambda : self.hideZID())
-        atcZoneMenu.add_checkbutton(label="ZTL", variable= self.ZTLCheckVar, command = lambda : self.hideZTL())
-        atcZoneMenu.add_checkbutton(label="ZJX", variable= self.ZJXCheckVar, command = lambda : self.hideZJX())
-        atcZoneMenu.add_checkbutton(label="ZMA", variable= self.ZMACheckVar, command = lambda : self.hideZMA())
-        atcZoneMenu.add_checkbutton(label="ZHU", variable= self.ZHUCheckVar, command = lambda : self.hideZHU())
-        atcZoneMenu.add_checkbutton(label="ZME", variable= self.ZMECheckVar, command = lambda : self.hideZME())
-        atcZoneMenu.add_checkbutton(label="ZKC", variable= self.ZKCCheckVar, command = lambda : self.hideZKC())
-        atcZoneMenu.add_checkbutton(label="ZAU", variable= self.ZAUCheckVar, command = lambda : self.hideZAU())
-        atcZoneMenu.add_checkbutton(label="ZMP", variable= self.ZMPCheckVar, command = lambda : self.hideZMP())
-        atcZoneMenu.add_checkbutton(label="ZFW", variable= self.ZFWCheckVar, command = lambda : self.hideZFW())
-        atcZoneMenu.add_checkbutton(label="ZAB", variable= self.ZABCheckVar, command = lambda : self.hideZAB())
-        atcZoneMenu.add_checkbutton(label="ZDV", variable= self.ZDVCheckVar, command = lambda : self.hideZDV())
-        atcZoneMenu.add_checkbutton(label="ZLC", variable= self.ZLCCheckVar, command = lambda : self.hideZLC())
-        atcZoneMenu.add_checkbutton(label="ZLA", variable= self.ZLACheckVar, command = lambda : self.hideZLA())
-        atcZoneMenu.add_checkbutton(label="ZOA", variable= self.ZOACheckVar, command = lambda : self.hideZOA())
-        atcZoneMenu.add_checkbutton(label="ZSE", variable= self.ZSECheckVar, command = lambda : self.hideZSE())
+        atcZoneMenu.add_checkbutton(label="ZBW", variable= self.ZBWCheckVar, command = lambda : self.hideZone('mask_ZBW', self.ZBWCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZNY", variable= self.ZNYCheckVar, command = lambda : self.hideZone('mask_ZNY', self.ZNYCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZOB", variable= self.ZOBCheckVar, command = lambda : self.hideZone('mask_ZOB', self.ZOBCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZDC", variable= self.ZDCCheckVar, command = lambda : self.hideZone('mask_ZDC', self.ZDCCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZID", variable= self.ZIDCheckVar, command = lambda : self.hideZone('mask_ZID', self.ZIDCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZTL", variable= self.ZTLCheckVar, command = lambda : self.hideZone('mask_ZTL', self.ZTLCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZJX", variable= self.ZJXCheckVar, command = lambda : self.hideZone('mask_ZJX', self.ZJXCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZMA", variable= self.ZMACheckVar, command = lambda : self.hideZone('mask_ZMA', self.ZMACheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZHU", variable= self.ZHUCheckVar, command = lambda : self.hideZone('mask_ZHU', self.ZHUCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZME", variable= self.ZMECheckVar, command = lambda : self.hideZone('mask_ZME', self.ZMECheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZKC", variable= self.ZKCCheckVar, command = lambda : self.hideZone('mask_ZKC', self.ZKCCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZAU", variable= self.ZAUCheckVar, command = lambda : self.hideZone('mask_ZAU', self.ZAUCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZMP", variable= self.ZMPCheckVar, command = lambda : self.hideZone('mask_ZMP', self.ZMPCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZFW", variable= self.ZFWCheckVar, command = lambda : self.hideZone('mask_ZFW', self.ZFWCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZAB", variable= self.ZABCheckVar, command = lambda : self.hideZone('mask_ZAB', self.ZABCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZDV", variable= self.ZDVCheckVar, command = lambda : self.hideZone('mask_ZDV', self.ZDVCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZLC", variable= self.ZLCCheckVar, command = lambda : self.hideZone('mask_ZLC', self.ZLCCheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZLA", variable= self.ZLACheckVar, command = lambda : self.hideZone('mask_ZLA', self.ZLACheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZOA", variable= self.ZOACheckVar, command = lambda : self.hideZone('mask_ZOA', self.ZOACheckVar.get()))
+        atcZoneMenu.add_checkbutton(label="ZSE", variable= self.ZSECheckVar, command = lambda : self.hideZone('mask_ZSE', self.ZSECheckVar.get()))
         menubar.add_cascade(label="ATC Zones", menu=atcZoneMenu)
 
         root.config(menu=menubar)
-        
+    
+    """
+    This function controls clippy
+    """
     def my_command(self):
         if(self.on == False):
             self.canvas.create_image(1010, 450, image = self.Speech, tags = ('speech'))
@@ -133,253 +166,36 @@ class GUI():
             self.canvas.delete('speech')
             self.on = False
 
-    def hideAAL(self):
-        if self.AALCheckVar.get() == 1:
-            self.canvas.itemconfigure('AALplane', state = 'normal')
-            print("Kill me now")
+    """
+    Company plane toggle
+
+    Arguments:
+    plane - Company being filtered out
+    checkVar - Whether or not that plane is already toggles. 0 = off, 1 = on
+    """
+    def hidePlane(self, plane, checkVar):
+        if checkVar == 1:
+            self.canvas.itemconfigure(plane, state = 'normal')
         else:
-            print(self.AALCheckVar.get())
-            self.canvas.itemconfigure('AALplane', state = 'hidden')
+            self.canvas.itemconfigure(plane, state = 'hidden')
 
-    def hideAAY(self):
-        if self.AAYCheckVar.get() == 1:
-            self.canvas.itemconfigure('AAYplane', state = 'normal')
-            print("Kill me now")
+
+        """
+        ATC Zone toggle method
+
+        Arguments:
+        mask - the image being passed
+        checkVar - checks to see if the plane is already on. 0 = no, 1 = yes.
+        """
+    def hideZone(self, mask, checkVar):
+        if checkVar == 0:
+            self.canvas.itemconfigure(mask, state = 'normal')
         else:
-            print(self.AAYCheckVar.get())
-            self.canvas.itemconfigure('AAYplane', state = 'hidden')
+            self.canvas.itemconfigure(mask, state = 'hidden')
 
-    def hideACA(self):
-        if self.ACACheckVar.get() == 1:
-            self.canvas.itemconfigure('ACAplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.ACACheckVar.get())
-            self.canvas.itemconfigure('ACAplane', state = 'hidden')
-
-    def hideAFR(self):
-        if self.AFRCheckVar.get() == 1:
-            self.canvas.itemconfigure('AFRplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.AFRCheckVar.get())
-            self.canvas.itemconfigure('AFRplane', state = 'hidden')
-
-    def hideAAL(self):
-        if self.AALCheckVar.get() == 1:
-            self.canvas.itemconfigure('AALplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.AALCheckVar.get())
-            self.canvas.itemconfigure('AALplane', state = 'hidden')
-
-    def hideAMX(self):
-        if self.AMXCheckVar.get() == 1:
-            self.canvas.itemconfigure('AMXplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.AMXCheckVar.get())
-            self.canvas.itemconfigure('AMXplane', state = 'hidden')
-
-    def hideASA(self):
-        if self.ASACheckVar.get() == 1:
-            self.canvas.itemconfigure('ASAplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.ASACheckVar.get())
-            self.canvas.itemconfigure('ASAplane', state = 'hidden')
-
-    def hideDAL(self):
-        if self.DALCheckVar.get() == 1:
-            self.canvas.itemconfigure('DALplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.DALCheckVar.get())
-            self.canvas.itemconfigure('DALplane', state = 'hidden')
-
-    def hideFFT(self):
-        if self.FFTCheckVar.get() == 1:
-            self.canvas.itemconfigure('FFTplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.FFTCheckVar.get())
-            self.canvas.itemconfigure('FFTplane', state = 'hidden')
-
-    def hideJBU(self):
-        if self.JBUCheckVar.get() == 1:
-            self.canvas.itemconfigure('JBUplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.JBUCheckVar.get())
-            self.canvas.itemconfigure('JBUplane', state = 'hidden')
-
-    def hideNKS(self):
-        if self.NKSCheckVar.get() == 1:
-            self.canvas.itemconfigure('NKSplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.NKSCheckVar.get())
-            self.canvas.itemconfigure('NKSplane', state = 'hidden')
-
-    def hideSWA(self):
-        if self.SWACheckVar.get() == 1:
-            self.canvas.itemconfigure('SWAplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.SWACheckVar.get())
-            self.canvas.itemconfigure('SWAplane', state = 'hidden')
-
-    def hideUAL(self):
-        if self.UALCheckVar.get() == 1:
-            self.canvas.itemconfigure('UALplane', state = 'normal')
-            print("Kill me now")
-        else:
-            print(self.UALCheckVar.get())
-            self.canvas.itemconfigure('UALplane', state = 'hidden')
-
-#-------------------ATC ZONE TOGGLE----------------------------
-    def hideZBW(self):
-        if self.ZBWCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZBW', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZBW', state = 'hidden')
-
-    def hideZNY(self):
-        if self.ZNYCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZNY', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZNY', state = 'hidden')
-
-    def hideZOB(self):
-        if self.ZOBCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZOB', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZOB', state = 'hidden')
-
-    def hideZDC(self):
-        if self.ZDCCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZDC', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZDC', state = 'hidden')
-
-    def hideZID(self):
-        if self.ZIDCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZID', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZID', state = 'hidden')
-
-    def hideZTL(self):
-        if self.ZTLCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZTL', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZTL', state = 'hidden')
-
-    def hideZJX(self):
-        if self.ZJXCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZJX', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZJX', state = 'hidden')
-
-    def hideZMA(self):
-        if self.ZMACheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZMA', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZMA', state = 'hidden')
-
-    def hideZHU(self):
-        if self.ZHUCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZHU', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZHU', state = 'hidden')
-
-    def hideZME(self):
-        if self.ZMECheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZME', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZME', state = 'hidden')
-
-    def hideZKC(self):
-        if self.ZKCCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZKC', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZKC', state = 'hidden')
-
-    def hideZAU(self):
-        if self.ZAUCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZAU', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZAU', state = 'hidden')
-
-    def hideZMP(self):
-        if self.ZMPCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZMP', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZMP', state = 'hidden')
-
-    def hideZFW(self):
-        if self.ZFWCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZFW', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZFW', state = 'hidden')
-
-    def hideZAB(self):
-        if self.ZABCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZAB', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZAB', state = 'hidden')
-
-    def hideZDV(self):
-        if self.ZDVCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZDV', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZDV', state = 'hidden')
-
-    def hideZLC(self):
-        if self.ZLCCheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZLC', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZLC', state = 'hidden')
-
-    def hideZLA(self):
-        if self.ZLACheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZLA', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZLA', state = 'hidden')
-
-    def hideZOA(self):
-        if self.ZOACheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZOA', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZOA', state = 'hidden')
-
-    def hideZSE(self):
-        if self.ZSECheckVar.get() == 0:
-            self.canvas.itemconfigure('mask_ZSE', state = 'normal')
-            print("Kill me now")
-        else:
-            self.canvas.itemconfigure('mask_ZSE', state = 'hidden')
-
-
-
+    """
+    Loads all images used in the GUI
+    """
     def settingUpPlanes(self):
         #test image of plane
         self.plane2 = Image.open('./icons/airplane-icon-2-19.png') # 19x19 pixel image
@@ -510,11 +326,17 @@ class GUI():
 
     # =====================   END ATC Zones   ===============================
 
+        """
+        Calls data pull, creates arrays to hold data, and populates arrays
+
+        Arguments:
+        -root
+        """
     def arrayStuff(self, root):
         smask = ImageTk.PhotoImage(self.Mask)
         self.canvas.create_image(10,10, image = smask, tags =('window'))
 
-        print("I hate this")
+  
         self.plane_ref = []
 
         self.duckProbability = random.randint(0, 20)
@@ -524,29 +346,19 @@ class GUI():
 
         # These arrays are for placing the planes and their directions
         self.AAL_callSign, self.AAL_Arraylong, self.AAL_Arraylat, self.AAL_Arraytrue = [], [], [], []
-
         self.AAY_callSign, self.AAY_Arraylong, self.AAY_Arraylat, self.AAY_Arraytrue = [], [], [], []
-        
         self.ACA_callSign, self.ACA_Arraylong, self.ACA_Arraylat, self.ACA_Arraytrue = [], [], [], []
-
         self.AFR_callSign, self.AFR_Arraylong, self.AFR_Arraylat, self.AFR_Arraytrue = [], [], [], []
-
         self.AMX_callSign, self.AMX_Arraylong, self.AMX_Arraylat, self.AMX_Arraytrue = [], [], [], []
-
         self.ASA_callSign, self.ASA_Arraylong, self.ASA_Arraylat, self.ASA_Arraytrue = [], [], [], []
-
         self.DAL_callSign, self.DAL_Arraylong, self.DAL_Arraylat, self.DAL_Arraytrue = [], [], [], []
-
         self.FFT_callSign, self.FFT_Arraylong, self.FFT_Arraylat, self.FFT_Arraytrue = [], [], [], []
-
         self.JBU_callSign, self.JBU_Arraylong, self.JBU_Arraylat, self.JBU_Arraytrue = [], [], [], []
-
         self.NKS_callSign, self.NKS_Arraylong, self.NKS_Arraylat, self.NKS_Arraytrue = [], [], [], []
-
         self.SWA_callSign, self.SWA_Arraylong, self.SWA_Arraylat, self.SWA_Arraytrue = [], [], [], []
-        
         self.UAL_callSign, self.UAL_Arraylong, self.UAL_Arraylat, self.UAL_Arraytrue = [], [], [], []
-        
+
+
         #Sort by company code, add it to each array
         for i in range(len(flight_chart_array)):
             
@@ -638,13 +450,14 @@ class GUI():
         self.UAL_X_Array, self.UAL_Y_Array = FlightData.coordinateTranslate(self.UAL_Arraylat,self.UAL_Arraylong)
         #print(long_Array)
 
-        self.plotPlanes(root)
+        self.refreshGUI(root)
 
-    # =====================   PLANE PLACEMENT   ===============================    
-    
-    # place each plane in x,y and with rotation with each color per airline
-    
-    def plotPlanes(self, root):
+    """
+    Recreates planes and masks every refresh cycle.
+    Arguments:
+    root
+    """
+    def refreshGUI(self, root):
         # American
         self.canvas.delete("plane")
         self.planeImages = {}
@@ -854,8 +667,10 @@ class GUI():
                 ToolTip.CreateToolTip(self.canvas, UAL, text = 'UAL, ' + self.UAL_callSign[i])
                 self.plane_ref.append(plane3done)
                 
-    # =====================   NO-PLANE PLACEMENT   =============================== 
-
+        """
+        The following code creates the masks, as well as their borders. Refreshed ever cycle to make sure 
+        that zones that are currently filtered out, stay filtered out.
+        """
         nop_zbw = Image.open('./atc_zones/cropped/zbw-cropped.png')
         self.nop_bw = ImageTk.PhotoImage(nop_zbw)
         self.canvas.create_image( 995, 151, image=self.nop_bw, tags = ('mask_ZBW','plane'))
@@ -1062,12 +877,28 @@ class GUI():
         # this gotta be the last line or it all doesn't work
         root.after(19800, self.caller, root)
         root.after(20000, self.arrayStuff, root)
-        
+
+    """
+    Method that breaks user's connection to plane. If this isn't present,
+    tool tips will stick around after GUI updates
+    """ 
     def caller(self, root):
         self.canvas.create_image(10,10, image = self.smask, tags =('window'))
-        
+
+
+"""
+This class controls the plane data info that pops up when
+the mouse hovers over a plane.
+"""    
 class ToolTip(object):
 
+    """
+    Initialization method for ToolTip class. Receives data
+    from object call and makes class instances of those variables
+    Arguments:
+    canvas - the canvas object within the tkinter instance.
+    widget - the plane currently underneath the mouse.
+    """
     def __init__(self, canvas, widget):
         self.canvas = canvas
         self.widget = widget
@@ -1075,8 +906,14 @@ class ToolTip(object):
         self.id = None
         self.x = self.y = 0
 
+    
+        """
+        Method that shows the tip when mouse hovering over plane
+        Arguments:
+        text - message being generated when mouse is over plane
+        """
     def showtip(self, text):
-        "Display text in tooltip window"
+    
         self.text = text
         if self.tipwindow or not self.text:
             return
@@ -1091,12 +928,19 @@ class ToolTip(object):
                       font=("tahoma", "8", "normal"))
         self.label.pack(ipadx=1)
 
+    """
+    Hides the tool tip when mouse leaves the plane
+    """
     def hidetip(self):
         tw = self.tipwindow
         self.tipwindow = None
         if tw:
             tw.destroy()
 
+    """
+    Method that facilitates the creation and destruction of tooltips,
+    and binds those functions to user actions
+    """
     def CreateToolTip(canvas, widget, text):
         toolTip = ToolTip(canvas, widget)
         def enter(event):
@@ -1107,6 +951,11 @@ class ToolTip(object):
         canvas.tag_bind(widget, '<Leave>', leave)
 
 
+
+"""
+Class's main method. Creates an instance of 
+Tkinter, then passes it to the GUI class.
+"""
 if __name__ == "__main__":
     
     root = Tk()

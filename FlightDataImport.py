@@ -3,8 +3,18 @@ from os import sep
 import pandas as pd
 import requests
 
+"""
+Class that facilitates the Flight data pull from OneSky
+
+Returns:
+    flight_array: returns the flight array.
+"""
 class FlightData():
 
+    """
+    Initiation method that establishes the coordinates getting pulled
+
+    """
     def __init__(self):
         # Latitude and Longitude trimming from OpenSky, to be changed later
         USlongmin, USlatmin = -130.974, 20.038 #Lat and Long for all US "bottom left"
@@ -18,6 +28,17 @@ class FlightData():
         longmax, latmax = USlongmax, USlatmax
         self.flightDataPull(latmin, longmin, longmax, latmax)
 
+    """
+    Facilitates the data pull
+
+    returns: flight data
+
+    Arguments:
+    latmin- minimum latitude
+    longmin - minimum longitude
+    longmax - max longitude
+    latmax - max latitude    
+    """
     def flightDataPull(latmin, longmin, longmax, latmax):
         #Pull Request from browser search of opensky using lat and long data
         user_name = 'zack.hagerty'
@@ -44,7 +65,9 @@ class FlightData():
 
         #flight_df.to_csv('icons.csv')
 
-    #translate lat long to x, y
+    """
+    Easy translation of lat and long to x, y coordinats for use in GUI
+    """
     def coordinateTranslate(N, W):
         x=[]
         y=[]
