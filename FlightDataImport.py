@@ -20,10 +20,6 @@ class FlightData():
         USlongmin, USlatmin = -130.974, 20.038 #Lat and Long for all US "bottom left"
         USlongmax, USlatmax = -65.748, 50.214  # "top right"
 
-        FLlongmin, FLlatmin = -87.928, 24.228337
-        FLlongmax, FLlatmax = -79.80946, 31.125
-
-
         longmin, latmin = USlongmin, USlatmin
         longmax, latmax = USlongmax, USlatmax
         self.flightDataPull(latmin, longmin, longmax, latmax)
@@ -31,7 +27,7 @@ class FlightData():
     """
     Facilitates the data pull
 
-    returns: flight data
+    returns: flight data array
 
     Arguments:
     latmin- minimum latitude
