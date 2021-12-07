@@ -176,7 +176,6 @@ class GUI():
     def hidePlane(self, plane, checkVar):
         if checkVar == 1:
             self.canvas.itemconfigure(plane, state = 'normal')
-            print("Kill me now")
         else:
             self.canvas.itemconfigure(plane, state = 'hidden')
 
@@ -191,7 +190,6 @@ class GUI():
     def hideZone(self, mask, checkVar):
         if checkVar == 0:
             self.canvas.itemconfigure(mask, state = 'normal')
-            print("Kill me now")
         else:
             self.canvas.itemconfigure(mask, state = 'hidden')
 
@@ -338,7 +336,7 @@ class GUI():
         smask = ImageTk.PhotoImage(self.Mask)
         self.canvas.create_image(10,10, image = smask, tags =('window'))
 
-        print("I hate this")
+  
         self.plane_ref = []
 
         self.duckProbability = random.randint(0, 20)
