@@ -1,5 +1,5 @@
 """
-GUI.py created by Zack Hagerty, Devon Casey, 
+GUI.py created by Zack Hagerty, Devon Casey, Matthew Jolliffe, and Matthew Grabasch
 
 
 
@@ -57,42 +57,42 @@ class GUI():
     """
     def menuVariables(self):
 
-        val = 1
+        
         #Airline Dropdown Menu
-        self.AALCheckVar = IntVar(value=val)
-        self.AAYCheckVar = IntVar(value=val)
-        self.ACACheckVar = IntVar(value=val)
-        self.AFRCheckVar = IntVar(value=val)
-        self.AMXCheckVar = IntVar(value=val)
-        self.ASACheckVar = IntVar(value=val)
-        self.DALCheckVar = IntVar(value=val)
-        self.FFTCheckVar = IntVar(value=val)
-        self.JBUCheckVar = IntVar(value=val)
-        self.NKSCheckVar = IntVar(value=val)
-        self.SWACheckVar = IntVar(value=val)
-        self.UALCheckVar = IntVar(value=val)
+        self.AALCheckVar = IntVar(value=1)
+        self.AAYCheckVar = IntVar(value=1)
+        self.ACACheckVar = IntVar(value=1)
+        self.AFRCheckVar = IntVar(value=1)
+        self.AMXCheckVar = IntVar(value=1)
+        self.ASACheckVar = IntVar(value=1)
+        self.DALCheckVar = IntVar(value=1)
+        self.FFTCheckVar = IntVar(value=1)
+        self.JBUCheckVar = IntVar(value=1)
+        self.NKSCheckVar = IntVar(value=1)
+        self.SWACheckVar = IntVar(value=1)
+        self.UALCheckVar = IntVar(value=1)
 
         #ATC Zone Dropdown Menu
-        self.ZBWCheckVar = IntVar(value=0)
-        self.ZNYCheckVar = IntVar(value=0)
-        self.ZOBCheckVar = IntVar(value=0)
-        self.ZDCCheckVar = IntVar(value=0)
-        self.ZIDCheckVar = IntVar(value=0)
-        self.ZTLCheckVar = IntVar(value=0)
-        self.ZJXCheckVar = IntVar(value=val)
-        self.ZMACheckVar = IntVar(value=0)
-        self.ZHUCheckVar = IntVar(value=0)
-        self.ZMECheckVar = IntVar(value=0)
-        self.ZKCCheckVar = IntVar(value=0)
-        self.ZAUCheckVar = IntVar(value=0)
-        self.ZMPCheckVar = IntVar(value=0)
-        self.ZFWCheckVar = IntVar(value=0)
-        self.ZABCheckVar = IntVar(value=0)
-        self.ZDVCheckVar = IntVar(value=0)
-        self.ZLCCheckVar = IntVar(value=0)
-        self.ZLACheckVar = IntVar(value=val)
-        self.ZOACheckVar = IntVar(value=0)
-        self.ZSECheckVar = IntVar(value=0)    
+        self.ZBWCheckVar = IntVar(value=1)
+        self.ZNYCheckVar = IntVar(value=1)
+        self.ZOBCheckVar = IntVar(value=1)
+        self.ZDCCheckVar = IntVar(value=1)
+        self.ZIDCheckVar = IntVar(value=1)
+        self.ZTLCheckVar = IntVar(value=1)
+        self.ZJXCheckVar = IntVar(value=1)
+        self.ZMACheckVar = IntVar(value=1)
+        self.ZHUCheckVar = IntVar(value=1)
+        self.ZMECheckVar = IntVar(value=1)
+        self.ZKCCheckVar = IntVar(value=1)
+        self.ZAUCheckVar = IntVar(value=1)
+        self.ZMPCheckVar = IntVar(value=1)
+        self.ZFWCheckVar = IntVar(value=1)
+        self.ZABCheckVar = IntVar(value=1)
+        self.ZDVCheckVar = IntVar(value=1)
+        self.ZLCCheckVar = IntVar(value=1)
+        self.ZLACheckVar = IntVar(value=1)
+        self.ZOACheckVar = IntVar(value=1)
+        self.ZSECheckVar = IntVar(value=1)    
 
     """
     This method will facilitate the operation
