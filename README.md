@@ -7,7 +7,7 @@ This is Flight Tracking, a team project built in python over the course of ten w
 
 To obtain info on specific flights, the user can hover over a live flight with their cursor to display the company's call sign and the plane's tail number.
 
-This is a class project for **Embry-Riddle Aeronautical University***, class **SE 300*** (Software Engineering Practices)
+This is a class project for **Embry-Riddle Aeronautical University**, class **SE 300** (Software Engineering Practices)
 
 The program was built by myself and my teammates, Devon Casey, Matthew Jolliffe, and Matthew Grabasch. 
 
